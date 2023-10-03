@@ -1,6 +1,8 @@
 import "./App.css"
 import Dato from "./Database/Data.js"
+import Breadcrumb from "./Components/Breadcrumbs";
 import { useEffect, useState } from "react";
+import IconDetalle from "./Components/IconDetalle";
 function App() {
   const [casa, setCasa] = useState("");
   useEffect(() => {
@@ -9,13 +11,14 @@ function App() {
   return (
     <div className="App">
       <header className="main">
-        <p>Estás en: InfoCasas</p>
+        <Breadcrumb />
+
         <div className="DetallePropiedadImagen">
           {Array.isArray(casa.imgsrc) ? (
             <div>
               {casa.imgsrc.map((item, index) => (
                 <img
-                  key={index}
+
                   src={item}
                   alt={`Imagen ${index}`}
                   className="image-size"
@@ -28,7 +31,9 @@ function App() {
         </div>
         <div className="carta">
           <h3>{casa.title}</h3>
-          <p>Precio de {casa.tipoVenta} :{casa.tipoMoneda} {casa.precio}</p>
+          <p>{casa.tipoMoneda} {casa.precio}</p>
+          <p>Precio de {casa.tipoVenta}</p>
+          <IconDetalle bano={casa.banos} dormitorio={casa.dormitorio} m2Terreno={casa.m2Terreno} />
         </div>
       </header>
     </div>
