@@ -4,13 +4,16 @@ import datos from "./Data/Results";
 import RenderResults from "./RenderResults";
 import {
   Box,
+  Stack,
+  Divider,
   Button,
   Container,
   Grid,
   Pagination,
   Typography,
 } from "@mui/material";
-
+import MapIcon from "@mui/icons-material/Map";
+import { FilterAlt } from "@mui/icons-material";
 import "./SearchResult.css";
 
 const SearchResult = () => {
@@ -45,26 +48,44 @@ const SearchResult = () => {
           <div className="info">
             <Grid
               container
-              direction="column"
-              justifyContent="center"
-              alignItems="flex-start"
+              direction="row"
+              justifyContent="space-between"
+              alignItems="stretch"
             >
-              <Grid item xs={6} md={8}>
+              <Stack
+                direction="column"
+                justifyContent="flex-start"
+                alignItems="flex-start"
+                divider={<Divider orientation="horizontal" flexItem />}
+                spacing={2}
+              >
                 <Typography variant="body2" color="text.primary">
                   Venta de casas y apartamentos en {localidad}
                 </Typography>
-              </Grid>
-
-              <Grid item xs={6} md={8}>
                 <Typography variant="body2" color="text.secondary">
                   Estás en: info casas, venta, apartamentos
                 </Typography>
-              </Grid>
-              <Grid item xs={6} md={8}>
                 <Typography variant="body2" color="text.primary">
                   Mostrando {numOfResults} de {totalResults}
                 </Typography>
-              </Grid>
+              </Stack>
+              <Stack
+                direction="row"
+                justifyContent="flex-start"
+                alignItems="flex-start"
+                spacing={2}
+              >
+                <Button variant="outlined" size="small" startIcon={<MapIcon />}>
+                  Ver mapa
+                </Button>
+                <Button
+                  variant="outlined"
+                  size="small"
+                  startIcon={<FilterAlt />}
+                >
+                  Popularidad
+                </Button>
+              </Stack>
             </Grid>
           </div>
         </Box>

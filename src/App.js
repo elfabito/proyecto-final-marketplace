@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import SearchResult from "./Results/SearchResult";
+import SearchResult from "./Components/Results/SearchResult";
 function App() {
   return (
     <div className="App">
