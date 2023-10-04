@@ -13,8 +13,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Venta', 'Alquiler', 'Proyectos', 'Inmobiliarias', 'Noticias' ];
+const settings = ['Ingresar', 'Inmobiliaria', 'Dueño Vende', 'Dueño Alquila Anual', 'Dueño Alquila Temporal', 'Log out'];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
