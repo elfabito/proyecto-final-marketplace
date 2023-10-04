@@ -3,8 +3,10 @@ import Dato from "./Database/Data.js"
 import Breadcrumb from "./Components/Breadcrumbs";
 import { useEffect, useState } from "react";
 import IconDetalle from "./Components/IconDetalle";
+import MapView from "./Components/MapView";
 function App() {
-  const [casa, setCasa] = useState("");
+  const [casa, setCasa] = useState([]);
+  
   useEffect(() => {
     setCasa(Dato[0])
   }, [])
@@ -34,6 +36,7 @@ function App() {
           <p>{casa.tipoMoneda} {casa.precio}</p>
           <p>Precio de {casa.tipoVenta}</p>
           <IconDetalle bano={casa.banos} dormitorio={casa.dormitorio} m2Terreno={casa.m2Terreno} />
+          <MapView  />
         </div>
       </header>
     </div>
