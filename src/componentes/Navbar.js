@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
 const pages = ['Venta', 'Alquiler', 'Proyectos', 'Inmobiliarias', 'Noticias' ];
-const settings = ['Ingresar', 'Inmobiliaria', 'Dueño Vende', 'Dueño Alquila Anual', 'Dueño Alquila Temporal', 'Log out'];
+const settings = ['Ingresar', 'Perfil', 'Configuracion', 'Favoritos', 'Log out'];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
