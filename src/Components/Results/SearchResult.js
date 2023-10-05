@@ -57,16 +57,20 @@ const SearchResult = () => {
                 justifyContent="flex-start"
                 alignItems="flex-start"
                 divider={<Divider orientation="horizontal" flexItem />}
-                spacing={2}
+                spacing={1}
               >
-                <Typography variant="body2" color="text.primary">
-                  Venta de casas y apartamentos en {localidad}
+                <Typography
+                  component={"h1"}
+                  variant="body1"
+                  color="text.primary"
+                >
+                  Venta de casas y apartamentos en {localidad}.
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Estás en: info casas, venta, apartamentos
+                  Estás en: info, casas, venta, apartamentos.
                 </Typography>
                 <Typography variant="body2" color="text.primary">
-                  Mostrando {numOfResults} de {totalResults}
+                  Mostrando {numOfResults} de {totalResults} resultados.
                 </Typography>
               </Stack>
               <Stack
@@ -120,6 +124,8 @@ const SearchResult = () => {
             justifyContent: "center",
             display: "flex",
           }}
+          onChange={(_, page) => setThisPage(page)}
+          page={thisPage}
           count={totalResults}
           color="primary"
         />
