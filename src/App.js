@@ -14,7 +14,10 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <div className='Navbar'>
+        <h1>Navbar</h1>
+      </div>
+      <div className='SearchBackground'>
         <div className="Search">
           <Box>
             <ToggleButtonGroup
@@ -32,7 +35,13 @@ function App() {
             <TextField id="search" label="Localidad" variant="outlined" />
           </Box>
         </div>
-      </header>
+      </div>
+
+      <div className='Carousel'>
+        <h1>
+          Carousel
+        </h1>
+      </div>
     </div>
   );
 }

@@ -1,26 +1,47 @@
 body {
   background-color: gray;
+  color: white;
   padding: 5px;
 }
 
-.App {
+.SearchBackground {
   background-image: url("https://source.unsplash.com/random");
   background-repeat: no-repeat;
   background-size: cover;
-  width: 50%;
+  height: auto;
+}
+
+.Search {
+  width: max-content;
   margin: auto;
   padding: 4rem;
-  width: min-content;
+}
+
+.Navbar {
+  padding: 1rem;
+  background-color: black;
+}
+
+.Carousel {
+  background-color: darkred;
+  padding: 1rem;
 }
 
 #opciones {
   background-color: white;
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
   padding: 1rem;
   width: max-content;
 }
 
 #search {
   padding: 1rem;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column wrap;
+  margin: auto;
   background-color: white;
   width: 50ch;
 }
