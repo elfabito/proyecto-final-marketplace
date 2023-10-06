@@ -8,7 +8,7 @@ import Button from '@mui/material/Button'
 import Data from './Data'
 import './Filters.css'
 
-const filtros = []
+const filtros = [[], [], [], [], [], []] // localidades, estado, tipo, dormitorios, precio, extraFilters
 
 const ITEM_HEIGHT = 44
 const ITEM_PADDING_TOP = 8
@@ -30,6 +30,11 @@ function Filters() {
   const theme = useTheme()
   const [filtro, setFiltro] = useState(filtros)
   const [localidades, setLocalidades] = useState([])
+  const [estado, setEstado] = useState([])
+  const [tipo, setTipo] = useState([])
+  const [dormitorios, setDormitorios] = useState([])
+  const [precio, setPrecio] = useState([])
+  const [extraFilters, setExtraFilters] = useState([])
 
   const handleChangeLocalidades = (event) => {
     const {
