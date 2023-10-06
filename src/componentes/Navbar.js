@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Link } from 'react-router-dom';
 
 const pages = ['Venta', 'Alquiler', 'Proyectos', 'Inmobiliarias', 'Noticias' ];
 const settings = ['Ingresar', 'Perfil', 'Configuracion', 'Favoritos', 'Log out'];
@@ -120,7 +121,7 @@ function Navbar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <Link to={`/` + page} style={{color: "white"}}>{page}</Link>
               </Button>
             ))}
           </Box>
