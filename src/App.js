@@ -6,10 +6,10 @@ import TextField from '@mui/material/TextField';
 import "./App.css";
 
 function App() {
-  const [alignment, setAlignment] = React.useState('venta');
+  const [seleccion, setSeleccion] = React.useState('venta');
 
-  const handleChange = (event, newAlignment) => {
-    setAlignment(newAlignment);
+  const handleChange = (event, newSeleccion) => {
+    setSeleccion(newSeleccion);
   };
 
   return (
@@ -22,7 +22,7 @@ function App() {
           <Box>
             <ToggleButtonGroup
               color="primary"
-              value={alignment}
+              value={seleccion}
               exclusive
               onChange={handleChange}
               aria-label="Platform"
@@ -41,6 +41,9 @@ function App() {
         <h1>
           Carousel
         </h1>
+      </div>
+      <div className='Otros'>
+        <h1>Otros</h1>
       </div>
     </div>
   );

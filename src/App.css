@@ -1,29 +1,33 @@
 body {
-  background-color: gray;
+  background-color: black;
   color: white;
-  padding: 5px;
 }
 
 .SearchBackground {
   background-image: url("https://source.unsplash.com/random");
   background-repeat: no-repeat;
   background-size: cover;
-  height: auto;
+  object-fit: scale-down;
 }
 
 .Search {
+  padding: 10%;
   width: max-content;
-  margin: auto;
-  padding: 4rem;
+  margin: 0;
 }
 
 .Navbar {
   padding: 1rem;
-  background-color: black;
+  background-color: blue;
 }
 
 .Carousel {
-  background-color: darkred;
+  background-color: red;
+  padding: 1rem;
+}
+
+.Otros {
+  background-color: green;
   padding: 1rem;
 }
 
@@ -32,12 +36,10 @@ body {
   margin: auto;
   display: flex;
   flex-flow: row wrap;
-  padding: 1rem;
   width: max-content;
 }
 
 #search {
-  padding: 1rem;
   margin: 0 auto;
   display: flex;
   flex-flow: column wrap;
