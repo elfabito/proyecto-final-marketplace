@@ -13,22 +13,7 @@ body {
 .Search {
   padding: 10%;
   width: max-content;
-  margin: 0;
-}
-
-.Navbar {
-  padding: 1rem;
-  background-color: blue;
-}
-
-.Carousel {
-  background-color: red;
-  padding: 1rem;
-}
-
-.Otros {
-  background-color: green;
-  padding: 1rem;
+  margin: auto;
 }
 
 #opciones {
