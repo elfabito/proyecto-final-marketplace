@@ -1,18 +1,26 @@
 body {
+  background-color: gray;
   padding: 5px;
 }
 
 .App {
+  background-image: url("https://source.unsplash.com/random");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 50%;
+  margin: auto;
   padding: 4rem;
-  height: 100px;
   width: min-content;
 }
 
 #opciones {
-  padding-bottom: 5px;
+  background-color: white;
+  padding: 1rem;
   width: max-content;
 }
 
 #search {
+  padding: 1rem;
+  background-color: white;
   width: 50ch;
 }
