@@ -12,9 +12,6 @@ function MainPage() {
   };
   return (
     <div className="App">
-      <div className="Navbar">
-        <h1>Navbar</h1>
-      </div>
       <div className="SearchBackground">
         <div className="Search">
           <Box>
