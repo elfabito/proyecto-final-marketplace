@@ -29,6 +29,7 @@ function getStyles(name, theme) {
 function Filters() {
   const theme = useTheme()
   const [filtro, setFiltro] = useState(filtros)
+
   const [localidades, setLocalidades] = useState([])
   const [estado, setEstado] = useState([])
   const [tipo, setTipo] = useState([])
@@ -90,14 +91,9 @@ function Filters() {
   return (
     <div>
       <div>
-        <p>Placeholder filtros aplicados</p>
-        <p>
-          {' '}
-          Localidades{' '}
-          {localidades.map((item) => {
-            return item + ', '
-          })}
-        </p>
+        <Button variant='outlined' onClick={resetFilters}>
+          Borrar Filtros
+        </Button>
       </div>
       <div className='selects'>
         <FormControl className='selects'>
@@ -108,10 +104,6 @@ function Filters() {
             value={localidades}
             input={<OutlinedInput />}
             renderValue={(selected) => {
-              // if (selected.length === 0) {
-              //   return <em>Localidades</em>
-              // }
-              // return selected.join(', ')
               return <em>Localidades</em>
             }}
             MenuProps={MenuProps}
@@ -126,17 +118,14 @@ function Filters() {
               </MenuItem>
             ))}
           </Select>
-          {/* <Select
+          <Select
             multiple
             displayEmpty
             onChange={handleChangeEstado}
+            value={estado}
             input={<OutlinedInput />}
             renderValue={(selected) => {
-              if (selected.length === 0) {
-                return <em>Estado</em>
-              }
-
-              return selected.join(', ')
+              return <em>Estado</em>
             }}
             MenuProps={MenuProps}
             inputProps={{ 'aria-label': 'Without label' }}
@@ -154,13 +143,10 @@ function Filters() {
             multiple
             displayEmpty
             onChange={handleChangeTipo}
+            value={tipo}
             input={<OutlinedInput />}
             renderValue={(selected) => {
-              if (selected.length === 0) {
-                return <em>Tipo</em>
-              }
-
-              return selected.join(', ')
+              return <em>tipo</em>
             }}
             MenuProps={MenuProps}
             inputProps={{ 'aria-label': 'Without label' }}
@@ -178,13 +164,10 @@ function Filters() {
             multiple
             displayEmpty
             onChange={handleChangeDormitorios}
+            value={dormitorios}
             input={<OutlinedInput />}
             renderValue={(selected) => {
-              if (selected.length === 0) {
-                return <em>Dormitorios</em>
-              }
-
-              return selected.join(', ')
+              return <em>Dormitorios</em>
             }}
             MenuProps={MenuProps}
             inputProps={{ 'aria-label': 'Without label' }}
@@ -202,13 +185,10 @@ function Filters() {
             multiple
             displayEmpty
             onChange={handleChangePrecio}
+            value={precio}
             input={<OutlinedInput />}
             renderValue={(selected) => {
-              if (selected.length === 0) {
-                return <em>Precio</em>
-              }
-
-              return selected.join(', ')
+              return <em>Precio</em>
             }}
             MenuProps={MenuProps}
             inputProps={{ 'aria-label': 'Without label' }}
@@ -226,13 +206,10 @@ function Filters() {
             multiple
             displayEmpty
             onChange={handleChangeExtraFilters}
+            value={extraFilters}
             input={<OutlinedInput />}
             renderValue={(selected) => {
-              if (selected.length === 0) {
-                return <em>Otros filtros</em>
-              }
-
-              return selected.join(', ')
+              return <em>Otros filtros</em>
             }}
             MenuProps={MenuProps}
             inputProps={{ 'aria-label': 'Without label' }}
@@ -245,11 +222,8 @@ function Filters() {
                 {name}
               </MenuItem>
             ))}
-          </Select> */}
+          </Select>
         </FormControl>
-        <Button variant='outlined' onClick={resetFilters}>
-          Borrar Filtros
-        </Button>
       </div>
     </div>
   )
