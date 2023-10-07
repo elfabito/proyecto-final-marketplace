@@ -12,9 +12,10 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { Link } from 'react-router-dom';
 
 const pages = ['Venta', 'Alquiler', 'Proyectos', 'Inmobiliarias', 'Noticias' ];
-const settings = ['Ingresar', 'Inmobiliaria', 'Dueño Vende', 'Dueño Alquila Anual', 'Dueño Alquila Temporal', 'Log out'];
+const settings = ['Ingresar', 'Perfil', 'Configuracion', 'Favoritos', 'Log out'];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -120,7 +121,7 @@ function Navbar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <Link to={`/` + page} style={{color: "white"}}>{page}</Link>
               </Button>
             ))}
           </Box>
