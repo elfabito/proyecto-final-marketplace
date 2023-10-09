@@ -1,11 +1,23 @@
-.image-size {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .main {
-    max-width: 1280px;
-    height: auto;
-    min-height: 100%;
-  
-  }
+.DetallePropiedad {
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.h1 {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 36px;
+  margin-bottom: 0;
+}
+.iconDetalle {
+  display: flex;
+  align-items: center; 
+}
+
+.iconTextContainer {
+  display: flex;
+  align-items: center; 
+  margin-right: 10px; 
+}
+
+

@@ -1,4 +1,4 @@
-import DetallePropiedad from "./Components/DetallesPropiedad";
+import DetallePropiedad from "./Components/IndexDetallesPropiedad";
 
 function App() {
 

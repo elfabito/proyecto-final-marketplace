@@ -40,6 +40,10 @@ const MapView = () => {
 
     return (
         <div>
+            <div>
+                <h4>ubicacion</h4>
+                <span>Aca va la direccion</span>
+            </div>
             <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true} className="Map">
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -48,10 +52,7 @@ const MapView = () => {
                 {ubicacion}
                 
             </MapContainer>
-            <div>
-                <h4>ubicacion</h4>
-                <span>Aca va la direccion</span>
-            </div>
+            
         </div>
     );
 };
