@@ -8,7 +8,7 @@ import Button from '@mui/material/Button'
 import Data from './Data'
 import './Filters.css'
 
-const filtros = []
+const filtros = [[], [], [], [], [], []];
 
 const ITEM_HEIGHT = 44
 const ITEM_PADDING_TOP = 8
@@ -85,14 +85,12 @@ function Filters() {
   return (
     <div>
       <div>
-        <p>Placeholder filtros aplicados</p>
-        <p>
-          {' '}
-          Localidades{' '}
-          {localidades.map((item) => {
-            return item + ', '
-          })}
-        </p>
+        {filtro.forEach(filter => {
+          filter.map((elemento) => {
+            return <><p>${elemento}</p></>
+          })
+        })}
+     
       </div>
       <div className='selects'>
         <FormControl className='selects'>
