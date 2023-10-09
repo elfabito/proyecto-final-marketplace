@@ -1,14 +1,14 @@
-import Dato from "../Database/Data.js"
+import Dato from "./Database/Data.js"
 import Breadcrumb from "./Breadcrumbs.js";
 import { useEffect, useState } from "react";
 import IconDetalle from "./IconDetalle.js";
 import MapView from "./MapView.js";
-import "../Styles/DestalleDePropiedad.css"
+import "./Styles/DestalleDePropiedad.css"
 import DPropiedad from "./Descripcion.js";
 import Propiedades from "./Propiedades.js";
 import React from 'react';
 import SimpleImageCarousel from './Carousel.js';
-import '../Styles/imagen.css'
+import './Styles/imagen.css'
 
 function DetallePropiedad() {
   const [casa, setCasa] = useState([]);

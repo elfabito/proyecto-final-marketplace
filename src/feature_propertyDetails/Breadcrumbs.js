@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from '@mui/material/Link';
 import { Breadcrumbs } from '@mui/material';
-import "../Styles/Hilo.css"
+import "./Styles/Hilo.css"
 
 export default function ActiveLastBreadcrumb() {
     const hilos = ["MarcketPlace inmobiliario", "Alquiler", "Maldonado", "Punta Del Este", "Arquiler de monoambiente"];

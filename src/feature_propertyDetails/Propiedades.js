@@ -1,5 +1,5 @@
 import React from 'react';
-import '../Styles/Propiedad.css';
+import './Styles/Propiedad.css';
 
 const Propiedades = () => {
     const propertyDetails = [

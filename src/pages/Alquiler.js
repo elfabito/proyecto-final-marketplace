@@ -1,8 +1,9 @@
 import React from 'react'
-
+import DetallePropiedad from "../feature_propertyDetails/IndexDetallesPropiedad";
 const Alquiler = () => {
   return (
-    <div>Alquiler</div>
+    <div>Alquiler<DetallePropiedad/></div>
+    
   )
 }
 
