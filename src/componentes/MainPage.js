@@ -3,9 +3,20 @@ import Box from "@mui/material/Box";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import TextField from "@mui/material/TextField";
+import CustomSelectList from "./CustomSelectList";
 
 function MainPage() {
   const [seleccion, setSeleccion] = React.useState("venta");
+
+  const options_default = [
+    "Casa",
+    "Apartamento",
+    "Terreno",
+    "Local Comercial",
+    "Oficina",
+    "Chacra o Campo",
+    "Garage o Cochera",
+  ];
 
   const handleChange = (event, newSeleccion) => {
     setSeleccion(newSeleccion);
@@ -29,6 +40,7 @@ function MainPage() {
                 Alquiler Temporal
               </ToggleButton>
             </ToggleButtonGroup>
+            <CustomSelectList options={options_default}/>
             <TextField id="search" label="Localidad" variant="outlined" />
           </Box>
         </div>

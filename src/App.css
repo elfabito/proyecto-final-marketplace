@@ -1,6 +1,7 @@
 
 .App {
   text-align: center;
+  background-color: #282c34;
 }
 
 .App-logo {
@@ -29,13 +30,19 @@
   background-image: url("https://source.unsplash.com/random");
   background-repeat: no-repeat;
   background-size: cover;
-  object-fit: scale-down;
+  image-rendering: optimizeQuality;
+  width: auto;
+  height: auto;
 }
 
 .Search {
   padding: 10%;
   width: max-content;
   margin: auto;
+}
+
+#Lista {
+  background-color: white; 
 }
 
 #opciones {

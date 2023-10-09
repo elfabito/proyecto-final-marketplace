@@ -1,8 +1,10 @@
 import React from 'react'
+import "../App.css";
+import MainPage from '../componentes/MainPage'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <MainPage/>
   )
 }
 
