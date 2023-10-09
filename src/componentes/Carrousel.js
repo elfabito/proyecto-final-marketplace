@@ -36,6 +36,7 @@ const images = [
 ];
 */
 
+
 function Carrousel(props) {
     const arrayProp = props.lista;
   const theme = useTheme();
