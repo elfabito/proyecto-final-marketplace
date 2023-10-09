@@ -48,6 +48,10 @@ const MapView = () => {
                 {ubicacion}
                 
             </MapContainer>
+            <div>
+                <h4>ubicacion</h4>
+                <span>Aca va la direccion</span>
+            </div>
         </div>
     );
 };

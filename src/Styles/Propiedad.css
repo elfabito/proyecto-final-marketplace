@@ -1,0 +1,79 @@
+
+.property-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 800px;
+  }
+  
+  .property-row {
+    flex: 1;
+    border-radius: 8px;
+  }
+  
+  .property-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .property-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .property-list span {
+    flex-basis: 40%; 
+    text-align: left;
+    margin-right: 10px; .titulo {
+  margin: 5px;
+  margin-left: 20px;
+}
+
+.property-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan cuando no haya suficiente espacio */
+  gap: 20px;
+  max-width: 800px;
+}
+
+.property-row {
+  flex: 1;
+  border-radius: 8px;
+  flex-basis: calc(50% - 10px); /* 50% de ancho, menos el espacio entre elementos */
+  margin-bottom: 20px; /* Espacio entre las filas */
+}
+
+.property-list {
+  list-style: none;
+  padding: 0;
+}
+
+.property-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.property-list span {
+  flex-basis: 40%;
+  text-align: left;
+  margin-right: 10px;
+}
+
+/* Media query para pantallas más pequeñas (ejemplo: dispositivos móviles) */
+@media (max-width: 768px) {
+  .property-container {
+    flex-direction: column; /* Apila los elementos en lugar de mostrarlos en fila */
+    align-items: stretch; /* Estira los elementos para que ocupen todo el ancho */
+  }
+
+  .property-row {
+    flex-basis: 100%; /* Ocupa todo el ancho disponible */
+  }
+}
+
+  }
+  
