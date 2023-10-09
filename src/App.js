@@ -1,4 +1,4 @@
-import DetallePropiedad from "./Components/IndexDetallesPropiedad";
+import DetallePropiedad from "./Components_feature_propertyDetails/IndexDetallesPropiedad";
 
 function App() {
 
