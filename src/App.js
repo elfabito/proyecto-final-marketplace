@@ -12,7 +12,6 @@ function App() {
         <Outlet />
       </div>
     </div>
-    
     </Router>
   );
 }

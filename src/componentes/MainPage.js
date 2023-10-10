@@ -3,7 +3,8 @@ import Box from "@mui/material/Box";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import TextField from "@mui/material/TextField";
-import CustomSelectList from "./CustomSelectList";
+import CustomSelectCheckmarks from "./CustomSelectCheckmarks";
+import Carrousel from "./Carrousel";
 
 function MainPage() {
   const [seleccion, setSeleccion] = React.useState("venta");
@@ -40,8 +41,9 @@ function MainPage() {
                 Alquiler Temporal
               </ToggleButton>
             </ToggleButtonGroup>
-            <CustomSelectList options={options_default}/>
+            <CustomSelectCheckmarks options={options_default}/>
             <TextField id="search" label="Localidad" variant="outlined" />
+            <Carrousel/>
           </Box>
         </div>
       </div>
