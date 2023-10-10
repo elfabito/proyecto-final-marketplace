@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useTheme } from '@mui/material/styles'
 import OutlinedInput from '@mui/material/OutlinedInput'
 import MenuItem from '@mui/material/MenuItem'
@@ -7,8 +7,16 @@ import Select from '@mui/material/Select'
 import Button from '@mui/material/Button'
 import Data from './Data'
 import './Filters.css'
+import Chip from '@mui/material/Chip'
 
-const filtros = [[], [], [], [], [], []] // localidades, estado, tipo, dormitorios, precio, extraFilters
+let filtros = {
+  localidades: [],
+  estado: [],
+  tipo: [],
+  dormitorios: [],
+  precio: [],
+  extraFilters: [],
+}
 
 const ITEM_HEIGHT = 44
 const ITEM_PADDING_TOP = 8
@@ -37,60 +45,84 @@ function Filters() {
   const [precio, setPrecio] = useState([])
   const [extraFilters, setExtraFilters] = useState([])
 
+  useEffect(() => {
+    filtros = {
+      localidades: localidades,
+      estado: estado,
+      tipo: tipo,
+      dormitorios: dormitorios,
+      precio: precio,
+      extraFilters: extraFilters,
+    }
+    setFiltro(filtros)
+  }, [localidades, estado, tipo, dormitorios, precio, extraFilters])
+
   const handleChangeLocalidades = (event) => {
     const {
       target: { value },
     } = event
-    setLocalidades(typeof value === 'string' ? value.split(',') : value)
+    setLocalidades(value)
   }
 
   const handleChangeEstado = (event) => {
     const {
       target: { value },
     } = event
-    filtros[1].push(value)
-    setFiltro(filtros)
+    setEstado(value)
   }
 
   const handleChangeTipo = (event) => {
     const {
       target: { value },
     } = event
-    filtros[2].push(value)
-    setFiltro(filtros)
+    setTipo(value)
   }
 
   const handleChangeDormitorios = (event) => {
     const {
       target: { value },
     } = event
-    filtros[3].push(value)
-    setFiltro(filtros)
+    setDormitorios(value)
   }
 
   const handleChangePrecio = (event) => {
     const {
       target: { value },
     } = event
-    filtros[4].push(value)
-    setFiltro(filtros)
+    setPrecio(value)
   }
 
   const handleChangeExtraFilters = (event) => {
     const {
       target: { value },
     } = event
-    filtros[5].push(value)
-    setFiltro(filtros)
+    setExtraFilters(typeof value === 'string' ? value.split(',') : value)
   }
 
   const resetFilters = () => {
-    setFiltro([[], [], [], [], [], []])
+    filtros = {
+      localidades: [],
+      estado: [],
+      tipo: [],
+      dormitorios: [],
+      precio: [],
+      extraFilters: [],
+    }
+    setFiltro(filtros)
   }
 
   return (
     <div>
-      <div>
+      <div className='filtritos'>
+        {filtro.length > 0
+          ? Object.keys(filtro).map((item) => {
+              console.log(item)
+              return item.map((e) => {
+                console.log(e)
+                return <p>{e}</p>
+              })
+            })
+          : null}
         <Button variant='outlined' onClick={resetFilters}>
           Borrar Filtros
         </Button>
@@ -102,6 +134,7 @@ function Filters() {
             displayEmpty
             onChange={handleChangeLocalidades}
             value={localidades}
+            key={localidades}
             input={<OutlinedInput />}
             renderValue={(selected) => {
               return <em>Localidades</em>
@@ -118,6 +151,7 @@ function Filters() {
               </MenuItem>
             ))}
           </Select>
+          {/*
           <Select
             multiple
             displayEmpty
@@ -146,7 +180,7 @@ function Filters() {
             value={tipo}
             input={<OutlinedInput />}
             renderValue={(selected) => {
-              return <em>tipo</em>
+              return <em>Tipo</em>
             }}
             MenuProps={MenuProps}
             inputProps={{ 'aria-label': 'Without label' }}
@@ -223,6 +257,7 @@ function Filters() {
               </MenuItem>
             ))}
           </Select>
+            */}
         </FormControl>
       </div>
     </div>
