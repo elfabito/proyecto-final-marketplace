@@ -43,7 +43,9 @@ function MainPage() {
             </ToggleButtonGroup>
             <CustomSelectCheckmarks options={options_default}/>
             <TextField id="search" label="Localidad" variant="outlined" />
-            <Carrousel/>
+            <div className="carrousel-container">
+              <Carrousel/>
+            </div>
           </Box>
         </div>
       </div>
