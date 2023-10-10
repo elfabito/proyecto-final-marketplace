@@ -7,8 +7,8 @@ import "./Styles/DestalleDePropiedad.css"
 import DPropiedad from "./Descripcion.js";
 import Propiedades from "./Propiedades.js";
 import React from 'react';
-import SimpleImageCarousel from './Carousel.js';
 import './Styles/imagen.css'
+import Carrousel from "../Carrousel.js"
 
 function DetallePropiedad() {
   const [casa, setCasa] = useState([]);
@@ -24,18 +24,21 @@ function DetallePropiedad() {
         <Breadcrumb />
 
         <div className="DetallePropiedadImagen">
-          <SimpleImageCarousel images={images} />
+          <Carrousel />
         </div>
         <div className="carta">
-          <h1>{casa.title}</h1>
-          <p>{casa.tipoMoneda} {casa.precio}</p>
-          <p>Precio de {casa.tipoVenta}</p>
+          <div className="subCarta">
+            <div><h1>{casa.title}</h1></div>
+            <div><p className="Moneda"><strong>{casa.tipoMoneda}{casa.precio}</strong></p>
+              <p>Precio de {casa.tipoVenta}</p>
+              </div>
+          </div>
           <IconDetalle bano={casa.banos} dormitorio={casa.dormitorio} m2Terreno={casa.m2Terreno} />
           <MapView />
         </div>
         <div><Propiedades /></div>
 
-        <div><DPropiedad /></div>
+        <div className="dPropiedad"><DPropiedad /></div>
       </header>
     </div>
   );
