@@ -1,28 +1,40 @@
+import { useState } from "react";
 
 function DPropiedad() {
+    const texto = [
+        "Renovada! Preciosa casa en Malvín,",
+        "Amplia, cómoda y accesible, dispuesta totalmente en una planta, todos los ambientes con ventilación y luz natural.",
+        "4 Dormitorios, el principal con baño en Suite.",
+        "Dormitorio con funcional vestidor.",
+        "3 baños completos, uno de ellos con jacuzzi.",
+        "Cochera para dos autos",
+        "Barbacoa con doble parrillero y horno de pan",
+        "Divino fondo verde.",
+        "Cocina muy amplia, con comedor, mesada de granito amplia, muebles bajo y alto mesada. Horno empotrado, anafe y lavavajilla.",
+        "Estufa a leña de cerámica refractaria de alto rendimiento.",
+        "Aire acondicionado en todos los ambientes.",
+        "Portón automático, cochera para dos autos, rejas perimetrales, cerca eléctrica, sistema de video vigilancia y alarma.",
+        "PH independiente sin gastos comunes",
+        "ACEPTA FINANCIACIÓN BANCO",
+        "VC NEGOCIOS INMOBILIARIOS",
+    ];
+
+    const [TextDescripción, setTextDescripcion] = useState(texto);
 
     return (
         <div className="DPropiedad">
-            <div >
-                <h2 >Descripción</h2>
+            <div>
+                <h2>Descripción</h2>
                 <div>
-                    <span><p>Renovada! Preciosa casa en Malvín,</p>
-                        <p>Amplia, cómoda y accesible, dispuesta totalmente un una planta, todos los ambientes con ventilación y luz natural.</p>
-                        <p>4 Dormitorios, el principal con baño en Suite.</p>
-                        <p>Dormitorio con funcional vestidor.</p>
-                        <p>3 baños completos, uno de ellos con jacuzzi.</p>
-                        <p>Cochera para dos autos</p>
-                        <p>Barbacoa con doble parrillero y horno de pan</p>
-                        <p>Divino fondo verde.</p>
-                        <p>Cocina muy amplia, con comedor, mesada de granito amplia, muebles bajo y alto mesada. Horno empotrado, anafe y lavavajilla.</p>
-                        <p>Estufa a leña de cerámica refractaria de alto rendimiento.</p>
-                        <p>Aire acondicionado en todos los ambientes.</p>
-                        <p>Portón automático, cochera para dos autos, rejas perimetrales, cerca eléctrica, sistema de video vigilancia y alarma.</p>
-                        <p>PH independiente sin gastos comunes</p><p>ACEPTA FINANCIACIÓN BANCO</p>
-                        <p>VC NEGOCIOS INMOBILIARIOS</p></span>
+                    <span>
+                        {TextDescripción.map((parrafo, index) => (
+                            <p key={index}>{parrafo}</p>
+                        ))}
+                    </span>
                 </div>
             </div>
         </div>
     );
 }
-export default DPropiedad
+
+export default DPropiedad;
