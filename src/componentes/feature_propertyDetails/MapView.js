@@ -42,7 +42,7 @@ const MapView = () => {
         <div>
             <div>
                 <h2>ubicacion</h2>
-                <span >Aca va la direccion</span>
+                <span>Aca va la direccion</span>
             </div>
             <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true} className="Map">
                 <TileLayer

@@ -9,8 +9,8 @@ import Propiedades from "./Propiedades.js";
 import React from 'react';
 import './Styles/imagen.css'
 import Carrousel from "../Carrousel.js"
-import Grid from '@mui/material/Grid';
-import Item from '@mui/material/Paper';
+
+
 
 function DetallePropiedad() {
   const [casa, setCasa] = useState([]);
@@ -31,7 +31,7 @@ function DetallePropiedad() {
         <div className="carta">
           <div className="subCarta">
             <div className="encabezado">
-              <h1 className="ttile">{casa.title}</h1>
+              <h1 className="ttitle">{casa.title}</h1>
               <IconDetalle className="icono" bano={casa.banos} dormitorio={casa.dormitorio} m2Terreno={casa.m2Terreno} />
               </div>
             <div>
