@@ -112,7 +112,12 @@ const Perfil = () => {
               </Grid>
               <Grid item paddingTop={3} width={"fit-content"} xs={8}>
                 <Button width={"fit-content"} variant="contained">
-                  Publicar propiedad
+                  <Link
+                    style={{ textDecoration: "none", color: "white" }}
+                    to="/PublicarPropiedad"
+                  >
+                    Publicar propiedad
+                  </Link>
                 </Button>
               </Grid>
             </Grid>

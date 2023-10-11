@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Box } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import Typography from "@mui/material/Typography";
+import { Link } from "react-router-dom";
 import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
 import "./PerfilSubPages.css";
@@ -198,7 +199,14 @@ const Resumen = () => {
             >
               ¿Querés vender o alquilar una propiedad?
             </Typography>
-            <Button variant="contained">Publicar una propiedad</Button>
+            <Button variant="contained">
+              <Link
+                style={{ textDecoration: "none", color: "white" }}
+                to="/PublicarPropiedad"
+              >
+                Publicar propiedad
+              </Link>
+            </Button>
           </Grid>
         )}
         <Grid
