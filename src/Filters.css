@@ -1,12 +1,13 @@
 .selects {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 5px;
-    gap: 5px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+  gap: 5px;
 }
 
 .filtritos {
-    margin: 5px;
-    gap: 5px;
-    padding: 5px;
+  margin: 5px;
+  gap: 5px;
+  padding: 5px;
 }
