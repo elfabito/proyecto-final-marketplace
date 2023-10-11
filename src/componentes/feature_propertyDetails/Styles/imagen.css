@@ -23,10 +23,31 @@
   text-align: right;
   max-width: 800px;
 }
+.encabezado{
+  max-height: 100px;
+}
+.ttitle{
+  font-size: 34px;
+}
+
 .dPropiedad{
   width: auto;
   max-width: 800px;
 }
 .Moneda{
-  font-size: 24px;
+  font-size: 34px;
+  margin: 0%;
+  margin-top: 15%;
+  margin-bottom: 40px;
+  padding-bottom: -20px;
+
 }
+.precio{
+  font-size: 20px;
+  opacity: 80%;
+}
+.icono{
+  
+  padding-top: 10px;
+}
+

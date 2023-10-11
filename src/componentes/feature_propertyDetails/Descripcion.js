@@ -4,7 +4,7 @@ function DPropiedad() {
     return (
         <div className="DPropiedad">
             <div >
-                <h4 >Descripción</h4>
+                <h2 >Descripción</h2>
                 <div>
                     <span><p>Renovada! Preciosa casa en Malvín,</p>
                         <p>Amplia, cómoda y accesible, dispuesta totalmente un una planta, todos los ambientes con ventilación y luz natural.</p>

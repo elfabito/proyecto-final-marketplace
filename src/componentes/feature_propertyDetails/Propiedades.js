@@ -27,7 +27,7 @@ const Propiedades = () => {
 
     return (
         <div>
-            <h4 className='titulo'>Detalles de la Propiedad </h4>
+            <h2 className='titulo'>Detalles de la Propiedad </h2>
             <div className="property-container">
 
                 <div className="property-row">
