@@ -2,10 +2,20 @@ import React from 'react';
 import Link from '@mui/material/Link';
 import { Breadcrumbs } from '@mui/material';
 import "./Styles/Hilo.css"
+import { useState } from 'react';
+import { useEffect } from 'react';
 
-export default function ActiveLastBreadcrumb() {
-    const hilos = ["MarcketPlace inmobiliario", "Alquiler", "Maldonado", "Punta Del Este", "Arquiler de monoambiente"];
+export default function ActiveLastBreadcrumb(props) {
+    const [hilo,setHilo]=useState([])
+    const seguimientoHilos = ["MarcketPlace inmobiliario", "Alquiler", "Maldonado", "Punta Del Este", "Arquiler de monoambiente"];
 
+    useEffect(()=>{
+        if (props) {
+        setHilo(props)
+        }else  {
+            setHilo(seguimientoHilos)
+        }
+    },[])
     return (
         <div className='hilo' role="presentation">
             <div>
@@ -15,7 +25,7 @@ export default function ActiveLastBreadcrumb() {
             </div>
             <div>
             <Breadcrumbs aria-label="breadcrumb" separator=">">
-                {hilos.map((item, index) => (
+                {hilo.map((item, index) => (
                     <Link key={index} style={linkStyle} underline="hover" color="inherit" href="/">
                     <span>{item}</span>
                     </Link>
