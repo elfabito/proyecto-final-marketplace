@@ -6,18 +6,20 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
 import Divider from "@mui/material/Divider";
+import "./subPages/PerfilSubPages.css";
+import IconButton from "@mui/material/IconButton";
+import EditIcon from "@mui/icons-material/Edit";
+import { Route, Routes, Link, Outlet } from "react-router-dom";
 
 const Perfil = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [userName, setUserName] = useState("Guille");
-  const [userPropiedades, setUserPropiedades] = useState();
-  const [userConsultas, setUserConsultas] = useState();
+
   return (
     <Container maxWidth="lg">
-      <Grid container direction="row" spacing={0.5}>
-        <Grid xs={3}>
+      <Grid container boxShadow={2} direction="row" spacing={0.5}>
+        <Grid padding={2} xs={3}>
           <Box
             display={"flex"}
             justifyContent={"flex-end"}
@@ -29,20 +31,30 @@ const Perfil = () => {
             <Grid container direction="column" spacing={2}>
               <Grid item xs={6}>
                 <Avatar
+                  padding={2}
                   alt="Remy Sharp"
                   src="https://cdn2.infocasas.com.uy/web/default-user-new.png"
                   sx={{ width: 100, height: 100 }}
                 />
               </Grid>
-              <Grid item xs={6}>
+              <Grid item padding={2} width={"fit-content"} xs={8}>
                 <Typography variant="h5" color="text.secondary">
                   {userName}
+                  <IconButton aria-label="edit" size="small">
+                    <EditIcon fontSize="inherit" />
+                  </IconButton>
                 </Typography>
               </Grid>
               <Grid item xs={6}>
-                <Typography variant="body2" color="text.primary" gutterBottom>
+                <Link
+                  className="Link"
+                  to="/Perfil"
+                  color="inherit"
+                  underline="hover"
+                  textDecoration="none"
+                >
                   Resumen
-                </Typography>
+                </Link>
               </Grid>
               <Grid item width={"fit-content"} xs={6}>
                 <Typography variant="body1" color="text.secondary">
@@ -51,7 +63,8 @@ const Perfil = () => {
               </Grid>
               <Grid item xs={6}>
                 <Link
-                  href="#"
+                  className="Link"
+                  to="Pagos"
                   color="inherit"
                   underline="hover"
                   textDecoration="none"
@@ -66,7 +79,8 @@ const Perfil = () => {
               </Grid>
               <Grid item xs={6}>
                 <Link
-                  href="#"
+                  className="Link"
+                  to="Favoritos"
                   color="inherit"
                   underline="hover"
                   textDecoration="none"
@@ -76,17 +90,19 @@ const Perfil = () => {
               </Grid>
               <Grid item xs={6}>
                 <Link
-                  href="#"
+                  className="Link"
+                  to="Busquedas"
                   color="inherit"
                   underline="hover"
                   textDecoration="none"
                 >
-                  Busquedas
+                  Historial
                 </Link>
               </Grid>
               <Grid item xs={6}>
                 <Link
-                  href="#"
+                  className="Link"
+                  to="Consultas"
                   color="inherit"
                   underline="hover"
                   textDecoration="none"
@@ -94,7 +110,7 @@ const Perfil = () => {
                   Consultas
                 </Link>
               </Grid>
-              <Grid item width={"fit-content"} xs={8}>
+              <Grid item paddingTop={3} width={"fit-content"} xs={8}>
                 <Button width={"fit-content"} variant="contained">
                   Publicar propiedad
                 </Button>
@@ -102,120 +118,8 @@ const Perfil = () => {
             </Grid>
           </Box>
         </Grid>
-        <Grid xs={8}>
-          <Box height={"100vh"} width={"100%"}>
-            <Grid container direction="column" maxWidth={"100%"} spacing={2}>
-              <Grid
-                item
-                display={"flex"}
-                width={"100%"}
-                height={"200px"}
-                justifyContent={"flex-start"}
-                alignItems={"flex-end"}
-                xs={6}
-              >
-                <Typography
-                  paddingLeft={10}
-                  variant="h5"
-                  color="text.secondary"
-                >
-                  Mis propiedades
-                </Typography>
-              </Grid>
-              <Divider />
-              {userPropiedades ? (
-                <Grid
-                  item
-                  display={"flex"}
-                  width={"100%"}
-                  height={"200px"}
-                  justifyContent={"center"}
-                  alignItems={"flex-end"}
-                  xs={6}
-                >
-                  <Typography variant="h5" color="text.secondary">
-                    {userPropiedades}
-                  </Typography>
-                </Grid>
-              ) : (
-                <Grid
-                  item
-                  display={"flex"}
-                  width={"100%"}
-                  height={"200px"}
-                  flexDirection={"column"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  xs={6}
-                >
-                  <Typography
-                    paddingBottom={"20px"}
-                    variant="body1"
-                    color="text.secondary"
-                  >
-                    ¿Querés vender o alquilar una propiedad?
-                  </Typography>
-                  <Button variant="contained">Publicar una propiedad</Button>
-                </Grid>
-              )}
-              <Grid
-                item
-                display={"flex"}
-                width={"100%"}
-                height={"fit-content"}
-                justifyContent={"flex-start"}
-                alignItems={"flex-start"}
-                xs={6}
-              >
-                <Typography
-                  paddingLeft={10}
-                  variant="h5"
-                  color="text.secondary"
-                >
-                  Mis Consultas
-                </Typography>
-              </Grid>
-              <Divider />
-              {userConsultas ? (
-                <Grid
-                  item
-                  display={"flex"}
-                  width={"100%"}
-                  height={"200px"}
-                  justifyContent={"center"}
-                  alignItems={"flex-end"}
-                  xs={6}
-                >
-                  <Typography variant="h5" color="text.secondary">
-                    {userConsultas.map((consulta) => (
-                      <Typography variant="body1" color="text.secondary">
-                        {consulta}
-                      </Typography>
-                    ))}
-                  </Typography>
-                </Grid>
-              ) : (
-                <Grid
-                  item
-                  display={"flex"}
-                  width={"100%"}
-                  height={"200px"}
-                  flexDirection={"column"}
-                  justifyContent={"center"}
-                  alignItems={"center"}
-                  xs={6}
-                >
-                  <Typography
-                    paddingBottom={"20px"}
-                    variant="h5"
-                    color="text.secondary"
-                  >
-                    Todavia no tienes consultas
-                  </Typography>
-                </Grid>
-              )}
-            </Grid>
-          </Box>
+        <Grid item xs={8}>
+          <Outlet />
         </Grid>
       </Grid>
     </Container>
