@@ -1,5 +1,12 @@
 .selects {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     margin: 5px;
+    gap: 5px;
+}
+
+.filtritos {
+    margin: 5px;
+    gap: 5px;
+    padding: 5px;
 }
