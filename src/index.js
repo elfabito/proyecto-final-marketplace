@@ -1,19 +1,20 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Alquiler from "./pages/Alquiler"
-import Configuracion from "./pages/Configuracion"
-import Favoritos from "./pages/Favoritos"
-import Ingresar from "./pages/Ingresar"
-import Inmobiliarias from "./pages/Inmobiliarias"
-import Logout from "./pages/Logout"
-import Noticias from "./pages/Noticias"
-import Perfil from "./pages/Perfil"
-import Proyectos from "./pages/Proyectos"
-import Venta from "./pages/Venta"
+import Alquiler from "./pages/Alquiler";
+import Configuracion from "./pages/Configuracion";
+import Favoritos from "./pages/Favoritos";
+import Ingresar from "./pages/Ingresar";
+import Inmobiliarias from "./pages/Inmobiliarias";
+import Logout from "./pages/Logout";
+import Noticias from "./pages/Noticias";
+import Perfil from "./pages/Perfil";
+import Proyectos from "./pages/Proyectos";
+import Venta from "./pages/Venta";
 import NoPage from "./pages/NoPage";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
-
+import CustomDashboard from "./componentes/dashboard/CustomDashboard";
+import Dashboard from "@mui/icons-material/Dashboard";
 export default function Router() {
   return (
     <BrowserRouter>
@@ -31,11 +32,12 @@ export default function Router() {
           <Route path="/proyectos" element={<Proyectos />} />
           <Route path="/venta" element={<Venta />} />
           <Route path="*" element={<NoPage />} />
+          <Route path="/dashboard" element={<CustomDashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<Router />);
