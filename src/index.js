@@ -13,6 +13,7 @@ import Venta from "./pages/Venta"
 import NoPage from "./pages/NoPage";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
+import Publicar from "./pages/Publicar";
 
 export default function Router() {
   return (
@@ -29,6 +30,7 @@ export default function Router() {
           <Route path="/noticias" element={<Noticias />} />
           <Route path="/perfil" element={<Perfil />} />
           <Route path="/proyectos" element={<Proyectos />} />
+          <Route path="/publicar" element={<Publicar />} />
           <Route path="/venta" element={<Venta />} />
           <Route path="*" element={<NoPage />} />
         </Route>
