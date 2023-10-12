@@ -9,21 +9,25 @@ import Propiedades from "./Propiedades.js";
 import React from 'react';
 import './Styles/imagen.css'
 import Carrousel from "../Carrousel.js"
+import data from "../feature_propertyDetails/Database/DataPropiedades.js";
+import PropertyDetails from "./Database/DataTablaDePropiedades.js"
 
 
 
-function DetallePropiedad() {
+function DetallePropiedad(props) {
   const [casa, setCasa] = useState([]);
-
+  const[text,setText]=useState([])
+  const hilos = ["MarcketPlace inmobiliario", "Alquiler", "Maldonado", "Punta Del Este", "Arquiler de monoambiente"];
   useEffect(() => {
     setCasa(Dato[0])
+    
   }, [])
   const images = ["https://cdn2.infocasas.com.uy/repo/img/th.outside500x1.122103_CW139153_47.jpg", "https://cdn2.infocasas.com.uy/repo/img/th.outside1365x799.0e1565050177dd630a99b24e50721f5f9a222f7b.jpg", "https://cdn2.infocasas.com.uy/repo/img/th.outside750x811.122103_CW139153_874.jpg"]
     ;
   return (
     <div className="DetallePropiedad">
       <header className="main">
-        <Breadcrumb />
+        <Breadcrumb Seguimiento={hilos} />
 
         <div className="DetallePropiedadImagen">
           <Carrousel />
@@ -42,11 +46,12 @@ function DetallePropiedad() {
 
           <MapView />
         </div>
-        <div><Propiedades /></div>
+        <div><Propiedades datosDeTabla={PropertyDetails}/></div>
 
-        <div className="dPropiedad"><DPropiedad /></div>
+        <div className="dPropiedad"><DPropiedad  texto={data}/></div>
       </header>
     </div>
   );
 }
 export default DetallePropiedad
+
