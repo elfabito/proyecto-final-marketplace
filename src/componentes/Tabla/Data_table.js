@@ -34,6 +34,8 @@ export default function Data_table() {
             <TableCell align="right">Ship To</TableCell>
             <TableCell align="right">Payment Method</TableCell>
             <TableCell align="right">Sale Amount</TableCell>
+            <TableCell align="right"> <Button variant="contained" color="primary"> Denegar</Button><Button variant="contained" color="primary"> Aceptar</Button></TableCell>
+           
           </TableRow>
         </TableHead>
         <TableBody>
@@ -42,6 +44,7 @@ export default function Data_table() {
               key={row.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
+               
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
@@ -49,6 +52,7 @@ export default function Data_table() {
               <TableCell align="right">{row.fat}</TableCell>
               <TableCell align="right">{row.carbs}</TableCell>
               <TableCell align="right">{row.protein}</TableCell>
+    
             </TableRow>
           ))}
            <Button variant="contained" color="primary"> See more orders</Button>
