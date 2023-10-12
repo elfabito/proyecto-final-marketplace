@@ -1,8 +1,12 @@
 import React from 'react'
+import Data_table from '../componentes/Tabla/Data_table'
+
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>Home
+      <Data_table/>
+    </div>
   )
 }
 

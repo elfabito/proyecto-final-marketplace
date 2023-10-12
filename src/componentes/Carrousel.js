@@ -10,6 +10,7 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
 
+
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 /*
 const images = [
@@ -37,8 +38,8 @@ const images = [
 */
 
 
-function Carrousel(props) {
-    const arrayProp = props.lista;
+function Carrousel(lista) {
+    const arrayProp = lista;
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = arrayProp.length;
