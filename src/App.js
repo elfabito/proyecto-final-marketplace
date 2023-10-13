@@ -9,7 +9,6 @@ function App() {
     <Router>
     <div className="App">
       <Navbar />
-      <Filters />
       <div className="content">
         <Outlet />
       </div>

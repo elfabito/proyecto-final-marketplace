@@ -12,7 +12,7 @@ import { autoPlay } from 'react-swipeable-views-utils';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-const images = [
+const lista = [
   {
     label: 'San Francisco – Oakland Bay Bridge, United States',
     imgPath:
@@ -38,7 +38,7 @@ const images = [
 
 
 function Carrousel() {
-  const arrayProp = images
+  const arrayProp = lista;
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = arrayProp.length;

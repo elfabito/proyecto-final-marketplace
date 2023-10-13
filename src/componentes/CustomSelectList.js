@@ -30,17 +30,16 @@ const options_default = [
   "Garage o Cochera",
 ];
 
-function getStyles(option, optionName, theme) {
-  return {
-    fontWeight:
-      optionName.indexOf(option) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium,
-  };
-}
-
-export default function CustomSelectList(props) {
-  const theme = useTheme();
+// function getStyles(option, optionName, theme) {
+//   return {
+//     fontWeight:
+//       optionName.indexOf(option) === -1
+//         ? theme.typography.fontWeightRegular
+//         : theme.typography.fontWeightMedium,
+//   };
+// }
+function CustomSelectList(props) {
+  // const theme = useTheme();
   const [optionName, setOptionName] = React.useState([]);
   const [options, setOptions] = React.useState([]);
   const handleChange = (event) => {
@@ -62,10 +61,10 @@ export default function CustomSelectList(props) {
   return (
     <div>
       <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-chip-label">Selección</InputLabel>
+        <InputLabel id="Lista">Selección</InputLabel>
         <Select
-          labelId="demo-multiple-chip-label"
-          id="demo-multiple-chip"
+          labelId="Lista"
+          id="Lista"
           multiple
           value={optionName}
           onChange={handleChange}
@@ -84,11 +83,7 @@ export default function CustomSelectList(props) {
           MenuProps={MenuProps}
         >
           {props.options.map((option) => (
-            <MenuItem
-              key={option}
-              value={option}
-              style={getStyles(option, optionName, theme)}
-            >
+            <MenuItem key={option} value={option}>
               {option}
             </MenuItem>
           ))}
@@ -97,3 +92,6 @@ export default function CustomSelectList(props) {
     </div>
   );
 }
+
+// eslint-disable-next-line no-undef
+export default CustomSelectList;

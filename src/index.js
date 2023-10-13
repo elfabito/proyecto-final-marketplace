@@ -27,6 +27,7 @@ export default function Router() {
       <Routes>
         <Route exact path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/alquiler" element={<Alquiler />} />
           <Route path="/configuracion" element={<Configuracion />} />
           <Route path="/favoritos" element={<Favoritos />} />

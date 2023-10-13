@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  
+}
+.App {
+  text-align: center;
+  background-color: #282c34;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.SearchBackground {
+  background-image: url("https://source.unsplash.com/random");
+  background-repeat: no-repeat;
+  background-size: cover;
+  image-rendering: optimizeQuality;
+  width: auto;
+  height: auto;
+}
+
+.Search {
+  padding: 10%;
+  width: max-content;
+  margin: auto;
+  display: flex;
+  flex-flow: column wrap;
+  position: relative;
+}
+
+#checkmarks {
+  background-color: white; 
+}
+
+#opciones {
+  background-color: white;
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+  width: max-content;
+}
+
+#search {
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column wrap;
+  margin: auto;
+  background-color: white;
+  width: 50ch;
+}
