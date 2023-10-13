@@ -14,6 +14,13 @@ import NoPage from "./pages/NoPage";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import Publicar from "./pages/Publicar";
+import {
+  Resumen,
+  Pagos,
+  Busquedas,
+  Consultas,
+  FavoritosPerfil,
+} from "./pages/subPages/PerfilSubPages";
 
 export default function Router() {
   return (
@@ -28,7 +35,13 @@ export default function Router() {
           <Route path="/inmobiliarias" element={<Inmobiliarias />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/noticias" element={<Noticias />} />
-          <Route path="/perfil" element={<Perfil />} />
+          <Route path="/perfil" element={<Perfil />}>
+            <Route index element={<Resumen />} />
+            <Route path="Pagos" element={<Pagos />} />
+            <Route path="Busquedas" element={<Busquedas />} />
+            <Route path="Consultas" element={<Consultas />} />
+            <Route path="Favoritos" element={<FavoritosPerfil />} />
+          </Route>
           <Route path="/proyectos" element={<Proyectos />} />
           <Route path="/publicar" element={<Publicar />} />
           <Route path="/venta" element={<Venta />} />
