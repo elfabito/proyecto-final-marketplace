@@ -56,7 +56,7 @@ function Carrousel() {
   };
 
   return (
-    <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
+    <Box sx={{ maxWidth: 800, flexGrow: 1 }}>
       <Paper
         square
         elevation={0}
@@ -82,11 +82,11 @@ function Carrousel() {
               <Box
                 component="img"
                 sx={{
-                  height: 255,
+                  height: 600,
                   display: 'block',
-                  maxWidth: 400,
+                  maxWidth: 800,
                   overflow: 'hidden',
-                  width: '100%',
+                  width: "auto",
                 }}
                 src={step.imgPath}
                 alt={step.label}
