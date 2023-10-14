@@ -1,5 +1,5 @@
 import React from 'react'
-import Data_table from '../componentes/Tabla/Data_table'
+import Data_table from '../componentes/Data_table'
 
 
 const Home = () => {
