@@ -90,7 +90,7 @@ function Navbar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center" >{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -121,7 +121,7 @@ function Navbar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                <Link to={`/` + page} style={{ color: "white" }}>
+                <Link to={`/` + page} style={{ color: "white", textDecoration: "none" }}>
                   {page}
                 </Link>
               </Button>
@@ -152,8 +152,11 @@ function Navbar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Link to={`/` + setting} style={{ color: "black", textDecoration: "none" }}>
+                  {setting}
+                  </Link>
                 </MenuItem>
+                
               ))}
             </Menu>
           </Box>

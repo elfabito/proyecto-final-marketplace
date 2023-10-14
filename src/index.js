@@ -20,6 +20,7 @@ import {
   Consultas,
   FavoritosPerfil,
 } from './Pages/subPages/PerfilSubPages'
+import PublicarPropiedad from './Pages/PublicarPropiedad'
 
 export default function Router() {
   return (
@@ -43,6 +44,7 @@ export default function Router() {
             <Route path='Favoritos' element={<FavoritosPerfil />} />
           </Route>
           <Route path='/proyectos' element={<Proyectos />} />
+          <Route path='/publicarpropiedad' element={<PublicarPropiedad />} />
           <Route path='/venta' element={<Venta />} />
           <Route path='*' element={<NoPage />} />
         </Route>
