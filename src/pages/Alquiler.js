@@ -3,7 +3,6 @@ import DetallePropiedad from '../Components/feature_propertyDetails/IndexDetalle
 const Alquiler = () => {
   return (
     <div>
-      Alquiler
       <DetallePropiedad />
     </div>
   )
