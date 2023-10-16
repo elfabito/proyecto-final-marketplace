@@ -1,11 +1,9 @@
 import React from 'react'
-import "../App.css";
-import MainPage from '../componentes/MainPage'
+import '../App.css'
+import MainPage from '../Components/MainPage'
 
 const Home = () => {
-  return (
-    <MainPage/>
-  )
+  return <MainPage />
 }
 
 export default Home
