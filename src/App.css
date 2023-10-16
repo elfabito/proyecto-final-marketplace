@@ -3,14 +3,14 @@ body {
   background-color: white;
 }
 
-footer {
-  padding: 2rem;
-  background-color: white;
+a {
+  color: black;
 }
 
-#footerReferences {
-  display: flex;
-  flex-flow: column wrap;
+footer {
+  padding: 2rem;
+  color: white;
+  background-color: #1976d2;
 }
 
 .App {
