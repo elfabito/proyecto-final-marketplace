@@ -1,12 +1,9 @@
 import React from 'react'
-import { Route, Routes, Link } from "react-router-dom";
+import '../App.css'
+import MainPage from '../Components/MainPage'
+
 const Home = () => {
-  return (
-    <div>
-      Home
-      <Link to="/Perfil">Perfil</Link>
-    </div>
-  );
-};
+  return <MainPage />
+}
 
 export default Home
