@@ -41,14 +41,30 @@ function MainPage() {
                 Alquiler Temporal
               </ToggleButton>
             </ToggleButtonGroup>
-            <CustomSelectCheckmarks options={options_default}/>
+            <CustomSelectCheckmarks options={options_default} />
             <TextField id="search" label="Localidad" variant="outlined" />
             <div className="carrousel-container">
-              <Carrousel/>
+              <Carrousel />
             </div>
           </Box>
         </div>
       </div>
+      <footer>
+        <div id="footerReferences">
+          <div>
+            <a href="#">Alquileres</a>
+          </div>
+          <div>
+            <a href="#">Alquileres temporales</a>
+          </div>
+          <div>
+            <a href="#">Ventas</a>
+          </div>
+        </div>
+        <div>
+          <p>Todos los derechos reservados. 2023</p>
+        </div>
+      </footer>
     </div>
   );
 }

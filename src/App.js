@@ -11,8 +11,7 @@ function App() {
       <Navbar />
       <div className="content">
         <Outlet />
-      </div>
-      
+      </div> 
     </div>
     </Router>
   );

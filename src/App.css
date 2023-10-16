@@ -1,7 +1,18 @@
 body {
   margin: 0;
-  
+  background-color: white;
 }
+
+footer {
+  padding: 2rem;
+  background-color: white;
+}
+
+#footerReferences {
+  display: flex;
+  flex-flow: column wrap;
+}
+
 .App {
   text-align: center;
   background-color: #282c34;
