@@ -45,7 +45,7 @@ export default function Data_table() {
               <TableCell align="center"> <Button variant="contained" color="primary">Publicar</Button> <Button variant="contained" color="primary">Delete</Button></TableCell>
             </TableRow>
           ))}
-           <Button variant="contained" color="primary"> Ver mas Propiedades</Button>
+        
         </TableBody>
       </Table>
     </TableContainer>
