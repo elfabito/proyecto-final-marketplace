@@ -1,13 +1,9 @@
 import React from 'react'
-import Data_table from '../componentes/Data_table'
-
+import '../App.css'
+import MainPage from '../Components/MainPage'
 
 const Home = () => {
-  return (
-    <div>Home
-      <Data_table/>
-    </div>
-  )
+  return <MainPage />
 }
 
 export default Home

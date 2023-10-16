@@ -10,10 +10,9 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
 
-
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-/*
-const images = [
+
+const lista = [
   {
     label: 'San Francisco – Oakland Bay Bridge, United States',
     imgPath:
@@ -35,11 +34,11 @@ const images = [
       'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
   },
 ];
-*/
 
 
-function Carrousel(lista) {
-    const arrayProp = lista;
+
+function Carrousel() {
+  const arrayProp = lista;
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = arrayProp.length;
@@ -57,7 +56,7 @@ function Carrousel(lista) {
   };
 
   return (
-    <Box sx={{ maxWidth: 400, flexGrow: 1 }}>
+    <Box sx={{ maxWidth: 800, flexGrow: 1 }}>
       <Paper
         square
         elevation={0}
@@ -83,11 +82,11 @@ function Carrousel(lista) {
               <Box
                 component="img"
                 sx={{
-                  height: 255,
+                  height: 600,
                   display: 'block',
-                  maxWidth: 400,
+                  maxWidth: 800,
                   overflow: 'hidden',
-                  width: '100%',
+                  width: "auto",
                 }}
                 src={step.imgPath}
                 alt={step.label}
