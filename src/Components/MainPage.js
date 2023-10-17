@@ -1,24 +1,13 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import TextField from "@mui/material/TextField";
 import CustomSelectCheckmarks from "./CustomSelectCheckmarks";
 import Carrousel from "./Carrousel";
 import Button from "@mui/material/Button";
-import { styled } from "@mui/material/styles";
 import "./MainPage.css";
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
 
 function MainPage() {
   const [seleccion, setSeleccion] = React.useState("venta");
