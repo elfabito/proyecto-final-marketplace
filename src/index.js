@@ -22,6 +22,7 @@ import {
 } from './Pages/subPages/PerfilSubPages'
 import PublicarPropiedad from './Pages/PublicarPropiedad'
 
+
 export default function Router() {
   return (
     <BrowserRouter>
