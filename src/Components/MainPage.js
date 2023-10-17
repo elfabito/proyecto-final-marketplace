@@ -68,30 +68,14 @@ function MainPage() {
         <Carrousel />
       </div>
       <footer>
-        <div>
-          <Grid container spacing={2} columns={16}>
-            <Grid xs={4}>
-              <Item>
-                <a href="#">Sobre nosotros</a>
-              </Item>
-            </Grid>
-            <Grid xs={8}>
-              <Item>
-                <a href="#">Alquiler</a>
-              </Item>
-              <Item>
-                <a href="#">Alquiler Temporal</a>
-              </Item>
-              <Item>
-                <a href="#">Venta</a>
-              </Item>
-            </Grid>
-            <Grid xs={4}>
-              <Item>
-                <a href="#">Terminos y condiciones</a>
-              </Item>
-            </Grid>
-          </Grid>
+        <div className="about">
+          <h4>Sobre nosotros</h4>
+          <h4>Terminos y condiciones</h4>
+        </div>
+        <div className="tipos">
+          <h4>Alquiler</h4>
+          <h4>Alquiler temporal</h4>
+          <h4>Ventas</h4>
         </div>
       </footer>
     </div>

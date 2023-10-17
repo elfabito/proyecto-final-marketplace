@@ -8,14 +8,27 @@ a {
 }
 
 footer {
-  padding: 2rem;
+  display: flex;
+  flex-flow: column wrap;
   color: white;
   background-color: #1976d2;
 }
 
+.tipos {
+  position: sticky;
+  padding: 1rem;
+  float: left;
+}
+
+.about {
+  position: sticky;
+  padding: 1rem;
+  float: right;
+}
+
+
 .App {
   text-align: center;
-  
 }
 
 .App-header {
