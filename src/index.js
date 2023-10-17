@@ -14,7 +14,12 @@ import NoPage from "./pages/NoPage";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import CustomDashboard from "./componentes/dashboard/CustomDashboard";
-import Dashboard from "@mui/icons-material/Dashboard";
+import Propiedades from "./componentes/dashboard/Propiedades";
+import Ajustes from "./componentes/dashboard/Ajustes";
+import Mensajes from "./componentes/dashboard/Mensajes";
+import Panel from "./componentes/dashboard/Panel";
+import Estadisticas from "./componentes/dashboard/Estadisticas";
+import PerfilDashboard from "./componentes/dashboard/PerfilDashboard";
 export default function Router() {
   return (
     <BrowserRouter>
@@ -32,7 +37,20 @@ export default function Router() {
           <Route path="/proyectos" element={<Proyectos />} />
           <Route path="/venta" element={<Venta />} />
           <Route path="*" element={<NoPage />} />
+
           <Route path="/dashboard" element={<CustomDashboard />} />
+          <Route path="/dashboard/mensajes" element={<Mensajes />}></Route>
+          <Route
+            path="/dashboard/propiedades"
+            element={<Propiedades />}
+          ></Route>
+          <Route path="/dashboard/ajustes" element={<Ajustes />}></Route>
+          <Route path="/dashboard/panel" element={<Panel />}></Route>
+          <Route
+            path="/dashboard/estadisticas"
+            element={<Estadisticas />}
+          ></Route>
+          <Route path="/dashboard/perfil" element={<PerfilDashboard />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
