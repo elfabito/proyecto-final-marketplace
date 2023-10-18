@@ -1,26 +1,26 @@
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Alquiler from './pages/Alquiler'
-import Configuracion from './pages/Configuracion'
-import Favoritos from './pages/Favoritos'
-import Ingresar from './pages/Ingresar'
-import Inmobiliarias from './pages/Inmobiliarias'
-import Logout from './pages/Logout'
-import Noticias from './pages/Noticias'
-import Perfil from './pages/Perfil'
-import Proyectos from './pages/Proyectos'
-import Venta from './pages/Venta'
-import NoPage from './pages/NoPage'
-import Layout from './pages/Layout'
-import Home from './pages/Home'
+import Alquiler from './Pages/Alquiler'
+import Configuracion from './Pages/Configuracion'
+import Favoritos from './Pages/Favoritos'
+import Ingresar from './Pages/Ingresar'
+import Inmobiliarias from './Pages/Inmobiliarias'
+import Logout from './Pages/Logout'
+import Noticias from './Pages/Noticias'
+import Perfil from './Pages/Perfil'
+import Proyectos from './Pages/Proyectos'
+import Venta from './Pages/Venta'
+import NoPage from './Pages/NoPage'
+import Layout from './Pages/Layout'
+import Home from './Pages/Home'
 import {
   Resumen,
   Pagos,
   Busquedas,
   Consultas,
   FavoritosPerfil,
-} from './pages/subPages/PerfilSubPages'
-import PublicarPropiedad from './pages/PublicarPropiedad'
+} from './Pages/subPages/PerfilSubPages'
+import PublicarPropiedad from './Pages/PublicarPropiedad'
 
 
 export default function Router() {
