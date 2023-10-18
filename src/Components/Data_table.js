@@ -11,7 +11,6 @@ import { Button } from '@mui/material';
 function createData(uno, dos, tres) {
   return { uno, dos, tres };
 }
-
 const rows = [
   createData('Dato1', 159, 6.0, 12),
   createData('Dato2', 237, 9.0, 37, 4.3),
