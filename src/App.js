@@ -4,8 +4,11 @@ import { BrowserRouter as Router, Outlet } from 'react-router-dom'
 
 
 
+
 function App() {
+
   return (
+    
     <Router>
       <div className='App'>
         <Navbar />
@@ -14,6 +17,7 @@ function App() {
         </div>
       </div>
     </Router>
+    
   )
 }
 
