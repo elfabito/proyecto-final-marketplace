@@ -90,6 +90,7 @@ export const CustomDashboard = ({ children }) => {
   };
 
   return (
+    
     <ThemeProvider theme={defaultTheme}>
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
@@ -162,6 +163,7 @@ export const CustomDashboard = ({ children }) => {
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             {children}
+
             <Copyright sx={{ pt: 4 }} />
           </Container>
         </Box>
