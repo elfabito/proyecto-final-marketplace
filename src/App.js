@@ -1,15 +1,12 @@
-import './App.css'
-import Navbar from './Components/Navbar'
-import { BrowserRouter as Router, Outlet } from 'react-router-dom'
-
-
+import "./App.css";
+import Navbar from "./componentes/Navbar";
+import { BrowserRouter as Router, Outlet } from "react-router-dom";
 
 function App() {
   return (
     <Router>
-      <div className='App'>
-        <Navbar />
-        <div className='content'>
+      <div className="App">
+        <div className="content">
           <Outlet />
         </div>
       </div>
@@ -17,4 +14,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
