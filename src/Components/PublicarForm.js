@@ -8,6 +8,8 @@ import InputLabel from '@mui/material/InputLabel';
 import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
 import SelectList from './Elemetos_De_Formulario/SelectListFormulario';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 const tipoDePubicacion = [
   {
@@ -76,10 +78,20 @@ const tipoDePropiedad = [
 ];
 
 export default function FormPropsTextFields() {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    tipoPublicacion: "", // Campo para el tipo de publicación
+    tipoPropiedad: "",  // Campo para el tipo de propiedad
+  });
 
   const handleInputChange = (e, fieldName) => {
     const value = e.target.value;
+    setFormData({
+      ...formData,
+      [fieldName]: value,
+    });
+  };
+
+  const handleSelectChange = (value, fieldName) => {
     setFormData({
       ...formData,
       [fieldName]: value,
@@ -90,7 +102,7 @@ export default function FormPropsTextFields() {
     console.log(formData);
   };
 
-  const camposTexto = ["Nombre", "Zona", "Ubic", "Estado", "Disposicion", "M² edificados", "M² del terreno", "Imagen 1", "Imagen 2", "Imagen 3"];
+  const camposTexto = ["Nombre", "Zona", "Ubicacion", "Estado", "Disposicion", "M² edificados", "M² del terreno", "Imagen 1", "Imagen 2", "Imagen 3"];
   const camposNumero = ["Piso", "Cantidad de Pisos", "Dormitorios", "Baños", "Garages", "Año de Construccion"];
 
   return (
@@ -107,8 +119,16 @@ export default function FormPropsTextFields() {
         autoComplete="off"
       >
         <div>
-          <SelectList tipo={tipoDePubicacion} titulo={"Tipo De Publicacion"} />
-          <SelectList tipo={tipoDePropiedad} titulo={"Tipo De Propiedad"} />
+          <SelectList
+            tipo={tipoDePubicacion}
+            titulo={"Tipo De Publicacion"}
+            onChange={(value) => handleSelectChange(value, "tipoPublicacion")}
+          />
+          <SelectList
+            tipo={tipoDePropiedad}
+            titulo={"Tipo De Propiedad"}
+            onChange={(value) => handleSelectChange(value, "tipoPropiedad")}
+          />
           {camposTexto.map((item, index) => (
             <TextField
               id={item}
@@ -153,7 +173,9 @@ export default function FormPropsTextFields() {
         sx={{ width: "60%" }}
         onChange={(e) => handleInputChange(e, "Descripcion")}
       />
-      <button onClick={handleSave}>Guardar </button>
+      <Button variant="contained" onClick={handleSave} color="success">
+        Guardar
+      </Button>
     </div>
   );
 }
