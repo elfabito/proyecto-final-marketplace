@@ -1,0 +1,53 @@
+.carousel-container {
+  text-align: center;
+}
+
+.carousel-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.carousel-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.subCarta {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: right;
+  max-width: 800px;
+}
+.encabezado{
+  max-height: 100px;
+}
+.ttitle{
+  font-size: 34px;
+}
+
+.dPropiedad{
+  width: auto;
+  max-width: 800px;
+}
+.Moneda{
+  font-size: 34px;
+  margin: 0%;
+  margin-top: 15%;
+  margin-bottom: 40px;
+  padding-bottom: -20px;
+
+}
+.precio{
+  font-size: 20px;
+  opacity: 80%;
+}
+.icono{
+  
+  padding-top: 10px;
+}
+
