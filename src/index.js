@@ -21,6 +21,7 @@ import {
   FavoritosPerfil,
 } from './Pages/subPages/PerfilSubPages'
 import PublicarPropiedad from './Pages/PublicarPropiedad'
+import PruebaContext from './Pages/PruebaContext'
 
 
 export default function Router() {
@@ -45,6 +46,7 @@ export default function Router() {
             <Route path='Favoritos' element={<FavoritosPerfil />} />
           </Route>
           <Route path='/proyectos' element={<Proyectos />} />
+          <Route path='/pruebacontext' element={<PruebaContext />} />
           <Route path='/publicarpropiedad' element={<PublicarPropiedad />} />
           <Route path='/venta' element={<Venta />} />
           <Route path='*' element={<NoPage />} />
