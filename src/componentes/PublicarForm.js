@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import "./PublicarForm.css"
@@ -8,8 +8,6 @@ import InputLabel from '@mui/material/InputLabel';
 import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
 import SelectList from './Elemetos_De_Formulario/SelectListFormulario';
-
-// https://www.bezkoder.com/react-image-upload-preview/
 
 const tipoDePubicacion = [
   {
@@ -24,9 +22,10 @@ const tipoDePubicacion = [
     value: 'VentaTemporal',
     label: 'Venta Temporal',
   },
- 
 ];
-const tipoDePropiedad =[{
+
+const tipoDePropiedad = [
+  {
     value: 'Casa',
     label: 'casa',
   },
@@ -37,48 +36,63 @@ const tipoDePropiedad =[{
   {
     value: 'Terreno',
     label: 'Terreno',
-
-  },{
+  },
+  {
     value: 'Local Comercial',
     label: 'Local Comercial',
-    
-  },{
+  },
+  {
     value: 'Oficina',
     label: 'Oficina',
-    
   },
   {
     value: 'Chacra o Campo',
     label: 'Chacra o Campo',
-    
-  },{
+  },
+  {
     value: 'Garage o Chochera',
     label: 'Garage o Chochera',
-    
-  },{
+  },
+  {
     value: 'Negocio Especial',
     label: 'Negocio Especial',
-    
-  },{
+  },
+  {
     value: 'Edificio',
     label: 'Edificio',
-    
-  },{
+  },
+  {
     value: 'Hotel',
     label: 'Hotel',
-    
-  },{
+  },
+  {
     value: 'Local Industrial o Garpon',
     label: 'Local Industrial o Garpon',
-    
-  },{
+  },
+  {
     value: 'Otro',
     label: 'Otro',
-    
-  },]
+  },
+];
+
 export default function FormPropsTextFields() {
- 
-  const campos = ["Zona", "Estado", "Disposicion", "M² edificados", "M² del terreno"]
+  const [formData, setFormData] = useState({});
+
+  const handleInputChange = (e, fieldName) => {
+    const value = e.target.value;
+    setFormData({
+      ...formData,
+      [fieldName]: value,
+    });
+  };
+
+  const handleSave = () => {
+    console.log(formData);
+  };
+
+  const camposTexto = ["Nombre", "Zona", "Ubic", "Estado", "Disposicion", "M² edificados", "M² del terreno", "Imagen 1", "Imagen 2", "Imagen 3"];
+  const camposNumero = ["Piso", "Cantidad de Pisos", "Dormitorios", "Baños", "Garages", "Año de Construccion"];
+
   return (
     <div className="publicarFormContainer">
       <Typography mb="1rem" variant="h4" fontFamily="Lato">
@@ -93,89 +107,40 @@ export default function FormPropsTextFields() {
         autoComplete="off"
       >
         <div>
-          <SelectList tipo={tipoDePubicacion} titulo={"Tipo De Publicacion"}
-          /><SelectList tipo={tipoDePropiedad} titulo={"Tipo De Propiedad"}
-          />
-          {campos.map((item, index) => (
-            <TextField id="standard-basic" key={index}
+          <SelectList tipo={tipoDePubicacion} titulo={"Tipo De Publicacion"} />
+          <SelectList tipo={tipoDePropiedad} titulo={"Tipo De Propiedad"} />
+          {camposTexto.map((item, index) => (
+            <TextField
+              id={item}
+              key={index}
               label={item}
-              variant="standard" >
-            </TextField>))}
-
-
-
-
-          <TextField
-            id="standard-number"
-            label="Piso"
-            type="number"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            variant="standard"
-          />
-          <TextField
-            id="standard-number"
-            label="Cantidad de Pisos"
-            type="number"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            variant="standard"
-          />
-          {/* <TextField
-          required
-          id="standard-required"
-          label="Required"
-          variant="standard"
-        /> */}
-          < TextField
-            id="standard-number"
-            label="Dormitorios"
-            type="number"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            variant="standard"
-          />
-          <TextField
-            id="standard-number"
-            label="Baños"
-            type="number"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            variant="standard"
-          />
-          <TextField
-            id="standard-number"
-            label="Año de Construccion"
-            type="number"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            variant="standard"
-          />
-          <TextField
-            id="standard-number"
-            label="Garages"
-            type="number"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            variant="standard"
-          />
+              variant="standard"
+              onChange={(e) => handleInputChange(e, item)}
+            />
+          ))}
+          {camposNumero.map((item, index) => (
+            <TextField
+              id={item}
+              key={index}
+              label={item}
+              type="number"
+              variant="standard"
+              onChange={(e) => handleInputChange(e, item)}
+            />
+          ))}
           <FormControl sx={{ m: 1, width: '20ch' }} variant="standard">
             <InputLabel htmlFor="standard-adornment-amount">Gastos Comunes</InputLabel>
             <Input
               id="standard-adornment-amount"
               startAdornment={<InputAdornment position="start">$</InputAdornment>}
+              onChange={(e) => handleInputChange(e, "Gastos Comunes")}
             />
           </FormControl>
           <TextField
             id="standard-basic"
             label="Acepta Mascotas"
             variant="standard"
+            onChange={(e) => handleInputChange(e, "Acepta Mascotas")}
           />
         </div>
       </Box>
@@ -186,7 +151,9 @@ export default function FormPropsTextFields() {
         rows={6}
         variant="standard"
         sx={{ width: "60%" }}
+        onChange={(e) => handleInputChange(e, "Descripcion")}
       />
+      <button onClick={handleSave}>Guardar</button>
     </div>
   );
 }
