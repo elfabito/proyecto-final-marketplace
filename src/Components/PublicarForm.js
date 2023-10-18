@@ -153,7 +153,7 @@ export default function FormPropsTextFields() {
         sx={{ width: "60%" }}
         onChange={(e) => handleInputChange(e, "Descripcion")}
       />
-      <button onClick={handleSave}>Guardar</button>
+      <button onClick={handleSave}>Guardar </button>
     </div>
   );
 }
