@@ -6,8 +6,8 @@ import TextField from "@mui/material/TextField";
 import CustomSelectCheckmarks from "./CustomSelectCheckmarks";
 import Carrousel from "./Carrousel";
 import Button from "@mui/material/Button";
+import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa6";
 import "./MainPage.css";
-
 
 function MainPage() {
   const [seleccion, setSeleccion] = React.useState("venta");
@@ -57,14 +57,37 @@ function MainPage() {
         <Carrousel />
       </div>
       <footer>
-        <div className="about">
-          <h4>Sobre nosotros</h4>
-          <h4>Terminos y condiciones</h4>
-        </div>
-        <div className="tipos">
-          <h4>Alquiler</h4>
-          <h4>Alquiler temporal</h4>
-          <h4>Ventas</h4>
+        <div id="footer">
+          <div className="about">
+            <h4>
+              <a href="#">Sobre Nosotros</a>
+            </h4>
+            <h4>
+              <a href="#">Terminos y Condiciones</a>
+            </h4>
+          </div>
+          <div className="tipos">
+            <h4>
+              <a href="#">Alquiler</a>
+            </h4>
+            <h4>
+              <a href="#">Alquiler Temporal</a>
+            </h4>
+            <h4>
+              <a href="#">Ventas</a>
+            </h4>
+          </div>
+          <div className="socials">
+            <h4>
+              <FaYoutube /> <a href="#">Youtube</a>
+            </h4>
+            <h4>
+              <FaFacebook /> <a href="#">Facebook</a>
+            </h4>
+            <h4>
+              <FaTwitter /> <a href="#">Twitter</a>
+            </h4>
+          </div>
         </div>
       </footer>
     </div>
