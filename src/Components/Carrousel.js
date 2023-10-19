@@ -14,25 +14,41 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const lista = [
   {
-    label: 'San Francisco – Oakland Bay Bridge, United States',
+    
     imgPath:
       'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
-  },
+      cantidad: 5,
+      precio: '$10.99',
+      descripcion: 'Breve descripción del producto 1',
+      link: 'https://ejemplo.com/producto1',
+    },
   {
-    label: 'Bird',
+   
     imgPath:
       'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
-  },
+      cantidad: 5,
+      precio: '$10.99',
+      descripcion: 'Breve descripción del producto 1',
+      link: 'https://ejemplo.com/producto1',
+    },
   {
-    label: 'Bali, Indonesia',
+    
     imgPath:
       'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
-  },
+      cantidad: 5,
+      precio: '$10.99',
+      descripcion: 'Breve descripción del producto 1',
+      link: 'https://ejemplo.com/producto1',
+    },
   {
-    label: 'Goč, Serbia',
+    
     imgPath:
       'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
-  },
+      cantidad: 5,
+      precio: '$10.99',
+      descripcion: 'Breve descripción del producto 1',
+      link: 'https://ejemplo.com/producto1',
+    },
 ];
 
 
@@ -56,20 +72,8 @@ function Carrousel() {
   };
 
   return (
-    <Box sx={{ maxWidth: 800, flexGrow: 1 }}>
-      <Paper
-        square
-        elevation={0}
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          height: 50,
-          pl: 2,
-          bgcolor: 'background.default',
-        }}
-      >
-        <Typography>{arrayProp[activeStep].label}</Typography>
-      </Paper>
+    <Box sx={{ maxWidth: 800, flexGrow: 1, position: 'relative' }}>
+     
       <AutoPlaySwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
@@ -79,18 +83,28 @@ function Carrousel() {
         {arrayProp.map((step, index) => (
           <div key={step.label}>
             {Math.abs(activeStep - index) <= 2 ? (
-              <Box
-                component="img"
-                sx={{
-                  height: 600,
-                  display: 'block',
-                  maxWidth: 800,
-                  overflow: 'hidden',
-                  width: "auto",
-                }}
-                src={step.imgPath}
-                alt={step.label}
-              />
+              <div style={{ position: 'relative' }}>
+                <Box
+                  component="img"
+                  sx={{
+                    height: 600,
+                    display: 'block',
+                    maxWidth: 800,
+                    overflow: 'hidden',
+                    width: 'auto',
+                    position: 'relative',
+                    zIndex: 0,
+                  }}
+                  src={step.imgPath}
+                  alt={step.label}
+                />
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0, 0, 0, 0.5)', color: '#fff', padding: '10px', zIndex: 1 }}>
+                  <p style={{ fontSize: '50px' }}>Cantidad: {step.cantidad}</p>
+                  <p style={{ fontSize: '50px' }}>Precio: {step.precio}</p>
+                  <p style={{ fontSize: '50px' }}>{step.descripcion}</p>
+                  <a style={{ fontSize: '30px' ,position: 'absolute', color: 'white' , bottom:'30px', right: '30px'}} href={step.link} target="_blank" rel="noopener noreferrer">Más información</a>
+                </div>
+              </div>
             ) : null}
           </div>
         ))}
