@@ -8,7 +8,7 @@ import InputLabel from '@mui/material/InputLabel';
 import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
 import SelectList from './Elemetos_De_Formulario/SelectListFormulario';
-import Stack from '@mui/material/Stack';
+
 import Button from '@mui/material/Button';
 
 const tipoDePubicacion = [
@@ -76,12 +76,17 @@ const tipoDePropiedad = [
     label: 'Otro',
   },
 ];
+const tipoPrecio = [{
+  value: '$',
+  label: 'Pesos Uruguayo',
+},
+{
+  value: 'u$',
+  label: 'USD',
+},]
 
 export default function FormPropsTextFields() {
-  const [formData, setFormData] = useState({
-    tipoPublicacion: "", // Campo para el tipo de publicación
-    tipoPropiedad: "",  // Campo para el tipo de propiedad
-  });
+  const [formData, setFormData] = useState({ tipoPublicacion: "", tipoPropiedad: "", tipoPrecio:""});
 
   const handleInputChange = (e, fieldName) => {
     const value = e.target.value;
@@ -102,8 +107,8 @@ export default function FormPropsTextFields() {
     console.log(formData);
   };
 
-  const camposTexto = ["Nombre", "Zona", "Ubicacion", "Estado", "Disposicion", "M² edificados", "M² del terreno", "Imagen 1", "Imagen 2", "Imagen 3"];
-  const camposNumero = ["Piso", "Cantidad de Pisos", "Dormitorios", "Baños", "Garages", "Año de Construccion"];
+  const camposTexto = ["Nombre", "Zona", "Ubicacion", "Estado", "Disposicion", "Imagen 1", "Imagen 2", "Imagen 3"];
+  const camposNumero = ["Precio", "Piso", "Dormitorios", "Baños", "Garages", "Año de Construccion", "M² edificados", "M² del terreno"];
 
   return (
     <div className="publicarFormContainer">
@@ -119,16 +124,23 @@ export default function FormPropsTextFields() {
         autoComplete="off"
       >
         <div>
-          <SelectList
-            tipo={tipoDePubicacion}
-            titulo={"Tipo De Publicacion"}
-            onChange={(value) => handleSelectChange(value, "tipoPublicacion")}
-          />
-          <SelectList
-            tipo={tipoDePropiedad}
-            titulo={"Tipo De Propiedad"}
-            onChange={(value) => handleSelectChange(value, "tipoPropiedad")}
-          />
+          <div className="Select">
+            <SelectList className="selectList"
+              tipo={tipoDePubicacion}
+              titulo={"Tipo De Publicacion"}
+              onChange={(value) => handleSelectChange(value, "tipoPublicacion")}
+            />
+            <SelectList className="selectList"
+              tipo={tipoDePropiedad}
+              titulo={"Tipo De Propiedad"}
+              onChange={(value) => handleSelectChange(value, "tipoPropiedad")}
+            />
+            <SelectList className="selectList"
+              tipo={tipoPrecio}
+              titulo={"Tipo De Precio"}
+              onChange={(value) => handleSelectChange(value, "tipoPrecio")}
+            />
+          </div>
           {camposTexto.map((item, index) => (
             <TextField
               id={item}
@@ -144,6 +156,7 @@ export default function FormPropsTextFields() {
               key={index}
               label={item}
               type="number"
+
               variant="standard"
               onChange={(e) => handleInputChange(e, item)}
             />
@@ -160,22 +173,27 @@ export default function FormPropsTextFields() {
             id="standard-basic"
             label="Acepta Mascotas"
             variant="standard"
+            helperText="Si o No"
             onChange={(e) => handleInputChange(e, "Acepta Mascotas")}
           />
         </div>
+
       </Box>
-      <TextField
-        id="standard-multiline-static"
-        label="Descripcion"
-        multiline
-        rows={6}
-        variant="standard"
-        sx={{ width: "60%" }}
-        onChange={(e) => handleInputChange(e, "Descripcion")}
-      />
-      <Button variant="contained" onClick={handleSave} color="success">
-        Guardar
-      </Button>
+      <div className='bobyboton'>
+        <TextField
+          id="standard-multiline"
+          label="Descripcion"
+          multiline
+          rows={6}
+          variant="standard"
+          sx={{ width: "60%" }}
+          onChange={(e) => handleInputChange(e, "Descripcion")}
+
+        />
+        <Button variant="contained" className='boton' onClick={handleSave} color="success">
+          Guardar
+        </Button>
+      </div>
     </div>
   );
 }

@@ -8,14 +8,12 @@ export default function SelectTextFields(props) {
   const [selectedValue, setSelectedValue] = useState('');
 
   useEffect(() => {
-    // Cuando se actualizan las opciones, puedes restablecer el valor seleccionado si es necesario.
+   
     setSelectedValue('');
   }, [props.tipo]);
 
   const handleSelectChange = (event) => {
     setSelectedValue(event.target.value);
-
-    // Puedes pasar el valor seleccionado al componente padre utilizando una función de devolución de llamada si es necesario.
     if (props.onChange) {
       props.onChange(event.target.value);
     }
@@ -33,6 +31,7 @@ export default function SelectTextFields(props) {
       <div>
         <TextField
           select
+          
           value={selectedValue}
           id="standard-basic"
           label={props.titulo}
