@@ -86,7 +86,12 @@ const tipoPrecio = [{
 },]
 
 export default function FormPropsTextFields() {
-  const [formData, setFormData] = useState({ tipoPublicacion: "", tipoPropiedad: "", tipoPrecio:""});
+  const [formData, setFormData] = useState({
+    tipoPublicacion: '',
+    tipoPropiedad: '',
+    tipoPrecio: '',
+    GastosComunes: '',
+  });
 
   const handleInputChange = (e, fieldName) => {
     const value = e.target.value;
@@ -107,7 +112,7 @@ export default function FormPropsTextFields() {
     console.log(formData);
   };
 
-  const camposTexto = ["Nombre", "Zona", "Ubicacion", "Estado", "Disposicion", "Imagen 1", "Imagen 2", "Imagen 3"];
+  const camposTexto = ["Nombre", "Zona", "Ubicacion", "Estado", "Disposicion"];
   const camposNumero = ["Precio", "Piso", "Dormitorios", "Baños", "Garages", "Año de Construccion", "M² edificados", "M² del terreno"];
 
   return (
@@ -165,8 +170,12 @@ export default function FormPropsTextFields() {
             <InputLabel htmlFor="standard-adornment-amount">Gastos Comunes</InputLabel>
             <Input
               id="standard-adornment-amount"
-              startAdornment={<InputAdornment position="start">$</InputAdornment>}
-              onChange={(e) => handleInputChange(e, "Gastos Comunes")}
+              startAdornment={
+                <InputAdornment position="start">
+                  {formData.tipoPrecio === '$' ? '$' : 'u$'} {/* Cambia el símbolo de acuerdo a la selección */}
+                </InputAdornment>
+              }
+              onChange={(e) => handleInputChange(e, 'GastosComunes')}
             />
           </FormControl>
           <TextField
