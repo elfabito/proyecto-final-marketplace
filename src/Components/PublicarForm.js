@@ -10,87 +10,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import SelectList from './Elemetos_De_Formulario/SelectListFormulario';
 import Button from '@mui/material/Button';
 import TextFieldImagenes from './Elemetos_De_Formulario/TextFieldImagenes';
-
-const tipoDePubicacion = [
-  {
-    value: 'Aquiler',
-    label: 'Aquiler',
-  },
-  {
-    value: 'Venta',
-    label: 'Venta',
-  },
-  {
-    value: 'VentaTemporal',
-    label: 'Venta Temporal',
-  },
-];
-
-const tipoDePropiedad = [
-  {
-    value: 'Casa',
-    label: 'casa',
-  },
-  {
-    value: 'Apartamento',
-    label: 'Apartamento',
-  },
-  {
-    value: 'Terreno',
-    label: 'Terreno',
-  },
-  {
-    value: 'Local Comercial',
-    label: 'Local Comercial',
-  },
-  {
-    value: 'Oficina',
-    label: 'Oficina',
-  },
-  {
-    value: 'Chacra o Campo',
-    label: 'Chacra o Campo',
-  },
-  {
-    value: 'Garage o Chochera',
-    label: 'Garage o Chochera',
-  },
-  {
-    value: 'Negocio Especial',
-    label: 'Negocio Especial',
-  },
-  {
-    value: 'Edificio',
-    label: 'Edificio',
-  },
-  {
-    value: 'Hotel',
-    label: 'Hotel',
-  },
-  {
-    value: 'Local Industrial o Garpon',
-    label: 'Local Industrial o Garpon',
-  },
-  {
-    value: 'Otro',
-    label: 'Otro',
-  },
-];
-const tipoPrecio = [{
-  value: '$',
-  label: 'Pesos Uruguayo',
-},
-{
-  value: 'u$',
-  label: 'USD',
-},];
-const aceptaMascotasOptions = [{
-  value: 'si',
-  label: 'Si',
-},{
-  value: 'no',
-  label: 'No',
-},];
+import dataCampos from '../Components/Elemetos_De_Formulario/dataCamposgit';
 
 export default function FormPropsTextFields() {
   const [formData, setFormData] = useState({
@@ -120,7 +40,6 @@ export default function FormPropsTextFields() {
   };
 
   const handleSave = () => {
-    // Combina formData y textFieldImagenesData y realiza la acción de guardado
     const combinedData = { ...formData, textFieldImagenesData };
     console.log(combinedData);
   };
@@ -146,19 +65,19 @@ export default function FormPropsTextFields() {
           <div className="Select">
             <SelectList
               className="selectList"
-              tipo={tipoDePubicacion}
+              tipo={dataCampos.tipoDePublicacion} // Usa los datos importados
               titulo={"Tipo De Publicacion"}
               onChange={(value) => handleSelectChange(value, "tipoPublicacion")}
             />
             <SelectList
               className="selectList"
-              tipo={tipoDePropiedad}
+              tipo={dataCampos.tipoDePropiedad} // Usa los datos importados
               titulo={"Tipo De Propiedad"}
               onChange={(value) => handleSelectChange(value, "tipoPropiedad")}
             />
             <SelectList
               className="selectList"
-              tipo={tipoPrecio}
+              tipo={dataCampos.tipoPrecio} // Usa los datos importados
               titulo={"Tipo De Precio"}
               onChange={(value) => handleSelectChange(value, "tipoPrecio")}
             />
@@ -196,11 +115,12 @@ export default function FormPropsTextFields() {
                   onChange={(e) => handleInputChange(e, item)}
                 />
               </FormControl>
-            ))}
+            ))
+          }
           </div>
           <SelectList
             className="selectList"
-            tipo={aceptaMascotasOptions}
+            tipo={dataCampos.aceptaMascotasOptions} // Usa los datos importados
             titulo={"Acepta Mascotas"}
             onChange={(value) => handleSelectChange(value, "aceptaMascotas")}
           />
