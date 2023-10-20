@@ -14,22 +14,31 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const lista = [
   {
-    label: 'San Francisco – Oakland Bay Bridge, United States',
+    departamento: 'Maldonado',
+    precio:'2000',
+    descripcion:'Es una linda propiedad ubicadad en la concha bien peluda de tu vieja ',
+    link:'https://caca',
     imgPath:
       'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
   },
   {
-    label: 'Bird',
+    departamento: 'San Carlos',
+    precio:'2000',
+    descripcion:'Esta propiedad tiene una hermosa vista a la muerte, donde podemos observar la villa, llena de negros. Ademas sueles ver apuñalamientos en vivo, ya que hay muchos motochorros locos por la dorga ',
     imgPath:
       'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
   },
   {
-    label: 'Bali, Indonesia',
+    departamento: 'Montevideo',
+    precio:'2000',
+    descripcion:'blablalawdawdadwwaddadwadawdawdawdawdwaddawdadwwad',
     imgPath:
       'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
   },
   {
-    label: 'Goč, Serbia',
+    departamento: 'Florida',
+    descripcion:'blablalawdawdawdawddwaadwwadawdadwdwadwadawd',
+    precio:'2000',
     imgPath:
       'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
   },
@@ -56,20 +65,8 @@ function Carrousel() {
   };
 
   return (
-    <Box sx={{ maxWidth: 800, flexGrow: 1 }}>
-      <Paper
-        square
-        elevation={0}
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          height: 50,
-          pl: 2,
-          bgcolor: 'background.default',
-        }}
-      >
-        <Typography>{arrayProp[activeStep].label}</Typography>
-      </Paper>
+    <Box sx={{ maxWidth: 800, flexGrow: 1, position: 'relative' }}>
+      
       <AutoPlaySwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
@@ -79,18 +76,43 @@ function Carrousel() {
         {arrayProp.map((step, index) => (
           <div key={step.label}>
             {Math.abs(activeStep - index) <= 2 ? (
-              <Box
-                component="img"
-                sx={{
-                  height: 600,
-                  display: 'block',
-                  maxWidth: 800,
-                  overflow: 'hidden',
-                  width: "auto",
-                }}
-                src={step.imgPath}
-                alt={step.label}
-              />
+              <div style={{ position: 'relative' }}>
+                <Box
+                  component="img"
+                  sx={{
+                    height: 600,
+                    display: 'block',
+                    maxWidth: 800,
+                    overflow: 'hidden',
+                    width: 'auto',
+                    position: 'relative',
+                    zIndex: 0,
+                  }}
+                  src={step.imgPath}
+                  alt={step.label}
+                />
+                <div style={{ position: 'absolute' ,display:'flex',justifyContent: 'flex-end', flexDirection:'column', alignItems:'flex-start',top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0, 0, 0, 0.5)', color: '#fff', padding: '10px', zIndex: 1 }}>
+                  <p style={{ fontSize: '50px', marginBottom:'0px'  }}>Dep: {step.departamento}</p>
+                  <p style={{ fontSize: '50px', marginTop:'0px', marginBottom:'0px' }}>Precio: {step.precio}</p>
+                  <p style={{ fontSize: '18px', whiteSpace: 'normal', width: '600px' }}>Descripción: {step.descripcion}</p>
+                  <a
+                    href={step.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      fontSize: '18px',
+                      position: 'absolute',
+                      right: '10px',
+                      bottom: '10px',
+                      color: 'white',
+                      textDecoration: 'none',
+                      
+                    }}
+                  >
+                    Más información
+                  </a>
+                </div>
+              </div>
             ) : null}
           </div>
         ))}
