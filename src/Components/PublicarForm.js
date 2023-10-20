@@ -10,7 +10,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import SelectList from './Elemetos_De_Formulario/SelectListFormulario';
 import Button from '@mui/material/Button';
 import TextFieldImagenes from './Elemetos_De_Formulario/TextFieldImagenes';
-import dataCampos from '../Components/Elemetos_De_Formulario/dataCamposgit';
+import dataCampos from '../Components/Elemetos_De_Formulario/dataCampos';
 
 export default function FormPropsTextFields() {
   const [formData, setFormData] = useState({
