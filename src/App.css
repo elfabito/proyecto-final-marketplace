@@ -23,8 +23,8 @@ a {
 
 .SearchBackground {
   background-image: url("https://source.unsplash.com/random");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat: round;
+  background-size: 100%;
   image-rendering: optimizeQuality;
   width: auto;
   height: auto;
