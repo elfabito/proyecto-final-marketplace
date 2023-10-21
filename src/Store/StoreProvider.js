@@ -1,5 +1,6 @@
 import { createContext, useReducer } from "react"
 import storeReducer, { initialStore } from "./StoreReducer"
+import React from "react"
 
 const storeContext = createContext()
 const intialData = initialStore()
@@ -12,5 +13,6 @@ const StoreProvider = ({children}) => {
     </storeContext.Provider>
     )
 }
+
 export { storeContext }
 export default StoreProvider
