@@ -47,7 +47,7 @@ const lista = [
 
 
 function Carrousel() {
-  const arrayProp = lista;
+  const arrayProp = props.nuevoArray;
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = arrayProp.length;
@@ -92,9 +92,9 @@ function Carrousel() {
                   alt={step.label}
                 />
                 <div style={{ position: 'absolute' ,display:'flex',justifyContent: 'flex-end', flexDirection:'column', alignItems:'flex-start',top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0, 0, 0, 0.5)', color: '#fff', padding: '10px', zIndex: 1 }}>
-                  <p style={{ fontSize: '50px', marginBottom:'0px'  }}>Dep: {step.departamento}</p>
-                  <p style={{ fontSize: '50px', marginTop:'0px', marginBottom:'0px' }}>Precio: {step.precio}</p>
-                  <p style={{ fontSize: '18px', whiteSpace: 'normal', width: '600px' }}>Descripción: {step.descripcion}</p>
+                  <p style={{ fontSize: '50px', marginBottom:'0px'  }}>Descripción: {step[0]}</p>
+                  <p style={{ fontSize: '50px', marginTop:'0px' }}>Precio: {step[1]}</p>
+                  <p style={{ fontSize: '18px', width:'600px' }}>Dep: {step[2]}</p>
                   <a
                     href={step.link}
                     target="_blank"
