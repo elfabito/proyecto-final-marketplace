@@ -11,7 +11,8 @@ import SelectList from './Elemetos_De_Formulario/SelectListFormulario';
 import Button from '@mui/material/Button';
 import TextFieldImagenes from './Elemetos_De_Formulario/TextFieldImagenes';
 import dataCampos from '../Components/Elemetos_De_Formulario/dataCampos';
-
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 export default function FormPropsTextFields() {
   const [formData, setFormData] = useState({
     id: 1,
@@ -64,7 +65,7 @@ export default function FormPropsTextFields() {
   const handleSave = () => {
     const combinedData = { ...formData, imgsrc: textFieldImagenesData.map(item => item.value) };
     console.log(combinedData);
-    openSnackbar('Datos guardados'); // Muestra el mensaje "Datos guardados"
+    openSnackbar('Datos guardados'); 
   };
 
   return (
@@ -135,10 +136,15 @@ export default function FormPropsTextFields() {
           />
         </div>
       </Box>
+      <div>
+      <Typography mb="1rem" variant="h6" fontFamily="Lato">
+        Imagenes
+      </Typography>
       <TextFieldImagenes
         textFieldImagenesData={textFieldImagenesData}
         setTextFieldImagenesData={setTextFieldImagenesData}
       />
+        </div>
       <div className='bobyboton'>
         <TextField
           id="standard-multiline"
