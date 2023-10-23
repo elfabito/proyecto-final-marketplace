@@ -6,13 +6,20 @@ import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function TextFieldImagenes({ textFieldImagenesData, setTextFieldImagenesData }) {
+  const [imgsrc, setImgsrc] = useState([]);
+
   const addTextField = () => {
     setTextFieldImagenesData([...textFieldImagenesData, { id: Date.now(), value: '' }]);
+    setImgsrc([...imgsrc, '']); 
   };
 
   const removeTextField = (id) => {
     const updatedTextFields = textFieldImagenesData.filter((field) => field.id !== id);
     setTextFieldImagenesData(updatedTextFields);
+
+    const updatedImgsrc = [...imgsrc];
+    updatedImgsrc.splice(id, 1); 
+    setImgsrc(updatedImgsrc);
   };
 
   const handleTextFieldChange = (id, value) => {
@@ -23,6 +30,10 @@ export default function TextFieldImagenes({ textFieldImagenesData, setTextFieldI
       return field;
     });
     setTextFieldImagenesData(updatedTextFields);
+
+    const updatedImgsrc = [...imgsrc];
+    updatedImgsrc[id] = value;
+    setImgsrc(updatedImgsrc);
   };
 
   return (
@@ -33,7 +44,7 @@ export default function TextFieldImagenes({ textFieldImagenesData, setTextFieldI
             id={`outlined-basic-${field.id}`}
             label="Imagenes"
             variant="standard"
-            placeholder="Url"
+            placeholder="URL"
             value={field.value}
             onChange={(e) => handleTextFieldChange(field.id, e.target.value)}
           />

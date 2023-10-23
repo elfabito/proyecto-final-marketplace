@@ -14,15 +14,32 @@ import dataCampos from '../Components/Elemetos_De_Formulario/dataCampos';
 
 export default function FormPropsTextFields() {
   const [formData, setFormData] = useState({
-    tipoPublicacion: '',
-    tipoPropiedad: '',
-    tipoPrecio: '',
-    GastosComunes: '',
-    Precio: '',
-    aceptaMascotas: '',
+    id: 1,
+    title: "",
+    tipoMoneda: "",
+    precio: "",
+    disposicion: "",
+    tipoVenta: "",
+    ubicacion: [""],
+    comodidades: [""],
+    descripcion: "",
+    aceptaMascotasOptions: "",
+    zona: "",
+    garaje: "",
+    m2Edificados: "",
+    m2Terreno: "",
+    tipoDePropiedad: "",
+    banos: "",
+    dormitorio: "",
+    anioConstruccion: "",
+    estado: "",
+    imgsrc: [""],
   });
 
   const [textFieldImagenesData, setTextFieldImagenesData] = useState([]);
+
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
 
   const handleInputChange = (e, fieldName) => {
     const value = e.target.value;
@@ -39,10 +56,17 @@ export default function FormPropsTextFields() {
     });
   };
 
-  const handleSave = () => {
-    const combinedData = { ...formData, textFieldImagenesData };
-    console.log(combinedData);
+  const openSnackbar = (message) => {
+    setSnackbarMessage(message);
+    setSnackbarOpen(true);
   };
+
+  const handleSave = () => {
+    const combinedData = { ...formData, imgsrc: textFieldImagenesData.map(item => item.value) };
+    console.log(combinedData);
+    openSnackbar('Datos guardados'); // Muestra el mensaje "Datos guardados"
+  };
+
   return (
     <div className="publicarFormContainer">
       <Typography mb="1rem" variant="h4" fontFamily="Lato">
@@ -59,24 +83,22 @@ export default function FormPropsTextFields() {
         <div>
           <div className="Select">
             <SelectList
-              //tipoDePublicacion
               className="selectList"
               tipo={dataCampos.tipoDePublicacion}
               titulo={"Tipo De Publicacion"}
-              onChange={(value) => handleSelectChange(value, "tipoPublicacion")}
+              onChange={(value) => handleSelectChange(value, "tipoVenta")}
             />
             <SelectList
-              //tipoDePropiedad
               className="selectList"
               tipo={dataCampos.tipoDePropiedad}
               titulo={"Tipo De Propiedad"}
-              onChange={(value) => handleSelectChange(value, "tipoPropiedad")}
+              onChange={(value) => handleSelectChange(value, "tipoDePropiedad")}
             />
             <SelectList
               className="selectList"
               tipo={dataCampos.tipoPrecio}
               titulo={"Tipo De Precio"}
-              onChange={(value) => handleSelectChange(value, "tipoPrecio")}
+              onChange={(value) => handleSelectChange(value, "tipoMoneda")}
             />
           </div>
           {dataCampos.datosNecesario.map((item, index) => (
@@ -95,23 +117,21 @@ export default function FormPropsTextFields() {
                 <InputLabel htmlFor={`standard-adornment-amount-${index}`}>{item.label}</InputLabel>
                 <Input
                   id={`standard-adornment-amount-${index}`}
-                  type='number'
                   startAdornment={
                     <InputAdornment position="start">
-                      {formData.tipoPrecio === '$' ? '$' : 'u$'}
+                      {formData.tipoMoneda === '$' ? '$' : 'u$'}
                     </InputAdornment>
                   }
-                  onChange={(e) => handleInputChange(e, item.value)} 
+                  onChange={(e) => handleInputChange(e, item.value)}
                 />
               </FormControl>
             ))}
-
           </div>
           <SelectList
             className="selectList"
             tipo={dataCampos.aceptaMascotasOptions}
             titulo={"Acepta Mascotas"}
-            onChange={(value) => handleSelectChange(value, "aceptaMascotas")}
+            onChange={(value) => handleSelectChange(value, "aceptaMascotasOptions")}
           />
         </div>
       </Box>
@@ -127,12 +147,25 @@ export default function FormPropsTextFields() {
           rows={6}
           variant="standard"
           sx={{ width: "60%" }}
-          onChange={(e) => handleInputChange(e, "Descripcion")}
+          onChange={(e) => handleInputChange(e, "descripcion")}
         />
         <Button variant="contained" className='boton' onClick={handleSave} color="success">
           Guardar
         </Button>
       </div>
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={3000}
+        onClose={() => setSnackbarOpen(false)}
+      >
+        <MuiAlert
+          elevation={6}
+          variant="filled"
+          severity="success"
+        >
+          {snackbarMessage}
+        </MuiAlert>
+      </Snackbar>
     </div>
   );
 }
