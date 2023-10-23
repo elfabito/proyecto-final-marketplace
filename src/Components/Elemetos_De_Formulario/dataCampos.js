@@ -72,14 +72,18 @@ const dataCampos = {
       value: 'u$',
       label: 'Dólares estadounidenses',
     },
+    {
+      value: 'ARS$',
+      label: 'Dólares Argentinos',
+    },
   ],
   aceptaOptions: [
     {
-      value: 'si',
+      value: true,
       label: 'Sí',
     },
     {
-      value: 'no',
+      value: false,
       label: 'No',
     },
 
