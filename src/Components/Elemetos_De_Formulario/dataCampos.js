@@ -73,7 +73,7 @@ const dataCampos = {
       label: 'Dólares estadounidenses',
     },
   ],
-  aceptaMascotasOptions: [
+  aceptaOptions: [
     {
       value: 'si',
       label: 'Sí',
@@ -84,22 +84,12 @@ const dataCampos = {
     },
 
   ],
-  garageOptions: [
-    {
-      value: 'si',
-      label: 'Sí',
-    },
-    {
-      value: 'no',
-      label: 'No',
-    },
-  ],
+
   datosNecesario:
     [
       { label: 'Nombre', type: 'text', value: "title" },
       { label: 'Zona', type: 'text', value: "zona" },
       { label: 'Ubicacion', type: 'text', value: "ubicacion" },
-      { label: 'Estado', type: 'text', value: "estado" },
       { label: 'Disposicion', type: 'text', value: "disposicion" },
       { label: 'Piso', type: 'number', value: "piso" },
       { label: 'Dormitorios', type: 'number', value: "dormitorio" },
@@ -115,5 +105,39 @@ const dataCampos = {
       label: "Gastos Comunes",value: "gastosComunes"
     }
   ],
+ comodidadesOptions : [
+    { label: 'Piscina', value: 'piscina' },
+    { label: 'Garaje', value: 'garaje' },
+    { label: 'Jardín', value: 'jardin' },
+    { label: 'Terraza', value: 'terraza' },
+    { label: 'Calefacción', value: 'calefaccion' },
+    { label: 'Aire acondicionado', value: 'aire-acondicionado' },
+    { label: 'Gimnasio', value: 'gimnasio' },
+    { label: 'Vistas al mar', value: 'vistas-al-mar' },
+    { label: 'Armarios empotrados', value: 'armarios-empotrados' },
+    { label: 'Cocina equipada', value: 'cocina-equipada' },
+    { label: 'Chimenea', value: 'chimenea' },
+    { label: 'Ascensor', value: 'ascensor' },
+    { label: 'Lavandería', value: 'lavanderia' },
+    { label: 'Alarma de seguridad', value: 'alarma-de-seguridad' },
+    { label: 'Sistema de videovigilancia', value: 'sistema-de-videovigilancia' },
+    { label: 'Acceso para discapacitados', value: 'acceso-para-discapacitados' },
+    { label: 'Trastero', value: 'trastero' },
+    { label: 'Suelos de madera', value: 'suelos-de-madera' },
+    { label: 'Sistema de riego automático', value: 'sistema-de-riego-automatico' },
+    { label: 'Zona de barbacoa', value: 'zona-de-barbacoa' },
+  ],
+ estadosPropiedad : [
+  { label: 'Nuevo', value: 'nuevo' },
+  { label: 'Usado', value: 'usado' },
+  { label: 'En construcción', value: 'enConstruccion' },
+  { label: 'Remodelado', value: 'remodelado' },
+  { label: 'A estrenar', value: 'aEstrenar' },
+  { label: 'En buen estado', value: 'enBuenEstado' },
+  { label: 'Para remodelar', value: 'paraRemodelar' },
+  { label: 'Para demoler', value: 'paraDemoler' },
+  { label: 'Otro', value: 'otro' },
+  ],
+  
 }
 export default dataCampos;

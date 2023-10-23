@@ -13,6 +13,8 @@ import TextFieldImagenes from './Elemetos_De_Formulario/TextFieldImagenes';
 import dataCampos from '../Components/Elemetos_De_Formulario/dataCampos';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import ChipComodides from "./Elemetos_De_Formulario/ChipComodides"
+
 export default function FormPropsTextFields() {
   const [formData, setFormData] = useState({
     id: 1,
@@ -22,7 +24,7 @@ export default function FormPropsTextFields() {
     disposicion: "",
     tipoVenta: "",
     ubicacion: [""],
-    comodidades: [""],
+    comodidades: [],
     descripcion: "",
     aceptaMascotasOptions: "",
     zona: "",
@@ -65,7 +67,7 @@ export default function FormPropsTextFields() {
   const handleSave = () => {
     const combinedData = { ...formData, imgsrc: textFieldImagenesData.map(item => item.value) };
     console.log(combinedData);
-    openSnackbar('Datos guardados'); 
+    openSnackbar('Datos guardados');
   };
 
   return (
@@ -83,6 +85,7 @@ export default function FormPropsTextFields() {
       >
         <div>
           <div className="Select">
+
             <SelectList
               className="selectList"
               tipo={dataCampos.tipoDePublicacion}
@@ -101,6 +104,13 @@ export default function FormPropsTextFields() {
               titulo={"Tipo De Precio"}
               onChange={(value) => handleSelectChange(value, "tipoMoneda")}
             />
+            <SelectList
+              className="selectList"
+              tipo={dataCampos.estadosPropiedad}
+              titulo={"Estados de Propiedad"}
+              onChange={(value) => handleSelectChange(value, "estado")}
+            />
+
           </div>
           {dataCampos.datosNecesario.map((item, index) => (
             <TextField
@@ -130,48 +140,58 @@ export default function FormPropsTextFields() {
           </div>
           <SelectList
             className="selectList"
-            tipo={dataCampos.aceptaMascotasOptions}
-            titulo={"Acepta Mascotas"} 
+            tipo={dataCampos.aceptaOptions}
+            titulo={"Acepta Mascotas"}
             onChange={(value) => handleSelectChange(value, "aceptaMascotasOptions")}
+          /><SelectList
+          className="selectList"
+          tipo={dataCampos.aceptaOptions}
+          titulo={"Garage"}
+          onChange={(value) => handleSelectChange(value, "garage")}
+        />
+        </div>
+
+        <div>
+          <Typography mb="1rem" variant="h6" fontFamily="Lato">
+            Comodidades
+          </Typography>
+          <div><ChipComodides informacion={dataCampos.comodidadesOptions} formData={formData} /></div>
+          <Typography mb="1rem" variant="h6" fontFamily="Lato">
+            Imagenes
+          </Typography>
+          <TextFieldImagenes
+            textFieldImagenesData={textFieldImagenesData}
+            setTextFieldImagenesData={setTextFieldImagenesData}
           />
         </div>
-      </Box>
-      <div>
-      <Typography mb="1rem" variant="h6" fontFamily="Lato">
-        Imagenes
-      </Typography>
-      <TextFieldImagenes
-        textFieldImagenesData={textFieldImagenesData}
-        setTextFieldImagenesData={setTextFieldImagenesData}
-      />
+        <div className='bobyboton'>
+          <TextField
+            id="standard-multiline"
+            label="Descripcion"
+            multiline
+            rows={6}
+            variant="standard"
+            sx={{ width: "60%" }}
+            onChange={(e) => handleInputChange(e, "descripcion")}
+          />
+          <Button variant="contained" className='boton' onClick={handleSave} color="success">
+            Guardar
+          </Button>
         </div>
-      <div className='bobyboton'>
-        <TextField
-          id="standard-multiline"
-          label="Descripcion"
-          multiline
-          rows={6}
-          variant="standard"
-          sx={{ width: "60%" }}
-          onChange={(e) => handleInputChange(e, "descripcion")}
-        />
-        <Button variant="contained" className='boton' onClick={handleSave} color="success">
-          Guardar
-        </Button>
-      </div>
-      <Snackbar
-        open={snackbarOpen}
-        autoHideDuration={3000}
-        onClose={() => setSnackbarOpen(false)}
-      >
-        <MuiAlert
-          elevation={6}
-          variant="filled"
-          severity="success"
+        <Snackbar
+          open={snackbarOpen}
+          autoHideDuration={3000}
+          onClose={() => setSnackbarOpen(false)}
         >
-          {snackbarMessage}
-        </MuiAlert>
-      </Snackbar>
+          <MuiAlert
+            elevation={6}
+            variant="filled"
+            severity="success"
+          >
+            {snackbarMessage}
+          </MuiAlert>
+        </Snackbar>
+      </Box>
     </div>
   );
 }
