@@ -43,11 +43,6 @@ export default function FormPropsTextFields() {
     const combinedData = { ...formData, textFieldImagenesData };
     console.log(combinedData);
   };
-
-  const camposTexto = ["Nombre", "Zona", "Ubicacion", "Estado", "Disposicion"];
-  const camposNumero = ["Piso", "Dormitorios", "Baños", "Garages", "Año de Construccion", "M² edificados", "M² del terreno"];
-  const camposMonetarios = ["Precio", "Gastos Comunes"];
-
   return (
     <div className="publicarFormContainer">
       <Typography mb="1rem" variant="h4" fontFamily="Lato">
@@ -64,63 +59,57 @@ export default function FormPropsTextFields() {
         <div>
           <div className="Select">
             <SelectList
+              //tipoDePublicacion
               className="selectList"
-              tipo={dataCampos.tipoDePublicacion} // Usa los datos importados
+              tipo={dataCampos.tipoDePublicacion}
               titulo={"Tipo De Publicacion"}
               onChange={(value) => handleSelectChange(value, "tipoPublicacion")}
             />
             <SelectList
+              //tipoDePropiedad
               className="selectList"
-              tipo={dataCampos.tipoDePropiedad} // Usa los datos importados
+              tipo={dataCampos.tipoDePropiedad}
               titulo={"Tipo De Propiedad"}
               onChange={(value) => handleSelectChange(value, "tipoPropiedad")}
             />
             <SelectList
               className="selectList"
-              tipo={dataCampos.tipoPrecio} // Usa los datos importados
+              tipo={dataCampos.tipoPrecio}
               titulo={"Tipo De Precio"}
               onChange={(value) => handleSelectChange(value, "tipoPrecio")}
             />
           </div>
-          {camposTexto.map((item, index) => (
+          {dataCampos.datosNecesario.map((item, index) => (
             <TextField
-              id={item}
+              id={item.value}
               key={index}
-              label={item}
+              type={item.type}
+              label={item.label}
               variant="standard"
-              onChange={(e) => handleInputChange(e, item)}
-            />
-          ))}
-          {camposNumero.map((item, index) => (
-            <TextField
-              id={item}
-              key={index}
-              label={item}
-              type="number"
-              variant="standard"
-              onChange={(e) => handleInputChange(e, item)}
+              onChange={(e) => handleInputChange(e, item.value)}
             />
           ))}
           <div>
-            {camposMonetarios.map((item, index) => (
+            {dataCampos.camposMonetarios.map((item, index) => (
               <FormControl sx={{ m: 1, width: '20ch' }} variant="standard" key={index}>
-                <InputLabel htmlFor={`standard-adornment-amount-${index}`}>{item}</InputLabel>
+                <InputLabel htmlFor={`standard-adornment-amount-${index}`}>{item.label}</InputLabel>
                 <Input
                   id={`standard-adornment-amount-${index}`}
+                  type='number'
                   startAdornment={
                     <InputAdornment position="start">
                       {formData.tipoPrecio === '$' ? '$' : 'u$'}
                     </InputAdornment>
                   }
-                  onChange={(e) => handleInputChange(e, item)}
+                  onChange={(e) => handleInputChange(e, item.value)} 
                 />
               </FormControl>
-            ))
-          }
+            ))}
+
           </div>
           <SelectList
             className="selectList"
-            tipo={dataCampos.aceptaMascotasOptions} // Usa los datos importados
+            tipo={dataCampos.aceptaMascotasOptions}
             titulo={"Acepta Mascotas"}
             onChange={(value) => handleSelectChange(value, "aceptaMascotas")}
           />
