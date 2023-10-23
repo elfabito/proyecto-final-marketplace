@@ -130,7 +130,7 @@ export default function FormPropsTextFields() {
           <SelectList
             className="selectList"
             tipo={dataCampos.aceptaMascotasOptions}
-            titulo={"Acepta Mascotas"}
+            titulo={"Acepta Mascotas"} 
             onChange={(value) => handleSelectChange(value, "aceptaMascotasOptions")}
           />
         </div>
