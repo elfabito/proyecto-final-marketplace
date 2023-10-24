@@ -26,7 +26,9 @@ const lista = [
 ];
 
 function App() {
+
   return (
+
     <Router>
     <div className="App">
       <Navbar />
