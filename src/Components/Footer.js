@@ -25,9 +25,9 @@ export default function StickyFooter() {
           <Item id="footer">Alquiler Temporal</Item>
         </Grid>
         <Grid item xs>
-        <Item id="footer"><YouTubeIcon/></Item>
-        <Item id="footer"><FacebookIcon/></Item>
-        <Item id="footer"><TwitterIcon/></Item>
+        <Item id="footer"><YouTubeIcon/><a href="#">YouTube</a></Item>
+        <Item id="footer"><FacebookIcon/><a href="#">Facebook</a></Item>
+        <Item id="footer"><TwitterIcon/><a href="#">Twitter</a></Item>
         </Grid>
       </Grid>
     </Box>
