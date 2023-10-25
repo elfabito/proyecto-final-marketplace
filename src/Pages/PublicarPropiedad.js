@@ -1,8 +1,9 @@
 import React from 'react'
+import PublicarForm from '../Components/PublicarForm'
 
 const PublicarPropiedad = () => {
   return (
-    <div>PublicarPropiedad</div>
+    <PublicarForm />
   )
 }
 
