@@ -48,6 +48,7 @@ const lista = [
 
 function Carrousel() {
   const arrayProp = props.nuevoArray;
+  const arrayProp = props.nuevoArray;
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = arrayProp.length;
