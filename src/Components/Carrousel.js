@@ -12,7 +12,7 @@ import { autoPlay } from 'react-swipeable-views-utils';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-const lista = [
+/*const lista = [
   {
     departamento: 'Maldonado',
     precio:'2000',
@@ -25,39 +25,57 @@ const lista = [
       descripcion: 'Breve descripción del producto 1',
       link: 'https://ejemplo.com/producto1',
     },
+      cantidad: 5,
+      precio: '$10.99',
+      descripcion: 'Breve descripción del producto 1',
+      link: 'https://ejemplo.com/producto1',
+    }
   {
     departamento: 'San Carlos',
     precio:'2000',
     descripcion:'Esta propiedad tiene una hermosa vista a la muerte, donde podemos observar la villa, llena de negros. Ademas sueles ver apuñalamientos en vivo, ya que hay muchos motochorros locos por la dorga ',
-   
     imgPath:
       'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
       cantidad: 5,
       precio: '$10.99',
       descripcion: 'Breve descripción del producto 1',
       link: 'https://ejemplo.com/producto1',
-    },
+    }
+      cantidad: 5,
+      precio: '$10.99',
+      descripcion: 'Breve descripción del producto 1',
+      link: 'https://ejemplo.com/producto1',
+    }
   {
     departamento: 'Montevideo',
     precio:'2000',
     descripcion:'blablalawdawdadwwaddadwadawdawdawdawdwaddawdadwwad',
-    
+  }
     imgPath:
       'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
       cantidad: 5,
       precio: '$10.99',
       descripcion: 'Breve descripción del producto 1',
       link: 'https://ejemplo.com/producto1',
-    },
+    }
+      cantidad: 5,
+      precio: '$10.99',
+      descripcion: 'Breve descripción del producto 1',
+      link: 'https://ejemplo.com/producto1',
+    }
   {
     departamento: 'Florida',
     descripcion:'blablalawdawdawdawddwaadwwadawdadwdwadwadawd',
     precio:'2000',
     imgPath:
       'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
-  },
+      cantidad: 5,
+      precio: '$10.99',
+      descripcion: 'Breve descripción del producto 1',
+      link: 'https://ejemplo.com/producto1',
+    },
 ];
-
+*/
 const [store ,dispatch] = React.useContext(storeContext)
 
 function Carrousel() {
