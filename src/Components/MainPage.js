@@ -5,6 +5,7 @@ import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import TextField from "@mui/material/TextField";
 import CustomSelectCheckmarks from "./CustomSelectCheckmarks";
 import Carrousel from "./Carrousel";
+import Footer from "./Footer";
 import Button from "@mui/material/Button";
 import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa6";
 import "./MainPage.css";
@@ -56,40 +57,9 @@ function MainPage() {
       <div className="carrousel-container">
         <Carrousel />
       </div>
-      <footer>
-        <div id="footer">
-          <div className="about">
-            <h4>
-              <a href="#">Sobre Nosotros</a>
-            </h4>
-            <h4>
-              <a href="#">Terminos y Condiciones</a>
-            </h4>
-          </div>
-          <div className="tipos">
-            <h4>
-              <a href="#">Alquiler</a>
-            </h4>
-            <h4>
-              <a href="#">Alquiler Temporal</a>
-            </h4>
-            <h4>
-              <a href="#">Ventas</a>
-            </h4>
-          </div>
-          <div className="socials">
-            <h4>
-              <FaYoutube /> <a href="#">Youtube</a>
-            </h4>
-            <h4>
-              <FaFacebook /> <a href="#">Facebook</a>
-            </h4>
-            <h4>
-              <FaTwitter /> <a href="#">Twitter</a>
-            </h4>
-          </div>
-        </div>
-      </footer>
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 }
