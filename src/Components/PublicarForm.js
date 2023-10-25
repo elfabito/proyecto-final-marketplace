@@ -14,6 +14,7 @@ import dataCampos from '../Components/Elemetos_De_Formulario/dataCampos';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import ChipComodides from "./Elemetos_De_Formulario/ChipComodides"
+import {storeContext} from "../Store/StoreProvider"
 
 export default function FormPropsTextFields() {
   const [formData, setFormData] = useState({
@@ -38,6 +39,7 @@ export default function FormPropsTextFields() {
     estado: "",
     imgsrc: [""],
   });
+  const [store ,dispatch] = React.useContext(storeContext)
 
   const [textFieldImagenesData, setTextFieldImagenesData] = useState([]);
 
@@ -94,7 +96,7 @@ export default function FormPropsTextFields() {
             />
             <SelectList
               className="selectList"
-              tipo={dataCampos.tipoDePropiedad}
+              tipo={store?.tipoPropiedad}
               titulo={"Tipo De Propiedad"}
               onChange={(value) => handleSelectChange(value, "tipoDePropiedad")}
             />
