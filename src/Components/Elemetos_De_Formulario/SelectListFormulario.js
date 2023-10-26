@@ -39,7 +39,7 @@ export default function SelectTextFields(props) {
           onChange={handleSelectChange}
         >
           {props.tipo.map((option) => (
-            <MenuItem key={option} value={typeof option === 'string' ? option.replace(/\s+/g, '').toLowerCase() : option}>
+            <MenuItem key={option} value={option}>
               {option}
             </MenuItem>
           ))}

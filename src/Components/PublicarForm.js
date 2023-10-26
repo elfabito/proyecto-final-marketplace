@@ -85,36 +85,47 @@ export default function FormPropsTextFields() {
         noValidate
         autoComplete="off"
       >
+        {/* map  */}
         <div>
           <div className="Select">
-
+           {/* Select List de tipo de publicacion */}
             <SelectList
               className="selectList"
-              tipo={dataCampos.tipoDePublicacion}
+              tipo={store?.publicacion}
               titulo={"Tipo De Publicacion"}
               onChange={(value) => handleSelectChange(value, "tipoVenta")}
             />
+             {/* Select List de tipo de propiedad */}
             <SelectList
               className="selectList"
               tipo={store?.tipoPropiedad}
               titulo={"Tipo De Propiedad"}
               onChange={(value) => handleSelectChange(value, "tipoDePropiedad")}
             />
+            {/* Select List de tipo de moneda */}
             <SelectList
               className="selectList"
-              tipo={dataCampos.tipoPrecio}
+              tipo={store?.moneda}
               titulo={"Tipo De Precio"}
               onChange={(value) => handleSelectChange(value, "tipoMoneda")}
             />
+            {/* Select List de tipo de estado de la propiedad */}
             <SelectList
               className="selectList"
-              tipo={dataCampos.estadosPropiedad}
+              tipo={store?.estado}
               titulo={"Estados de Propiedad"}
               onChange={(value) => handleSelectChange(value, "estado")}
             />
+            <SelectList
+            className="selectList"
+            tipo={store?.baños}
+            titulo={"Cantidad De Baños"}
+            onChange={(value) => handleSelectChange(value, "estado")}
+          />
+            
 
           </div>
-          {dataCampos.datosNecesario.map((item, index) => (
+          {/* {dataCampos.datosNecesario.map((item, index) => (
             <TextField
               id={item.value}
               key={index}
@@ -123,12 +134,12 @@ export default function FormPropsTextFields() {
               variant="standard"
               onChange={(e) => handleInputChange(e, item.value)}
             />
-          ))}
+          ))} */}
           <div>
-            {dataCampos.camposMonetarios.map((item, index) => (
+            {/* {dataCampos.camposMonetarios.map((item, index) => (
               <FormControl sx={{ m: 1, width: '20ch' }} variant="standard" key={index}>
-                <InputLabel htmlFor={`standard-adornment-amount-${index}`}>{item.label}</InputLabel>
-                <Input
+                <InputLabel htmlFor={`std-adornment-amount-${index}`}>{item.label}</InputLabel>
+                <Inputandar
                   id={`standard-adornment-amount-${index}`}
                   startAdornment={
                     <InputAdornment position="start">
@@ -138,16 +149,16 @@ export default function FormPropsTextFields() {
                   onChange={(e) => handleInputChange(e, item.value)}
                 />
               </FormControl>
-            ))}
+            ))} */}
           </div>
           <SelectList
             className="selectList"
-            tipo={dataCampos.aceptaOptions}
+            tipo={store?.opcion}
             titulo={"Acepta Mascotas"}
             onChange={(value) => handleSelectChange(value, "aceptaMascotasOptions")}
           /><SelectList
           className="selectList"
-          tipo={dataCampos.aceptaOptions}
+          tipo={store?.opcion}
           titulo={"Garage"}
           onChange={(value) => handleSelectChange(value, "garage")}
         />
@@ -157,7 +168,7 @@ export default function FormPropsTextFields() {
           <Typography mb="1rem" variant="h6" fontFamily="Lato">
             Comodidades
           </Typography>
-          <div><ChipComodides informacion={dataCampos.comodidadesOptions} formData={formData} /></div>
+          {/* <div><ChipComodides informacion={store?.comodidad} formData={formData} /></div> */}
           <Typography mb="1rem" variant="h6" fontFamily="Lato">
             Imagenes
           </Typography>
