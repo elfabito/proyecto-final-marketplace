@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MobileStepper from '@mui/material/MobileStepper';
@@ -9,81 +9,32 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import { storeContext } from "../Store/StoreProvider"
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-/*const lista = [
-  {
-    departamento: 'Maldonado',
-    precio:'2000',
-    descripcion:'Es una linda propiedad ubicadad en la concha bien peluda de tu vieja ',
-    link:'https://caca',
-    imgPath:
-      'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
-      cantidad: 5,
-      precio: '$10.99',
-      descripcion: 'Breve descripción del producto 1',
-      link: 'https://ejemplo.com/producto1',
-    },
-      cantidad: 5,
-      precio: '$10.99',
-      descripcion: 'Breve descripción del producto 1',
-      link: 'https://ejemplo.com/producto1',
-    }
-  {
-    departamento: 'San Carlos',
-    precio:'2000',
-    descripcion:'Esta propiedad tiene una hermosa vista a la muerte, donde podemos observar la villa, llena de negros. Ademas sueles ver apuñalamientos en vivo, ya que hay muchos motochorros locos por la dorga ',
-    imgPath:
-      'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
-      cantidad: 5,
-      precio: '$10.99',
-      descripcion: 'Breve descripción del producto 1',
-      link: 'https://ejemplo.com/producto1',
-    }
-      cantidad: 5,
-      precio: '$10.99',
-      descripcion: 'Breve descripción del producto 1',
-      link: 'https://ejemplo.com/producto1',
-    }
-  {
-    departamento: 'Montevideo',
-    precio:'2000',
-    descripcion:'blablalawdawdadwwaddadwadawdawdawdawdwaddawdadwwad',
-  }
-    imgPath:
-      'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250',
-      cantidad: 5,
-      precio: '$10.99',
-      descripcion: 'Breve descripción del producto 1',
-      link: 'https://ejemplo.com/producto1',
-    }
-      cantidad: 5,
-      precio: '$10.99',
-      descripcion: 'Breve descripción del producto 1',
-      link: 'https://ejemplo.com/producto1',
-    }
-  {
-    departamento: 'Florida',
-    descripcion:'blablalawdawdawdawddwaadwwadawdadwdwadwadawd',
-    precio:'2000',
-    imgPath:
-      'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
-      cantidad: 5,
-      precio: '$10.99',
-      descripcion: 'Breve descripción del producto 1',
-      link: 'https://ejemplo.com/producto1',
-    },
-];
-*/
-const [store ,dispatch] = React.useContext(storeContext)
-
 function Carrousel() {
-  //const arrayProp = store.nuevoArray;
-  const arrayProp = props.nuevoArray;
+  const [store, dispatch] = React.useContext(storeContext);
+  const arrayProp = store?.propiedades;
+
+  function tomarDatosStore() {
+    const primerosCincoDatos = [];
+    
+    for (let i = 0; i < 6 && i < arrayProp.length; i++) {
+      const dato = arrayProp[i];
+      primerosCincoDatos.push(dato);
+    }
+    
+    return primerosCincoDatos;
+  }
+
+  const datosDelCarrousel = tomarDatosStore(); // Obtiene los datos del store
+
+
+  
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = arrayProp.length;
+  const maxSteps = datosDelCarrousel.length; // Usar los datos del carrousel
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -95,19 +46,18 @@ function Carrousel() {
 
   const handleStepChange = (step) => {
     setActiveStep(step);
-  };
+  }
 
   return (
     <Box sx={{ maxWidth: 800, flexGrow: 1, position: 'relative' }}>
-      
       <AutoPlaySwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
-        {arrayProp.map((step, index) => (
-          <div key={step.label}>
+        {datosDelCarrousel.map((step, index) => (
+          <div key={index}>
             {Math.abs(activeStep - index) <= 2 ? (
               <div style={{ position: 'relative' }}>
                 <Box
@@ -121,13 +71,13 @@ function Carrousel() {
                     position: 'relative',
                     zIndex: 0,
                   }}
-                  src={step.imgPath}
-                  alt={step.label}
+                  src={step.imgsrc[0]}
+                 
                 />
-                <div style={{ position: 'absolute' ,display:'flex',justifyContent: 'flex-end', flexDirection:'column', alignItems:'flex-start',top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0, 0, 0, 0.5)', color: '#fff', padding: '10px', zIndex: 1 }}>
-                  <p style={{ fontSize: '50px', marginBottom:'0px'  }}>Descripción: {step[0]}</p>
-                  <p style={{ fontSize: '50px', marginTop:'0px' }}>Precio: {step[1]}</p>
-                  <p style={{ fontSize: '18px', width:'600px' }}>Dep: {step[2]}</p>
+                <div style={{ position: 'absolute', display: 'flex', justifyContent: 'flex-end', flexDirection: 'column', alignItems: 'flex-start', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0, 0, 0, 0.5)', color: '#fff', padding: '10px', zIndex: 1 }}>
+                  <p style={{ fontSize: '50px', marginBottom: '0px' }}>Descripción: {step.descripcion}</p>
+                  <p style={{ fontSize: '50px', marginTop: '0px' }}>Precio: {step.precio}</p>
+                  <p style={{ fontSize: '18px', width: '600px' }}>Dep: {step.ubicacion}</p>
                   <a
                     href={step.link}
                     target="_blank"
@@ -139,7 +89,6 @@ function Carrousel() {
                       bottom: '10px',
                       color: 'white',
                       textDecoration: 'none',
-                      
                     }}
                   >
                     Más información

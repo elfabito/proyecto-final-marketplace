@@ -5,7 +5,7 @@ const Venta = () => {
 
   return (
     <div>Venta
-     <Carrousel nuevoArray={ListadoPropiedades} />
+     <Carrousel  />
     
     </div>
   )
