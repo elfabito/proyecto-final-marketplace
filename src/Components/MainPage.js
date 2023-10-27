@@ -8,6 +8,7 @@ import Carrousel from './Carrousel'
 import Button from '@mui/material/Button'
 import './MainPage.css'
 
+
 function MainPage() {
   const [seleccion, setSeleccion] = React.useState('venta')
 
