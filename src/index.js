@@ -32,7 +32,7 @@ export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" to="/home" element={<Layout />}>
+        <Route exact path="/" element={<Layout />}>
           <Route path="/dashboard/mensajes" element={<Mensajes />}></Route>
           <Route path="/dashboard/propiedades" element={<Propiedades />}></Route>
           <Route path="/dashboard/ajustes" element={<Ajustes />}></Route>
@@ -41,6 +41,7 @@ export default function Router() {
           <Route path="/dashboard/estadisticas" element={<Estadisticas />}></Route>
           <Route path="/dashboard/perfil" element={<PerfilDashboard />}></Route>
           <Route path="/home" element={<Home />} />
+          <Route path="" element={<Home />} />
           <Route path="/alquiler" element={<Alquiler />} />
           <Route path="/configuracion" element={<Configuracion />} />
           <Route path="/favoritos" element={<Favoritos />} />
