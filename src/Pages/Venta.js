@@ -1,10 +1,10 @@
 import React from 'react'
-import Data_table from '../Components/Data_table'
+import DataTable from '../Components/DataTable'
 
 const Venta = () => {
   return (
 
-    <Data_table/>
+    <DataTable/>
   )
 }
 
