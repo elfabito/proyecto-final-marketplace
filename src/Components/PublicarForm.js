@@ -5,16 +5,16 @@ import "./PublicarForm.css";
 import { Typography } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
-import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
 import SelectList from './Elemetos_De_Formulario/SelectListFormulario';
 import Button from '@mui/material/Button';
 import TextFieldImagenes from './Elemetos_De_Formulario/TextFieldImagenes';
-import dataCampos from '../Components/Elemetos_De_Formulario/dataCampos';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import ChipComodides from "./Elemetos_De_Formulario/ChipComodides"
 import { storeContext } from "../Store/StoreProvider"
+import OutlinedInput from '@mui/material/OutlinedInput';
+
 
 export default function FormPropsTextFields() {
   const [formData, setFormData] = useState({
@@ -39,7 +39,7 @@ export default function FormPropsTextFields() {
     estado: "",
     imgsrc: [""],
   });
-  const [store, dispatch] = React.useContext(storeContext)
+  const [store] = React.useContext(storeContext);
 
   const [textFieldImagenesData, setTextFieldImagenesData] = useState([]);
 
@@ -123,7 +123,7 @@ export default function FormPropsTextFields() {
               titulo={"Cantidad De Baños"}
               onChange={(value) => handleSelectChange(value, "banos")}
             />
-            {/* Select List de Domitorio */}
+            {/* Select List de Dormitorio */}
             <SelectList
               className="selectList"
               tipo={store?.dormitorios}
@@ -133,6 +133,14 @@ export default function FormPropsTextFields() {
 
 
           </div>
+          <FormControl  sx={{ m: 1 }}>
+          <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel>
+          <OutlinedInput
+            id="outlined-adornment-amount"
+            startAdornment={<InputAdornment position="start">$</InputAdornment>}
+            label="Amount"
+          />
+        </FormControl>
           {store?.atributos.map((item, index) => (
             <TextField
               id={item}
@@ -143,29 +151,13 @@ export default function FormPropsTextFields() {
               onChange={(e) => handleInputChange(e, store?.nombreAtributosGuardado[index])}
             />
           ))}
-          <div>
-            {/* {dataCampos.camposMonetarios.map((item, index) => (
-              <FormControl sx={{ m: 1, width: '20ch' }} variant="standard" key={index}>
-                <InputLabel htmlFor={`std-adornment-amount-${index}`}>{item.label}</InputLabel>
-                <Inputandar
-                  id={`standard-adornment-amount-${index}`}
-                  startAdornment={
-                    <InputAdornment position="start">
-                      {formData.tipoMoneda === '$' ? '$' : 'u$'}
-                    </InputAdornment>
-                  }
-                  onChange={(e) => handleInputChange(e, item.value)}
-                />
-              </FormControl>
-            ))} */}
-          </div>
 
           <SelectList
             className="selectList"
             tipo={store?.opcion}
             titulo={"Acepta Mascotas"}
-            onChange={(value) => handleSelectChange(value, "aceptaMascotasOptions")}/>
-             
+            onChange={(value) => handleSelectChange(value, "aceptaMascotasOptions")} />
+
           <SelectList
             className="selectList"
             tipo={store?.opcion}
