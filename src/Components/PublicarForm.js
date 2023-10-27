@@ -15,7 +15,7 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import ChipComodides from "./Elemetos_De_Formulario/ChipComodides"
 
-export default function FormPropsTextFields() {
+export default function PublicarForm() {
   const [formData, setFormData] = useState({
     id: 1,
     title: "",
