@@ -75,7 +75,7 @@ function Carrousel() {
                 <div style={{ position: 'absolute', display: 'flex', justifyContent: 'flex-end', flexDirection: 'column', alignItems: 'flex-start', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0, 0, 0, 0.4)', color: '#fff', padding: '10px', zIndex: 1 }}>
                   <p style={{ fontSize: '50px', marginTop: '0px', marginBottom: '10px' }}>Precio: {step.precio}</p>
                   <p style={{ fontSize: '18px', marginBottom: '0px', marginTop: '0px' }}>Descripción: {step.descripcion}</p>
-                  <p style={{ fontSize: '18px', width: '600px' }}>Dep: {step.ubicacion}</p>
+                  <p style={{ fontSize: '18px' }}>Dep: {step.ubicacion}</p>
                   <a
                     href={step.link}
                     target="_blank"
