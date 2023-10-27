@@ -19,7 +19,7 @@ const rows = [
   createData('Dato5', 356, 16.0, 49, 3.9),
 ];
 
-export default function Data_table() {
+export default function DataTable() {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
