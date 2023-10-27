@@ -20,7 +20,7 @@ export const ListadoPropiedades = [
         anioConstruccion: 2015,
         estado: "Excelente estado",
         imgsrc: [
-          "https://example.com/image1.jpg",
+          "https://img.freepik.com/vector-gratis/hermosa-casa_24877-50819.jpg",
           "https://example.com/image2.jpg",
           "https://example.com/image3.jpg"
         ]
