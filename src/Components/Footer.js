@@ -3,9 +3,6 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
 
 const Item = styled(Paper)(({ theme }) => ({
   textAlign: "center",
@@ -25,9 +22,9 @@ export default function StickyFooter() {
           <Item id="footer"><a href="#">Alquiler Temporal</a></Item>
         </Grid>
         <Grid item xs>
-        <Item id="footer"><YouTubeIcon/><a href="#">YouTube</a></Item>
-        <Item id="footer"><FacebookIcon/><a href="#">Facebook</a></Item>
-        <Item id="footer"><TwitterIcon/><a href="#">Twitter</a></Item>
+        <Item id="footer"><a href="#">YouTube</a></Item>
+        <Item id="footer"><a href="#">Facebook</a></Item>
+        <Item id="footer"><a href="#">Twitter</a></Item>
         </Grid>
       </Grid>
     </Box>
