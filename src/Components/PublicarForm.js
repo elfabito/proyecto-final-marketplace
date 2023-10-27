@@ -14,7 +14,7 @@ import dataCampos from '../Components/Elemetos_De_Formulario/dataCampos';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import ChipComodides from "./Elemetos_De_Formulario/ChipComodides"
-import {storeContext} from "../Store/StoreProvider"
+import { storeContext } from "../Store/StoreProvider"
 
 export default function FormPropsTextFields() {
   const [formData, setFormData] = useState({
@@ -25,7 +25,7 @@ export default function FormPropsTextFields() {
     disposicion: "",
     tipoVenta: "",
     ubicacion: [""],
-    comodidades: [],
+    comodidad: [],
     descripcion: "",
     aceptaMascotasOptions: "",
     zona: "",
@@ -39,7 +39,7 @@ export default function FormPropsTextFields() {
     estado: "",
     imgsrc: [""],
   });
-  const [store ,dispatch] = React.useContext(storeContext)
+  const [store, dispatch] = React.useContext(storeContext)
 
   const [textFieldImagenesData, setTextFieldImagenesData] = useState([]);
 
@@ -85,17 +85,17 @@ export default function FormPropsTextFields() {
         noValidate
         autoComplete="off"
       >
-        {/* map  */}
+
         <div>
           <div className="Select">
-           {/* Select List de tipo de publicacion */}
+            {/* Select List de tipo de publicacion */}
             <SelectList
               className="selectList"
               tipo={store?.publicacion}
               titulo={"Tipo De Publicacion"}
               onChange={(value) => handleSelectChange(value, "tipoVenta")}
             />
-             {/* Select List de tipo de propiedad */}
+            {/* Select List de tipo de propiedad */}
             <SelectList
               className="selectList"
               tipo={store?.tipoPropiedad}
@@ -116,25 +116,33 @@ export default function FormPropsTextFields() {
               titulo={"Estados de Propiedad"}
               onChange={(value) => handleSelectChange(value, "estado")}
             />
+            {/* Select List de baños */}
             <SelectList
-            className="selectList"
-            tipo={store?.baños}
-            titulo={"Cantidad De Baños"}
-            onChange={(value) => handleSelectChange(value, "estado")}
-          />
-            
+              className="selectList"
+              tipo={store?.baños}
+              titulo={"Cantidad De Baños"}
+              onChange={(value) => handleSelectChange(value, "banos")}
+            />
+            {/* Select List de Domitorio */}
+            <SelectList
+              className="selectList"
+              tipo={store?.dormitorios}
+              titulo={"Cantidad De Dormitorio"}
+              onChange={(value) => handleSelectChange(value, "dormitorio")}
+            />
+
 
           </div>
-          {/* {dataCampos.datosNecesario.map((item, index) => (
+          {store?.atributos.map((item, index) => (
             <TextField
-              id={item.value}
+              id={item}
               key={index}
-              type={item.type}
-              label={item.label}
+              type={store.typesAtributos[index]}
+              label={item}
               variant="standard"
-              onChange={(e) => handleInputChange(e, item.value)}
+              onChange={(e) => handleInputChange(e, store?.nombreAtributosGuardado[index])}
             />
-          ))} */}
+          ))}
           <div>
             {/* {dataCampos.camposMonetarios.map((item, index) => (
               <FormControl sx={{ m: 1, width: '20ch' }} variant="standard" key={index}>
@@ -151,24 +159,26 @@ export default function FormPropsTextFields() {
               </FormControl>
             ))} */}
           </div>
+
           <SelectList
             className="selectList"
             tipo={store?.opcion}
             titulo={"Acepta Mascotas"}
-            onChange={(value) => handleSelectChange(value, "aceptaMascotasOptions")}
-          /><SelectList
-          className="selectList"
-          tipo={store?.opcion}
-          titulo={"Garage"}
-          onChange={(value) => handleSelectChange(value, "garage")}
-        />
+            onChange={(value) => handleSelectChange(value, "aceptaMascotasOptions")}/>
+             
+          <SelectList
+            className="selectList"
+            tipo={store?.opcion}
+            titulo={"Garage"}
+            onChange={(value) => handleSelectChange(value, "garaje")}
+          />
         </div>
 
         <div>
           <Typography mb="1rem" variant="h6" fontFamily="Lato">
             Comodidades
           </Typography>
-          {/* <div><ChipComodides informacion={store?.comodidad} formData={formData} /></div> */}
+          <div><ChipComodides informacion={store?.comodidad} formData={formData} /></div>
           <Typography mb="1rem" variant="h6" fontFamily="Lato">
             Imagenes
           </Typography>

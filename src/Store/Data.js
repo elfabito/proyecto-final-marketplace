@@ -561,6 +561,34 @@ export const ListadoCantidadDormitorios = ['Monoambiente',
   '4 dormitorios',
   '5+ dormitorios'
 ]
+export const ListadoAtributos = [
+  'Nombre',
+  'Zona',
+  'Ubicacion',
+  'Disposicion',
+  'Año de Construccion',
+  'M² edificados',
+  'M² del terreno',
+];
+export const nombreDeGuardadoDeLosAtributos = [
+  "title",
+  "zona",
+  "ubicacion",
+  "disposicion",
+  "anioConstruccion",
+  "m2Edificados",
+  "m2Terreno"
+];
+export const ListadotypesDeAtributos = [
+  'text',
+  'text',
+  'text',
+  'text',
+  'number',
+  'number',
+  'number'
+];
+
 export const ListadoBaños = ["1", "2", "3", "4", "5+"]
 export const ListadoOpciones = ["Si", "No"]
 export const ListadoTipoDePublicacion = ['Alquiler', 'Venta', 'Alquiler Temporal']

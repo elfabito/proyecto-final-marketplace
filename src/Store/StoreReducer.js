@@ -1,4 +1,4 @@
-import {ListadoPropiedades, ListadoLocalidades, ListadoTipoPropiedad, ListadoCantidadDormitorios, ListadoBaños, ListadoTipoDePublicacion, ListadoMoneda, ListadoDeEstado, ListadoComodidades,ListadoOpciones} from "./Data.js"
+import {ListadoPropiedades, ListadoLocalidades, ListadoTipoPropiedad, ListadoCantidadDormitorios, ListadoBaños, ListadoTipoDePublicacion, ListadoMoneda, ListadoDeEstado, ListadoComodidades,ListadoOpciones, ListadoAtributos, ListadotypesDeAtributos, nombreDeGuardadoDeLosAtributos} from "./Data.js"
 
 
 const initialStore = () => {
@@ -12,7 +12,10 @@ const initialStore = () => {
         publicacion: ListadoTipoDePublicacion,
         moneda: ListadoMoneda,
         estado: ListadoDeEstado,
-        comodidad : ListadoComodidades
+        comodidad : ListadoComodidades,
+        atributos : ListadoAtributos,
+        typesAtributos : ListadotypesDeAtributos,
+        nombreAtributosGuardado :nombreDeGuardadoDeLosAtributos
     }
     return store
 }
