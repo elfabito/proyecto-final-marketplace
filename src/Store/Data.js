@@ -563,7 +563,6 @@ export const ListadoCantidadDormitorios = ['Monoambiente',
 ]
 export const ListadoAtributos = [
   'Nombre',
-  'Zona',
   'Ubicacion',
   'Disposicion',
   'Año de Construccion',
@@ -572,7 +571,6 @@ export const ListadoAtributos = [
 ];
 export const nombreDeGuardadoDeLosAtributos = [
   "title",
-  "zona",
   "ubicacion",
   "disposicion",
   "anioConstruccion",
@@ -580,7 +578,6 @@ export const nombreDeGuardadoDeLosAtributos = [
   "m2Terreno"
 ];
 export const ListadotypesDeAtributos = [
-  'text',
   'text',
   'text',
   'text',

@@ -16,6 +16,7 @@ import { storeContext } from "../Store/StoreProvider"
 import OutlinedInput from '@mui/material/OutlinedInput';
 
 
+
 export default function FormPropsTextFields() {
   const [formData, setFormData] = useState({
     id: 1,
@@ -37,6 +38,7 @@ export default function FormPropsTextFields() {
     dormitorio: "",
     anioConstruccion: "",
     estado: "",
+    gastoscomunes: "",
     imgsrc: [""],
   });
   const [store] = React.useContext(storeContext);
@@ -87,7 +89,7 @@ export default function FormPropsTextFields() {
       >
 
         <div>
-          <div className="Select">
+          <div className="Select" >
             {/* Select List de tipo de publicacion */}
             <SelectList
               className="selectList"
@@ -116,6 +118,8 @@ export default function FormPropsTextFields() {
               titulo={"Estados de Propiedad"}
               onChange={(value) => handleSelectChange(value, "estado")}
             />
+          </div>
+          <div className="Select">
             {/* Select List de baños */}
             <SelectList
               className="selectList"
@@ -130,17 +134,31 @@ export default function FormPropsTextFields() {
               titulo={"Cantidad De Dormitorio"}
               onChange={(value) => handleSelectChange(value, "dormitorio")}
             />
-
-
+            <SelectList
+              className="selectList"
+              tipo={store?.localidades}
+              titulo={"Localidad"}
+              onChange={(value) => handleSelectChange(value, "zona")}
+            />
           </div>
-          <FormControl  sx={{ m: 1 }}>
-          <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel>
-          <OutlinedInput
-            id="outlined-adornment-amount"
-            startAdornment={<InputAdornment position="start">$</InputAdornment>}
-            label="Amount"
-          />
-        </FormControl>
+          <FormControl sx={{ m: 1 }}>
+            <InputLabel htmlFor="outlined-adornment-amount">Precio</InputLabel>
+            <OutlinedInput
+              id="outlined-adornment-amount"
+              startAdornment={<InputAdornment position="start">$</InputAdornment>}
+              label="Amount"
+              onChange={(e) => handleInputChange(e, "precio")}
+            />
+          </FormControl>
+          <FormControl sx={{ m: 1 }}>
+            <InputLabel htmlFor="outlined-adornment-amount">Gastos Comunes</InputLabel>
+            <OutlinedInput
+              id="outlined-adornment-amount"
+              startAdornment={<InputAdornment position="start">$</InputAdornment>}
+              label="Amount"
+              onChange={(e) => handleInputChange(e, "gastoscomunes")}
+            />
+          </FormControl>
           {store?.atributos.map((item, index) => (
             <TextField
               id={item}
@@ -151,19 +169,20 @@ export default function FormPropsTextFields() {
               onChange={(e) => handleInputChange(e, store?.nombreAtributosGuardado[index])}
             />
           ))}
+          <div className="Select">
+            <SelectList
+              className="selectList"
+              tipo={store?.opcion}
+              titulo={"Acepta Mascotas"}
+              onChange={(value) => handleSelectChange(value, "aceptaMascotasOptions")} />
 
-          <SelectList
-            className="selectList"
-            tipo={store?.opcion}
-            titulo={"Acepta Mascotas"}
-            onChange={(value) => handleSelectChange(value, "aceptaMascotasOptions")} />
-
-          <SelectList
-            className="selectList"
-            tipo={store?.opcion}
-            titulo={"Garage"}
-            onChange={(value) => handleSelectChange(value, "garaje")}
-          />
+            <SelectList
+              className="selectList"
+              tipo={store?.opcion}
+              titulo={"Garage"}
+              onChange={(value) => handleSelectChange(value, "garaje")}
+            />
+          </div>
         </div>
 
         <div>

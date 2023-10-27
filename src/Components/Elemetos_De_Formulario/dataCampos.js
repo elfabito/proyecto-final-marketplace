@@ -110,14 +110,7 @@ const dataCampos = {
     }
   ],
  comodidadesOptions : [
-    { label: 'Piscina', value: 'piscina' },
-    { label: 'Garaje', value: 'garaje' },
-    { label: 'Jardín', value: 'jardin' },
-    { label: 'Terraza', value: 'terraza' },
-    { label: 'Calefacción', value: 'calefaccion' },
-    { label: 'Aire acondicionado', value: 'aireAcondicionado' },
-    { label: 'Gimnasio', value: 'gimnasio' },
-    { label: 'Vistas al mar', value: 'vistasAlMar' },
+    
     { label: 'Armarios empotrados', value: 'armariosEmpotrados' },
     { label: 'Cocina equipada', value: 'cocinaEquipada' },
     { label: 'Chimenea', value: 'chimenea' },
@@ -131,17 +124,7 @@ const dataCampos = {
     { label: 'Sistema de riego automático', value: 'sistemaDeRiegoAutomatico' },
     { label: 'Zona de barbacoa', value: 'zonaDeBarbacoa' },
   ],
- estadosPropiedad : [
-  { label: 'Nuevo', value: 'nuevo' },
-  { label: 'Usado', value: 'usado' },
-  { label: 'En construcción', value: 'enConstruccion' },
-  { label: 'Remodelado', value: 'remodelado' },
-  { label: 'A estrenar', value: 'aEstrenar' },
-  { label: 'En buen estado', value: 'enBuenEstado' },
-  { label: 'Para remodelar', value: 'paraRemodelar' },
-  { label: 'Para demoler', value: 'paraDemoler' },
-  { label: 'Otro', value: 'otro' },
-  ],
+
   
 }
 export default dataCampos;
