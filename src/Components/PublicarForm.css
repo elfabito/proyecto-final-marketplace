@@ -5,6 +5,7 @@
 .Select{
     display: flex;
     flex-direction: row;
+    
 }
 .descripcion{
     width: 4rem;
