@@ -70,7 +70,7 @@ export default function FormPropsTextFields() {
 
   const handleSave = () => {
     const combinedData = { ...formData, imgsrc: textFieldImagenesData.map(item => item.value) };
-    console.log(combinedData);
+   
     openSnackbar('Datos guardados');
   };
 
