@@ -8,6 +8,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
 
+
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -45,7 +46,7 @@ export default function ChipComodides(props) {
             typeof value === 'string' ? value.split(',') : value,
         );
 
-        props.formData.comodidades = value;
+        props.formData.comodidad = value;
     };
 
     return (
@@ -72,10 +73,10 @@ export default function ChipComodides(props) {
                     {informacion.map((item, index) => (
                         <MenuItem
                             key={index}
-                            value={item.label}
-                            style={getStyles(item.label, personName, theme)}
+                            value={item}
+                            style={getStyles(item, personName, theme)}
                         >
-                            {item.label}
+                            {item}
                         </MenuItem>
                     ))}
                 </Select>

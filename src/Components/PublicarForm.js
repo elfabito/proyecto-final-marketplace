@@ -5,15 +5,17 @@ import "./PublicarForm.css";
 import { Typography } from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
-import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
 import SelectList from './Elemetos_De_Formulario/SelectListFormulario';
 import Button from '@mui/material/Button';
 import TextFieldImagenes from './Elemetos_De_Formulario/TextFieldImagenes';
-import dataCampos from '../Components/Elemetos_De_Formulario/dataCampos';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import ChipComodides from "./Elemetos_De_Formulario/ChipComodides"
+import { storeContext } from "../Store/StoreProvider"
+import OutlinedInput from '@mui/material/OutlinedInput';
+
+
 
 export default function PublicarForm() {
   const [formData, setFormData] = useState({
@@ -24,7 +26,7 @@ export default function PublicarForm() {
     disposicion: "",
     tipoVenta: "",
     ubicacion: [""],
-    comodidades: [],
+    comodidad: [],
     descripcion: "",
     aceptaMascotasOptions: "",
     zona: "",
@@ -36,8 +38,10 @@ export default function PublicarForm() {
     dormitorio: "",
     anioConstruccion: "",
     estado: "",
+    gastoscomunes: "",
     imgsrc: [""],
   });
+  const [store] = React.useContext(storeContext);
 
   const [textFieldImagenesData, setTextFieldImagenesData] = useState([]);
 
@@ -83,79 +87,109 @@ export default function PublicarForm() {
         noValidate
         autoComplete="off"
       >
-        <div>
-          <div className="Select">
 
+        <div>
+          <div className="Select" >
+            {/* Select List de tipo de publicacion */}
             <SelectList
               className="selectList"
-              tipo={dataCampos.tipoDePublicacion}
+              tipo={store?.publicacion}
               titulo={"Tipo De Publicacion"}
               onChange={(value) => handleSelectChange(value, "tipoVenta")}
             />
+            {/* Select List de tipo de propiedad */}
             <SelectList
               className="selectList"
-              tipo={dataCampos.tipoDePropiedad}
+              tipo={store?.tipoPropiedad}
               titulo={"Tipo De Propiedad"}
               onChange={(value) => handleSelectChange(value, "tipoDePropiedad")}
             />
+            {/* Select List de tipo de moneda */}
             <SelectList
               className="selectList"
-              tipo={dataCampos.tipoPrecio}
+              tipo={store?.moneda}
               titulo={"Tipo De Precio"}
               onChange={(value) => handleSelectChange(value, "tipoMoneda")}
             />
+            {/* Select List de tipo de estado de la propiedad */}
             <SelectList
               className="selectList"
-              tipo={dataCampos.estadosPropiedad}
+              tipo={store?.estado}
               titulo={"Estados de Propiedad"}
               onChange={(value) => handleSelectChange(value, "estado")}
             />
-
           </div>
-          {dataCampos.datosNecesario.map((item, index) => (
+          <div className="Select">
+            {/* Select List de baños */}
+            <SelectList
+              className="selectList"
+              tipo={store?.baños}
+              titulo={"Cantidad De Baños"}
+              onChange={(value) => handleSelectChange(value, "banos")}
+            />
+            {/* Select List de Dormitorio */}
+            <SelectList
+              className="selectList"
+              tipo={store?.dormitorios}
+              titulo={"Cantidad De Dormitorio"}
+              onChange={(value) => handleSelectChange(value, "dormitorio")}
+            />
+            <SelectList
+              className="selectList"
+              tipo={store?.localidades}
+              titulo={"Localidad"}
+              onChange={(value) => handleSelectChange(value, "zona")}
+            />
+          </div>
+          <FormControl sx={{ m: 1 }}>
+            <InputLabel htmlFor="outlined-adornment-amount">Precio</InputLabel>
+            <OutlinedInput
+              id="outlined-adornment-amount"
+              startAdornment={<InputAdornment position="start">$</InputAdornment>}
+              label="Amount"
+              onChange={(e) => handleInputChange(e, "precio")}
+            />
+          </FormControl>
+          <FormControl sx={{ m: 1 }}>
+            <InputLabel htmlFor="outlined-adornment-amount">Gastos Comunes</InputLabel>
+            <OutlinedInput
+              id="outlined-adornment-amount"
+              startAdornment={<InputAdornment position="start">$</InputAdornment>}
+              label="Amount"
+              onChange={(e) => handleInputChange(e, "gastoscomunes")}
+            />
+          </FormControl>
+          {store?.atributos.map((item, index) => (
             <TextField
-              id={item.value}
+              id={item}
               key={index}
-              type={item.type}
-              label={item.label}
+              type={store.typesAtributos[index]}
+              label={item}
               variant="standard"
-              onChange={(e) => handleInputChange(e, item.value)}
+              onChange={(e) => handleInputChange(e, store?.nombreAtributosGuardado[index])}
             />
           ))}
-          <div>
-            {dataCampos.camposMonetarios.map((item, index) => (
-              <FormControl sx={{ m: 1, width: '20ch' }} variant="standard" key={index}>
-                <InputLabel htmlFor={`standard-adornment-amount-${index}`}>{item.label}</InputLabel>
-                <Input
-                  id={`standard-adornment-amount-${index}`}
-                  startAdornment={
-                    <InputAdornment position="start">
-                      {formData.tipoMoneda === '$' ? '$' : 'u$'}
-                    </InputAdornment>
-                  }
-                  onChange={(e) => handleInputChange(e, item.value)}
-                />
-              </FormControl>
-            ))}
+          <div className="Select">
+            <SelectList
+              className="selectList"
+              tipo={store?.opcion}
+              titulo={"Acepta Mascotas"}
+              onChange={(value) => handleSelectChange(value, "aceptaMascotasOptions")} />
+
+            <SelectList
+              className="selectList"
+              tipo={store?.opcion}
+              titulo={"Garage"}
+              onChange={(value) => handleSelectChange(value, "garaje")}
+            />
           </div>
-          <SelectList
-            className="selectList"
-            tipo={dataCampos.aceptaOptions}
-            titulo={"Acepta Mascotas"}
-            onChange={(value) => handleSelectChange(value, "aceptaMascotasOptions")}
-          /><SelectList
-          className="selectList"
-          tipo={dataCampos.aceptaOptions}
-          titulo={"Garage"}
-          onChange={(value) => handleSelectChange(value, "garage")}
-        />
         </div>
 
         <div>
           <Typography mb="1rem" variant="h6" fontFamily="Lato">
             Comodidades
           </Typography>
-          <div><ChipComodides informacion={dataCampos.comodidadesOptions} formData={formData} /></div>
+          <div><ChipComodides informacion={store?.comodidad} formData={formData} /></div>
           <Typography mb="1rem" variant="h6" fontFamily="Lato">
             Imagenes
           </Typography>
@@ -187,6 +221,7 @@ export default function PublicarForm() {
             elevation={6}
             variant="filled"
             severity="success"
+    
           >
             {snackbarMessage}
           </MuiAlert>
