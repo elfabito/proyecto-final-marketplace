@@ -41,7 +41,7 @@ export default function PublicarForm() {
     gastoscomunes: "",
     imgsrc: [""],
   });
-  const [store] = React.useContext(storeContext);
+  const [store] = React.useContext(storeContext)
 
   const [textFieldImagenesData, setTextFieldImagenesData] = useState([]);
 

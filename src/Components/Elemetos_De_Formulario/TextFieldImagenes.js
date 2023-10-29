@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import AddIcon from '@mui/icons-material/Add';
-import DeleteIcon from '@mui/icons-material/Delete';
+
 
 export default function TextFieldImagenes({ textFieldImagenesData, setTextFieldImagenesData }) {
   const [imgsrc, setImgsrc] = useState([]);

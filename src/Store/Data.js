@@ -19,11 +19,7 @@ export const ListadoPropiedades = [
         dormitorio: 5,
         anioConstruccion: 2015,
         estado: "Excelente estado",
-        imgsrc: [
-          "https://img.freepik.com/vector-gratis/hermosa-casa_24877-50819.jpg",
-          "https://example.com/image2.jpg",
-          "https://example.com/image3.jpg"
-        ]
+        imgsrc: ["https://cdn2.infocasas.com.uy/repo/img/th.outside500x1.122103_CW139153_47.jpg", "https://cdn2.infocasas.com.uy/repo/img/th.outside750x811.122103_CW139153_987.jpg", "https://cdn2.infocasas.com.uy/repo/img/th.outside750x811.122103_CW139153_874.jpg"]
       },
       {
         id: 2,
