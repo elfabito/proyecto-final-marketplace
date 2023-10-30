@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import { useContext } from "react";
 import datos from "./Data/Results";
 import RenderResults from "./RenderResults";
 import {
@@ -15,37 +16,58 @@ import {
 import MapIcon from "@mui/icons-material/Map";
 import { FilterAlt } from "@mui/icons-material";
 import "./SearchResult.css";
-
+import { storeContext } from "../../Store/StoreProvider";
+import { useParams } from "react-router-dom";
+import Filters from "../Filters";
 const SearchResult = () => {
-  const [results, setResults] = useState([]);
-  const [totalResults, setTotalResults] = useState(0);
   const [localidad, setLocalidad] = useState("");
   const [numOfResults, setNumOfResults] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [resultsPerPage, setResultsPerPage] = useState(5);
+  const [results, setResults] = useState([]);
   const [thisPage, setThisPage] = useState(1);
+  //const [filteredResults, setFilteredResults] = useState([]);
+  const [store, dispatch] = useContext(storeContext);
+  const [raiz, setRaiz] = useState("");
+  const { paramTipo } = useParams();
+  const { paramLocalidad } = useParams();
+  const filtroTipo = paramTipo ? paramTipo : "";
+  const filtroLocalidad = paramLocalidad ? paramLocalidad : "";
 
   useEffect(() => {
-    setThisPage(1);
-    setResultsPerPage(5);
-  }, []);
+    setResults(store.propiedades);
+    setLocalidad(filtroLocalidad);
+    setRaiz(filtroTipo);
+    console.log(raiz);
+  }, [filtroTipo, filtroLocalidad, store]);
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 500);
+  }, []);
 
-    const slice = datos.slice(thisPage - 1, resultsPerPage);
-    setResults(slice);
-    setLocalidad("Montevideo");
-    setNumOfResults(slice.length);
-    setTotalResults(datos.length);
-  }, [thisPage]);
+  const filterResults = (results) => {
+    return results.filter((result) => {
+      return (
+        result.tipoVenta.toLowerCase().includes(raiz.toLowerCase()) &&
+        (result.ubicacion[1].toLowerCase().includes(localidad.toLowerCase()) ||
+          result.ubicacion[0].toLowerCase().includes(localidad.toLowerCase()))
+      );
+    });
+  };
 
+  useEffect(() => {
+    if (filterResults(results).length > 0) {
+      setNumOfResults(filterResults(results).length);
+    } else {
+      setNumOfResults(0);
+    }
+  }, [filterResults]);
   return (
     <div className="SearchResult">
       <Container maxWidth="md">
         <Box boxShadow={2}>
           <div className="info">
+            <Filters />
             <Grid
               container
               direction="row"
@@ -67,10 +89,10 @@ const SearchResult = () => {
                   Venta de casas y apartamentos en {localidad}.
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Estás en: info, casas, venta, apartamentos.
+                  Estás en: {raiz}
                 </Typography>
                 <Typography variant="body2" color="text.primary">
-                  Mostrando {numOfResults} de {totalResults} resultados.
+                  Mostrando {numOfResults} resultados.
                 </Typography>
               </Stack>
               <Stack
@@ -113,7 +135,10 @@ const SearchResult = () => {
             {loading && <p>Cargando...</p>}
             {!loading && (
               <div>
-                <RenderResults results={results} />
+                <RenderResults
+                  localidad={localidad}
+                  results={filterResults(results)}
+                />
               </div>
             )}{" "}
           </main>
@@ -126,7 +151,6 @@ const SearchResult = () => {
           }}
           onChange={(_, page) => setThisPage(page)}
           page={thisPage}
-          count={totalResults}
           color="primary"
         />
       </Container>
