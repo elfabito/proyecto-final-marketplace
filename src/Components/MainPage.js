@@ -57,7 +57,11 @@ function MainPage() {
             <div className="contenedorBusqueda">
               <CustomSelectCheckmarks options={options_default} />
               <Autocomp />
-              <Button variant="contained">Buscar</Button>
+              <Link to={"/resultados"}>
+                <Button type="submit" variant="contained">
+                  Buscar
+                </Button>
+              </Link>
             </div>
           </Box>
         </div>
