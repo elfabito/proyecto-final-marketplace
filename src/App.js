@@ -40,7 +40,9 @@ function App() {
     <Carrousel lista={lista}/>
     </Router>
     
-  );
+  )
+    
+  
 }
 
 export default App;

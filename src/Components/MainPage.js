@@ -1,12 +1,13 @@
-import * as React from 'react'
-import Box from '@mui/material/Box'
-import ToggleButton from '@mui/material/ToggleButton'
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
-import TextField from '@mui/material/TextField'
-import CustomSelectCheckmarks from './CustomSelectCheckmarks'
-import Carrousel from './Carrousel'
-import Button from '@mui/material/Button'
-import './MainPage.css'
+import * as React from "react";
+import Box from "@mui/material/Box";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import TextField from "@mui/material/TextField";
+import CustomSelectCheckmarks from "./CustomSelectCheckmarks";
+import Carrousel from "./Carrousel";
+import Button from "@mui/material/Button";
+import "./MainPage.css";
+import Autocomp from "./Autocomp";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import SearchResult from "./Results/SearchResult";
@@ -38,45 +39,34 @@ function MainPage() {
       <div className="SearchBackground">
         <div className="Search">
           <Box>
-            <form>
-              <ToggleButtonGroup
-                color="primary"
-                value={seleccion}
-                exclusive
-                onChange={handleChange}
-                aria-label="Platform"
-                id="opciones"
-              >
-                <ToggleButton value="venta">Venta</ToggleButton>
-                <ToggleButton value="alquiler">Alquiler</ToggleButton>
-                <ToggleButton value="alquilertemporal">
-                  Alquiler Temporal
-                </ToggleButton>
-              </ToggleButtonGroup>
+            <ToggleButtonGroup
+              color="primary"
+              value={seleccion}
+              exclusive
+              onChange={handleChange}
+              aria-label="Platform"
+              id="opciones"
+            >
+              <ToggleButton value="venta">Venta</ToggleButton>
+              <ToggleButton value="alquiler">Alquiler</ToggleButton>
+              <ToggleButton value="alquilertemporal">
+                Alquiler Temporal
+              </ToggleButton>
+            </ToggleButtonGroup>
 
-              <div className="contenedorBusqueda">
-                <CustomSelectCheckmarks options={options_default} />
-                <TextField
-                  id="search"
-                  label="Localidad"
-                  variant="outlined"
-                  value={searchText}
-                  onChange={handleTextFieldChange}
-                />
-                <Link to={`/resultados`}>
-                  {" "}
-                  <Button variant="contained">Buscar</Button>
-                </Link>
-              </div>
-            </form>
+            <div className="contenedorBusqueda">
+              <CustomSelectCheckmarks options={options_default} />
+              <Autocomp />
+              <Button variant="contained">Buscar</Button>
+            </div>
           </Box>
         </div>
       </div>
       <div className="carrousel-container">
-        {!searched ? <Carrousel /> : <SearchResult />}
+        <Carrousel />
       </div>
     </div>
   );
 }
 
-export default MainPage
+export default MainPage;
