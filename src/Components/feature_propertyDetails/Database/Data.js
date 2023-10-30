@@ -1,7 +1,7 @@
 const Dato = [
     {
         id: 1,
-        title: "Arquiler de monoabiente",
+        title: "Alquiler de monoambiente",
         tipoMoneda: "$U",
         precio: "800",
         tipoVenta: "Alquiler",
