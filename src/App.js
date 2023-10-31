@@ -26,7 +26,9 @@ const lista = [
 ];
 
 function App() {
+
   return (
+
     <Router>
     <div className="App">
       <Navbar />
@@ -38,7 +40,9 @@ function App() {
     <Carrousel lista={lista}/>
     </Router>
     
-  );
+  )
+    
+  
 }
 
 export default App;

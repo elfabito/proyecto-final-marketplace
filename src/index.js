@@ -39,6 +39,7 @@ export default function Router() {
             element={<Propiedades />}
           ></Route>
           <Route path="/dashboard/ajustes" element={<Ajustes />}></Route>
+          <Route path="/dashboard/panel" element={<Panel />}></Route>
           <Route path="/dashboard" element={<Panel />}></Route>
           <Route
             path="/dashboard/estadisticas"
