@@ -10,7 +10,7 @@ import "./MainPage.css";
 import Autocomp from "./Autocomp";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import SearchResult from "./Results/SearchResult";
+import { filterParams } from "../Store/StoreProvider";
 
 function MainPage() {
   const [seleccion, setSeleccion] = React.useState("venta");
@@ -26,8 +26,9 @@ function MainPage() {
     "Garage o Cochera",
   ];
 
-  const handleChange = (event, newSeleccion) => {
-    setSeleccion(newSeleccion);
+  const handleChange = (event, value) => {
+    setSeleccion(value);
+    filterParams.tipodeventa = value;
   };
   const handleTextFieldChange = (event) => {
     const newText = event.target.value;
@@ -47,9 +48,9 @@ function MainPage() {
               aria-label="Platform"
               id="opciones"
             >
-              <ToggleButton value="venta">Venta</ToggleButton>
-              <ToggleButton value="alquiler">Alquiler</ToggleButton>
-              <ToggleButton value="alquilertemporal">
+              <ToggleButton value="Venta">Venta</ToggleButton>
+              <ToggleButton value="Alquiler">Alquiler</ToggleButton>
+              <ToggleButton value="Alquiler temporal">
                 Alquiler Temporal
               </ToggleButton>
             </ToggleButtonGroup>

@@ -16,8 +16,11 @@ import {
 import MapIcon from "@mui/icons-material/Map";
 import { FilterAlt } from "@mui/icons-material";
 import "./SearchResult.css";
-import { storeContext } from "../../Store/StoreProvider";
-import { useParams } from "react-router-dom";
+import {
+  storeContext,
+  filterResults,
+  filterParams,
+} from "../../Store/StoreProvider";
 import Filters from "../Filters";
 const SearchResult = () => {
   const [localidad, setLocalidad] = useState("");
@@ -25,35 +28,24 @@ const SearchResult = () => {
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState([]);
   const [thisPage, setThisPage] = useState(1);
-  //const [filteredResults, setFilteredResults] = useState([]);
+  const [filteredResults, setFilteredResults] = useState([]);
   const [store, dispatch] = useContext(storeContext);
   const [raiz, setRaiz] = useState("");
-  const { paramTipo } = useParams();
-  const { paramLocalidad } = useParams();
-  const filtroTipo = paramTipo ? paramTipo : "";
-  const filtroLocalidad = paramLocalidad ? paramLocalidad : "";
 
   useEffect(() => {
+    const filteredResults = filterResults(results);
+    setFilteredResults(filteredResults);
+    console.log(filterParams);
+  }, [results, filterParams]);
+  useEffect(() => {
     setResults(store.propiedades);
-    setLocalidad(filtroLocalidad);
-    setRaiz(filtroTipo);
-    console.log(raiz);
-  }, [filtroTipo, filtroLocalidad, store]);
+  }, []);
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 500);
+    }, 1000);
+    setTimeout(() => {}, 1500);
   }, []);
-
-  const filterResults = (results) => {
-    return results.filter((result) => {
-      return (
-        result.tipoVenta.toLowerCase().includes(raiz.toLowerCase()) &&
-        (result.ubicacion[1].toLowerCase().includes(localidad.toLowerCase()) ||
-          result.ubicacion[0].toLowerCase().includes(localidad.toLowerCase()))
-      );
-    });
-  };
 
   useEffect(() => {
     if (filterResults(results).length > 0) {
@@ -62,6 +54,7 @@ const SearchResult = () => {
       setNumOfResults(0);
     }
   }, [filterResults]);
+
   return (
     <div className="SearchResult">
       <Container maxWidth="md">
@@ -137,7 +130,7 @@ const SearchResult = () => {
               <div>
                 <RenderResults
                   localidad={localidad}
-                  results={filterResults(results)}
+                  results={filteredResults}
                 />
               </div>
             )}{" "}
