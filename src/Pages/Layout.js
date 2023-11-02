@@ -3,13 +3,15 @@ import Navbar from '../Components/Navbar'
 import StoreProvider from '../Store/StoreProvider'
 
 const Layout = () => {
+  
+  const showNavBar = window.location.href.includes('dashboard')
   return (
     <>
     <StoreProvider>
-      <Navbar />
+      {!showNavBar && <Navbar />}
 
       <Outlet />
-      </StoreProvider>
+    </StoreProvider>
     </>
   )
 }
