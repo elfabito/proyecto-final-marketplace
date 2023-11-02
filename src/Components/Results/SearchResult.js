@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useContext } from "react";
-import datos from "./Data/Results";
 import RenderResults from "./RenderResults";
 import {
   Box,
@@ -10,7 +9,6 @@ import {
   Button,
   Container,
   Grid,
-  Pagination,
   Typography,
 } from "@mui/material";
 import MapIcon from "@mui/icons-material/Map";
@@ -23,23 +21,20 @@ import {
 } from "../../Store/StoreProvider";
 import Filters from "../Filters";
 const SearchResult = () => {
-  const [localidad, setLocalidad] = useState("");
   const [numOfResults, setNumOfResults] = useState(0);
   const [loading, setLoading] = useState(true);
   const [results, setResults] = useState([]);
-  const [thisPage, setThisPage] = useState(1);
+
   const [filteredResults, setFilteredResults] = useState([]);
   const [store, dispatch] = useContext(storeContext);
-  const [raiz, setRaiz] = useState("");
 
   useEffect(() => {
     const filteredResults = filterResults(results);
     setFilteredResults(filteredResults);
-    console.log(filterParams);
-  }, [results, filterParams]);
+  }, [results]);
   useEffect(() => {
     setResults(store.propiedades);
-  }, []);
+  }, [store.propiedades]);
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -48,19 +43,18 @@ const SearchResult = () => {
   }, []);
 
   useEffect(() => {
-    if (filterResults(results).length > 0) {
-      setNumOfResults(filterResults(results).length);
+    if (filteredResults.length > 0) {
+      setNumOfResults(filteredResults.length);
     } else {
       setNumOfResults(0);
     }
-  }, [filterResults]);
+  }, [filteredResults]);
 
   return (
     <div className="SearchResult">
       <Container maxWidth="md">
         <Box boxShadow={2}>
           <div className="info">
-            <Filters />
             <Grid
               container
               direction="row"
@@ -79,10 +73,11 @@ const SearchResult = () => {
                   variant="body1"
                   color="text.primary"
                 >
-                  Venta de casas y apartamentos en {localidad}.
+                  Venta de casas y apartamentos en {filterParams.localidad}.
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Estás en: {raiz}
+                  Estás en: {filterParams.tipodepropiedad},{" "}
+                  {filterParams.tipoDeVenta}
                 </Typography>
                 <Typography variant="body2" color="text.primary">
                   Mostrando {numOfResults} resultados.
@@ -109,6 +104,7 @@ const SearchResult = () => {
           </div>
         </Box>
       </Container>
+      <Filters />
       <Container className="resultados" maxWidth="lg">
         <Box
           boxShadow={2}
@@ -128,24 +124,13 @@ const SearchResult = () => {
             {loading && <p>Cargando...</p>}
             {!loading && (
               <div>
-                <RenderResults
-                  localidad={localidad}
-                  results={filteredResults}
-                />
+                {filteredResults.length > 0 && (
+                  <RenderResults results={filteredResults} />
+                )}
               </div>
             )}{" "}
           </main>
         </Box>
-        <Pagination
-          sx={{
-            padding: "15px",
-            justifyContent: "center",
-            display: "flex",
-          }}
-          onChange={(_, page) => setThisPage(page)}
-          page={thisPage}
-          color="primary"
-        />
       </Container>
     </div>
   );

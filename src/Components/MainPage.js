@@ -2,20 +2,18 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import TextField from "@mui/material/TextField";
 import CustomSelectCheckmarks from "./CustomSelectCheckmarks";
 import Carrousel from "./Carrousel";
 import Button from "@mui/material/Button";
 import "./MainPage.css";
 import Autocomp from "./Autocomp";
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { filterParams } from "../Store/StoreProvider";
 
 function MainPage() {
   const [seleccion, setSeleccion] = React.useState("venta");
   const [searchText, setSearchText] = useState("");
-  const navigate = useNavigate();
   const options_default = [
     "Casa",
     "Apartamento",
@@ -29,10 +27,6 @@ function MainPage() {
   const handleChange = (event, value) => {
     setSeleccion(value);
     filterParams.tipodeventa = value;
-  };
-  const handleTextFieldChange = (event) => {
-    const newText = event.target.value;
-    setSearchText(newText);
   };
 
   return (
