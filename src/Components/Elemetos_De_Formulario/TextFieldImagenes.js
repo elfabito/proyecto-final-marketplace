@@ -10,7 +10,7 @@ export default function TextFieldImagenes({ textFieldImagenesData, setTextFieldI
 
   const addTextField = () => {
     setTextFieldImagenesData([...textFieldImagenesData, { id: Date.now(), value: '' }]);
-    setImgsrc([...imgsrc, '']); 
+    setImgsrc([...imgsrc, '']);
   };
 
   const removeTextField = (id) => {
@@ -18,7 +18,7 @@ export default function TextFieldImagenes({ textFieldImagenesData, setTextFieldI
     setTextFieldImagenesData(updatedTextFields);
 
     const updatedImgsrc = [...imgsrc];
-    updatedImgsrc.splice(id, 1); 
+    updatedImgsrc.splice(id, 1);
     setImgsrc(updatedImgsrc);
   };
 
@@ -48,15 +48,16 @@ export default function TextFieldImagenes({ textFieldImagenesData, setTextFieldI
             value={field.value}
             onChange={(e) => handleTextFieldChange(field.id, e.target.value)}
           />
-          <IconButton color="secondary" onClick={() => removeTextField(field.id)}>
-            
-          </IconButton>
+         <IconButton color="secondary" onClick={() => removeTextField(field.id)}>
+          <DeleteIcon style={{marginTop:26}}/>
+        </IconButton>
         </div>
       ))}
       <Box>
         <IconButton color="primary" onClick={addTextField}>
           <AddIcon />
         </IconButton>
+        
       </Box>
     </div>
   );

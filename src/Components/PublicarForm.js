@@ -147,6 +147,7 @@ export default function PublicarForm() {
               id="outlined-adornment-amount"
               startAdornment={<InputAdornment position="start">$</InputAdornment>}
               label="Amount"
+              type='number'
               onChange={(e) => handleInputChange(e, "precio")}
             />
           </FormControl>
@@ -156,6 +157,7 @@ export default function PublicarForm() {
               id="outlined-adornment-amount"
               startAdornment={<InputAdornment position="start">$</InputAdornment>}
               label="Amount"
+              type='number'
               onChange={(e) => handleInputChange(e, "gastoscomunes")}
             />
           </FormControl>
