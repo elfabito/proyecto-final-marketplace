@@ -35,7 +35,6 @@ function App() {
           <Outlet />
         </div>
       </div>
-      <Carrousel lista={lista} />
     </Router>
   );
 }
