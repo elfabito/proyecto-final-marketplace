@@ -8,6 +8,7 @@ import Propiedades from "./feature_propertyDetails/Propiedades.js";
 import React from 'react';
 import Carrousel from "./Carrousel.js"
 import Typography from "../Components/componentesBasicos/Typography.js";
+import Comodidades from "./feature_propertyDetails/Comodidades.js";
 
 function DetallePropiedad(props) {
   const [info, setinfo] = useState([]);
@@ -18,7 +19,7 @@ function DetallePropiedad(props) {
 
   return (
     <div className="DetallePropiedad">
-      <header className="main">
+      <div className="main">
         <Breadcrumb Seguimiento={hilos} />
 
         <div className="DetallePropiedadImagen">
@@ -41,9 +42,17 @@ function DetallePropiedad(props) {
           <MapView Nombre={info.title} coords={info.Coordenadas} />
         </div>
         <div><Propiedades datosDeTabla={info} /></div>
+        <div>
+          <Typography contenido={"Comodidades"} tipo={"h2"} negrita={false} tamaño={32} />
+          <Comodidades comodidades={info.comodidades} />
+        </div>
 
-        <div className="dPropiedad"><DPropiedad texto={info} /></div>
-      </header>
+        <div className="dPropiedad">
+          <Typography contenido={"Descripcion"} tipo={"h2"} negrita={false} tamaño={32} />
+          <DPropiedad texto={info.descripcion} />
+        </div>
+
+      </div>
     </div>
   );
 }

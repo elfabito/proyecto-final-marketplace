@@ -4,15 +4,15 @@ function DPropiedad(props) {
     const [info, setinfo] = useState([]);
     useEffect(() => {
         setinfo(props?.texto)
-      }, [])
+      }, [props?.texto])
         ;
     return (
         <div className="DPropiedad">
             <div>
-                <h2>Descripción</h2>
+                
                 <div>
                     <span>
-                        <p>{info.descripcion}</p>
+                        <p>{info}</p>
                     </span>
                 </div>
             </div>
