@@ -17,7 +17,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 
 
 
-export default function FormPropsTextFields() {
+export default function PublicarForm() {
   const [formData, setFormData] = useState({
     id: 1,
     title: "",
