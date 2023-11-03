@@ -1,20 +1,18 @@
 .publicarFormContainer {
-    width: 80%;
-    margin: 2rem auto 0 2rem;
+  width: 80%;
+  margin: 2rem auto 0 2rem;
 }
-.Select{
-    display: flex;
-    flex-direction: row;
-    
+.Select {
+  display: flex;
+  flex-direction: row;
 }
-.descripcion{
-    width: 4rem;
+.descripcion {
+  width: 4rem;
 }
-.bobyboton{
-    display: flex;
-    flex-direction: column;
+.bobyboton {
+  display: flex;
+  flex-direction: column;
 }
-.boton{
-
-    width: 200px;
+.boton {
+  width: 200px;
 }

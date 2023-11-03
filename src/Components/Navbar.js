@@ -1,21 +1,27 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import { Link } from 'react-router-dom';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+import MenuItem from "@mui/material/MenuItem";
+import AdbIcon from "@mui/icons-material/Adb";
+import { Link } from "react-router-dom";
 
-const pages = ['Venta', 'Alquiler', 'Proyectos', 'Inmobiliarias', 'Noticias' ];
-const settings = ['Ingresar', 'Perfil', 'Configuracion', 'Favoritos', 'Log out'];
+const pages = ["Venta", "Alquiler", "Proyectos", "Inmobiliarias", "Noticias"];
+const settings = [
+  "Ingresar",
+  "Perfil",
+  "Configuracion",
+  "Favoritos",
+  "Log out",
+];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -90,7 +96,7 @@ function Navbar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" >{page}</Typography>
+                  <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -121,14 +127,17 @@ function Navbar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                <Link to={`/` + page} style={{ color: "white", textDecoration: "none" }}>
+                <Link
+                  to={`/` + page}
+                  style={{ color: "white", textDecoration: "none" }}
+                >
                   {page}
                 </Link>
               </Button>
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0, mr: '35px'}}>
+          <Box sx={{ flexGrow: 0, mr: "35px" }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -152,11 +161,13 @@ function Navbar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Link to={`/` + setting} style={{ color: "black", textDecoration: "none" }}>
-                  {setting}
+                  <Link
+                    to={`/` + setting}
+                    style={{ color: "black", textDecoration: "none" }}
+                  >
+                    {setting}
                   </Link>
                 </MenuItem>
-                
               ))}
             </Menu>
           </Box>

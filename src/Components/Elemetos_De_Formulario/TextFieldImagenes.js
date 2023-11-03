@@ -1,24 +1,32 @@
-import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
-import IconButton from '@mui/material/IconButton';
-import Box from '@mui/material/Box';
-import AddIcon from '@mui/icons-material/Add';
-import DeleteIcon from '@mui/icons-material/Delete';
+import React, { useState } from "react";
+import TextField from "@mui/material/TextField";
+import IconButton from "@mui/material/IconButton";
+import Box from "@mui/material/Box";
+import AddIcon from "@mui/icons-material/Add";
+import DeleteIcon from "@mui/icons-material/Delete";
 
-export default function TextFieldImagenes({ textFieldImagenesData, setTextFieldImagenesData }) {
+export default function TextFieldImagenes({
+  textFieldImagenesData,
+  setTextFieldImagenesData,
+}) {
   const [imgsrc, setImgsrc] = useState([]);
 
   const addTextField = () => {
-    setTextFieldImagenesData([...textFieldImagenesData, { id: Date.now(), value: '' }]);
-    setImgsrc([...imgsrc, '']); 
+    setTextFieldImagenesData([
+      ...textFieldImagenesData,
+      { id: Date.now(), value: "" },
+    ]);
+    setImgsrc([...imgsrc, ""]);
   };
 
   const removeTextField = (id) => {
-    const updatedTextFields = textFieldImagenesData.filter((field) => field.id !== id);
+    const updatedTextFields = textFieldImagenesData.filter(
+      (field) => field.id !== id
+    );
     setTextFieldImagenesData(updatedTextFields);
 
     const updatedImgsrc = [...imgsrc];
-    updatedImgsrc.splice(id, 1); 
+    updatedImgsrc.splice(id, 1);
     setImgsrc(updatedImgsrc);
   };
 
@@ -48,9 +56,10 @@ export default function TextFieldImagenes({ textFieldImagenesData, setTextFieldI
             value={field.value}
             onChange={(e) => handleTextFieldChange(field.id, e.target.value)}
           />
-          <IconButton color="secondary" onClick={() => removeTextField(field.id)}>
-            
-          </IconButton>
+          <IconButton
+            color="secondary"
+            onClick={() => removeTextField(field.id)}
+          ></IconButton>
         </div>
       ))}
       <Box>

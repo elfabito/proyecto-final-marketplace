@@ -13,18 +13,34 @@ export default function StickyFooter() {
     <Box className="footer" sx={{ flexGrow: 1 }}>
       <Grid container spacing={3}>
         <Grid item xs>
-          <Item id="footer"><a href="#">Sobre Nosotros</a></Item>
-          <Item id="footer"><a href="#">Terminos y condiciones</a></Item>
+          <Item id="footer">
+            <a href="#">Sobre Nosotros</a>
+          </Item>
+          <Item id="footer">
+            <a href="#">Terminos y condiciones</a>
+          </Item>
         </Grid>
         <Grid item xs={6}>
-          <Item id="footer"><a href="#">Ventas</a></Item>
-          <Item id="footer"><a href="#">Alquiler</a></Item>
-          <Item id="footer"><a href="#">Alquiler Temporal</a></Item>
+          <Item id="footer">
+            <a href="#">Ventas</a>
+          </Item>
+          <Item id="footer">
+            <a href="#">Alquiler</a>
+          </Item>
+          <Item id="footer">
+            <a href="#">Alquiler Temporal</a>
+          </Item>
         </Grid>
         <Grid item xs>
-        <Item id="footer"><a href="#">YouTube</a></Item>
-        <Item id="footer"><a href="#">Facebook</a></Item>
-        <Item id="footer"><a href="#">Twitter</a></Item>
+          <Item id="footer">
+            <a href="#">YouTube</a>
+          </Item>
+          <Item id="footer">
+            <a href="#">Facebook</a>
+          </Item>
+          <Item id="footer">
+            <a href="#">Twitter</a>
+          </Item>
         </Grid>
       </Grid>
     </Box>

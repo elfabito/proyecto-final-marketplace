@@ -7,10 +7,9 @@ import CustomSelectCheckmarks from "./CustomSelectCheckmarks";
 import Carrousel from "./Carrousel";
 import Footer from "./Footer";
 import Button from "@mui/material/Button";
-import Autocomp from './Autocomp'
+import Autocomp from "./Autocomp";
 import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa6";
 import "./MainPage.css";
-
 
 function MainPage() {
   const [seleccion, setSeleccion] = React.useState("venta");
@@ -51,13 +50,12 @@ function MainPage() {
             <div className="contenedorBusqueda">
               <CustomSelectCheckmarks options={options_default} />
               <Autocomp />
-              <Button variant='contained'>Buscar</Button>
+              <Button variant="contained">Buscar</Button>
             </div>
           </Box>
         </div>
       </div>
-      <div className='carrousel-container'>
-        
+      <div className="carrousel-container">
         <Carrousel />
       </div>
       <div>
