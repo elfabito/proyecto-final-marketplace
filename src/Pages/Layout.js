@@ -1,17 +1,17 @@
-import { Outlet } from 'react-router-dom'
-import Navbar from '../Components/Navbar'
-import StoreProvider from '../Store/StoreProvider'
+import { Outlet } from "react-router-dom";
+import Navbar from "../Components/Navbar";
+import StoreProvider from "../Store/StoreProvider";
 
 const Layout = () => {
   return (
     <>
-    <StoreProvider>
-      <Navbar />
+      <StoreProvider>
+        <Navbar />
 
-      <Outlet />
+        <Outlet />
       </StoreProvider>
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

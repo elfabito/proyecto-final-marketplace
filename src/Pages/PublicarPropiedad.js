@@ -1,10 +1,8 @@
-import React from 'react'
-import PublicarForm from '../Components/PublicarForm'
+import React from "react";
+import PublicarForm from "../Components/PublicarForm";
 
 const PublicarPropiedad = () => {
-  return (
-    <PublicarForm />
-  )
-}
+  return <PublicarForm />;
+};
 
-export default PublicarPropiedad
+export default PublicarPropiedad;

@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Inmobiliarias = () => {
-  return (
-    <div>Inmobiliarias</div>
-  )
-}
+  return <div>Inmobiliarias</div>;
+};
 
-export default Inmobiliarias
+export default Inmobiliarias;
