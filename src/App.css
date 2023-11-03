@@ -1,27 +1,36 @@
 body {
-  margin: 0;
-  
-}
-.App {
-  text-align: center;
-  
+  margin: auto;
+  padding: auto;
+  background-color: white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+a {
   color: white;
+}
+
+#footer {
+  padding: 1rem;
+  font-weight: bolder;
+  color: white;
+  background-color: #1976d2;
+}
+
+.footer {
+  padding: 1rem;
+  display: grid;
+  grid-auto-flow: column;
+  color: white;
+  background-color: #1976d2;
+}
+
+.App {
+  text-align: center;
 }
 
 .SearchBackground {
   background-image: url("https://source.unsplash.com/random");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat: round;
+  background-size: 100%;
   image-rendering: optimizeQuality;
   width: auto;
   height: auto;

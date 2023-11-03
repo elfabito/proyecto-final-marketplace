@@ -1,15 +1,14 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import MenuItem from '@mui/material/MenuItem';
-import { useState, useEffect } from 'react';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import MenuItem from "@mui/material/MenuItem";
+import { useState, useEffect } from "react";
 
 export default function SelectTextFields(props) {
-  const [selectedValue, setSelectedValue] = useState('');
+  const [selectedValue, setSelectedValue] = useState("");
 
   useEffect(() => {
-
-    setSelectedValue('');
+    setSelectedValue("");
   }, [props.tipo]);
 
   const handleSelectChange = (event) => {
@@ -23,7 +22,7 @@ export default function SelectTextFields(props) {
     <Box
       component="form"
       sx={{
-        '& .MuiTextField-root': { m: 1, width: '25ch' },
+        "& .MuiTextField-root": { m: 1, width: "25ch" },
       }}
       noValidate
       autoComplete="off"
@@ -31,7 +30,6 @@ export default function SelectTextFields(props) {
       <div>
         <TextField
           select
-
           value={selectedValue}
           id="standard-basic"
           label={props.titulo}

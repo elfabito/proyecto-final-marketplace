@@ -11,20 +11,20 @@ import Stack from '@mui/material/Stack'
 import { storeContext } from '../Store/StoreProvider'
 import TextField from '@mui/material/TextField'
 
-const ITEM_HEIGHT = 44
-const ITEM_PADDING_TOP = 8
+const ITEM_HEIGHT = 44;
+const ITEM_PADDING_TOP = 8;
 const MenuProps = {
   PaperProps: {
     style: {
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
     },
   },
-}
+};
 
 function getStyles(name, theme) {
   return {
     fontWeight: theme.typography.fontWeightMedium,
-  }
+  };
 }
 
 function Filters() {
@@ -58,30 +58,30 @@ function Filters() {
   const handleChangeLocalidades = (event) => {
     const {
       target: { value },
-    } = event
-    setLocalidades(value)
-  }
+    } = event;
+    setLocalidades(value);
+  };
 
   const handleChangeEstado = (event) => {
     const {
       target: { value },
-    } = event
-    setEstado(value)
-  }
+    } = event;
+    setEstado(value);
+  };
 
   const handleChangeTipo = (event) => {
     const {
       target: { value },
-    } = event
-    setTipo(value)
-  }
+    } = event;
+    setTipo(value);
+  };
 
   const handleChangeDormitorios = (event) => {
     const {
       target: { value },
-    } = event
-    setDormitorios(value)
-  }
+    } = event;
+    setDormitorios(value);
+  };
 
   const handleChangeMoneda = (event) => {
     const {
@@ -123,13 +123,13 @@ function Filters() {
         {comodidad?.map((item) => {
           return <Chip label={item} />
         })}
-        <Button variant='outlined' onClick={resetFilters}>
+        <Button variant="outlined" onClick={resetFilters}>
           Borrar Filtros
         </Button>
       </div>
-      <div className='selects'>
-        <FormControl className='selects'>
-          <Stack direction='row' spacing={2}>
+      <div className="selects">
+        <FormControl className="selects">
+          <Stack direction="row" spacing={2}>
             <FormControl>
               <Select
                 multiple
@@ -138,10 +138,10 @@ function Filters() {
                 value={localidades}
                 input={<OutlinedInput />}
                 renderValue={(selected) => {
-                  return <em>Localidades</em>
+                  return <em>Localidades</em>;
                 }}
                 MenuProps={MenuProps}
-                inputProps={{ 'aria-label': 'Without label' }}
+                inputProps={{ "aria-label": "Without label" }}
               >
                 <MenuItem disabled value='' key='placeholderLocalidades'>
                   <em>Localidades</em>
@@ -165,10 +165,10 @@ function Filters() {
                 value={estado}
                 input={<OutlinedInput />}
                 renderValue={(selected) => {
-                  return <em>Estado</em>
+                  return <em>Estado</em>;
                 }}
                 MenuProps={MenuProps}
-                inputProps={{ 'aria-label': 'Without label' }}
+                inputProps={{ "aria-label": "Without label" }}
               >
                 <MenuItem disabled value='' key='placeholderEstado'>
                   <em>Estado</em>
@@ -192,10 +192,10 @@ function Filters() {
                 value={tipo}
                 input={<OutlinedInput />}
                 renderValue={(selected) => {
-                  return <em>Tipo</em>
+                  return <em>Tipo</em>;
                 }}
                 MenuProps={MenuProps}
-                inputProps={{ 'aria-label': 'Without label' }}
+                inputProps={{ "aria-label": "Without label" }}
               >
                 <MenuItem disabled value='' key='placeholderTipo'>
                   <em>Tipo</em>
@@ -219,10 +219,10 @@ function Filters() {
                 value={dormitorios}
                 input={<OutlinedInput />}
                 renderValue={(selected) => {
-                  return <em>Dormitorios</em>
+                  return <em>Dormitorios</em>;
                 }}
                 MenuProps={MenuProps}
-                inputProps={{ 'aria-label': 'Without label' }}
+                inputProps={{ "aria-label": "Without label" }}
               >
                 <MenuItem disabled value='' key='placeholderDormitorios'>
                   <em>Dormitorios</em>
@@ -249,7 +249,7 @@ function Filters() {
                   return <em>Moneda</em>
                 }}
                 MenuProps={MenuProps}
-                inputProps={{ 'aria-label': 'Without label' }}
+                inputProps={{ "aria-label": "Without label" }}
               >
                 <MenuItem disabled value='' key='placeholderMoneda'>
                   <em>Moneda</em>
@@ -287,10 +287,10 @@ function Filters() {
                 value={comodidad}
                 input={<OutlinedInput />}
                 renderValue={(selected) => {
-                  return <em>Otros filtros</em>
+                  return <em>Otros filtros</em>;
                 }}
                 MenuProps={MenuProps}
-                inputProps={{ 'aria-label': 'Without label' }}
+                inputProps={{ "aria-label": "Without label" }}
               >
                 <MenuItem disabled value='' key='placeholderOtherFilters'>
                   <em>Otros filtros</em>
@@ -310,7 +310,7 @@ function Filters() {
         </FormControl>
       </div>
     </div>
-  )
+  );
 }
 
-export default Filters
+export default Filters;

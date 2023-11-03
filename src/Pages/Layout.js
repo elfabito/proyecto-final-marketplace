@@ -1,6 +1,6 @@
-import { Outlet } from 'react-router-dom'
-import Navbar from '../Components/Navbar'
-import StoreProvider from '../Store/StoreProvider'
+import { Outlet } from "react-router-dom";
+import Navbar from "../Components/Navbar";
+import StoreProvider from "../Store/StoreProvider";
 
 const Layout = () => {
   
@@ -13,7 +13,7 @@ const Layout = () => {
       <Outlet />
     </StoreProvider>
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

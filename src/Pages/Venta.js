@@ -1,14 +1,7 @@
-import React from 'react'
-
+import React from "react";
 
 const Venta = () => {
+  return <div>Venta</div>;
+};
 
-  return (
-    <div>Venta
-     
-    
-    </div>
-  )
-}
-
-export default Venta
+export default Venta;
