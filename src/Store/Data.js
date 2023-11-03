@@ -12,6 +12,8 @@ export const ListadoPropiedades = [
         aceptaMascotasOptions: "Sí",
         zona: "Punta Ballena",
         garaje: "Sí",
+        Coordenadas:[22.000000000,22.0000000000]
+        ,
         m2Edificados: 400,
         m2Terreno: 1000,
         tipoDePropiedad: "Casa",

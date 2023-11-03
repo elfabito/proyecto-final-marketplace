@@ -5,9 +5,9 @@ import Typography from "../componentesBasicos/Typography.js";
 const Propiedades = (props) => {
     const [info,setinfo]=useState([])
     useEffect(() => {
-        setinfo(props?.datosDeTabla)
-      }, [])
-    const propertyDetails = [
+        setinfo(props.datosDeTabla)
+      }, [props.datosDeTabla])
+    const detail = [
         { label: 'Referencia',  value:info.id},
         { label: 'Tipo de Propiedad', value: info.tipoDePropiedad },
         { label: 'Zona', value: info.zona },
@@ -16,16 +16,16 @@ const Propiedades = (props) => {
         { label: 'Baños', value: info.banos },
         { label: 'M² edificados', value:  info.m2Edificados},
         { label: 'M² de terraza', value: info.m2Terreno },
-        { label: 'Año de Construcción', value: info. anioConstruccion },
+        { label: 'Año de Construcción', value: info.anioConstruccion },
         { label: 'Dormitorios', value: info.dormitorio },
         { label: 'Garajes', value: info.garaje },
         { label: 'Mascota', value: info.aceptaMascotasOptions},
     ];
-    const halfwayIndex = Math.ceil(info.length / 2); // Índice a la mitad del array
+    const halfwayIndex = Math.ceil(detail.length / 2); // Índice a la mitad del array
 
     // Divide el array en dos partes
-    const firstHalf = info.slice(0, halfwayIndex);
-    const secondHalf = info.slice(halfwayIndex);
+    const firstHalf = detail.slice(0, halfwayIndex);
+    const secondHalf = detail.slice(halfwayIndex);
     
     return (
         <div>

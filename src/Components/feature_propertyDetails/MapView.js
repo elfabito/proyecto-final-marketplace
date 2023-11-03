@@ -1,42 +1,37 @@
 import React, { useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import "leaflet/dist/leaflet.css"
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 import "./Styles/Map.css";
-import L from "leaflet"
-import icon from "leaflet/dist/images/marker-icon.png"
-import iconShadow from "leaflet/dist/images/marker-icon.png"
-let iconUbicacion = new L.icon({
-    iconUrl: icon,
-    iconShadow: iconShadow,
-})
-const MapView = () => {
-    const [ubicacion, setUbicacion] = useState([]);
+import icon from "leaflet/dist/images/marker-icon.png";
+import iconShadow from "leaflet/dist/images/marker-shadow.png";
 
-    return (
-        <div>
-            <div>
-                <h2>ubicacion</h2>
-                <span>Aca va la direccion</span>
-            </div>
-            <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true} className="Map">
-                <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />^
-                <Marker
-                        key={key}
-                        position={[51.505, -0.09]}
-                        icon={iconUbicacion}
-                    >
-                        <Popup>
-                            A pretty CSS3 popup. <br /> Easily customizable.
-                        </Popup>
-                    </Marker>
-                
-            </MapContainer>
-            
-        </div>
-    );
+let iconUbicacion = new L.icon({
+  iconUrl: icon,
+  iconShadow: iconShadow,
+});
+
+const MapView = (props) => {
+  const [nombre, setNombre] = useState("ubicacion");
+
+const position = [22,111]
+  useEffect(() => {
+    setNombre(props.Nombre);
+  }, [props.Nombre]);
+
+  return (
+    <MapContainer center={position} zoom={13} scrollWheelZoom={true} className="Map">
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      <Marker position={position} icon={iconUbicacion}>
+        <Popup>
+          {nombre}
+        </Popup>
+      </Marker>
+    </MapContainer>
+  );
 };
 
 export default MapView;

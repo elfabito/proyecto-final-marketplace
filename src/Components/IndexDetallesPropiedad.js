@@ -9,14 +9,13 @@ import React from 'react';
 import Carrousel from "./Carrousel.js"
 import Typography from "../Components/componentesBasicos/Typography.js";
 
-
 function DetallePropiedad(props) {
   const [info, setinfo] = useState([]);
   const hilos = ["MarcketPlace inmobiliario", "Alquiler", "Maldonado", "Punta Del Este", "Arquiler de monoambiente"];
   useEffect(() => {
     setinfo(props?.store)
-  }, [])
-    ;
+  }, [props.store]);
+
   return (
     <div className="DetallePropiedad">
       <header className="main">
@@ -29,7 +28,7 @@ function DetallePropiedad(props) {
           <div className="subCarta">
             <div className="encabezado">
               <div className="tituloh1">
-              <Typography contenido={info.title} tipo={"h1"} negrita={true} tamaño={32} />
+                <Typography contenido={info.title} tipo={"h1"} negrita={true} tamaño={32} />
               </div>
               <Typography className="Moneda" contenido={info.tipoMoneda + info.precio} tipo={"h2"} negrita={true} tamaño={32} />
             </div>
@@ -39,7 +38,7 @@ function DetallePropiedad(props) {
             <IconDetalle bano={info.banos} dormitorio={info.dormitorio} m2Terreno={info.m2Terreno} />
           </div>
 
-          <MapView />
+          <MapView Nombre={info.title} coords={info.Coordenadas} />
         </div>
         <div><Propiedades datosDeTabla={info} /></div>
 
@@ -49,4 +48,3 @@ function DetallePropiedad(props) {
   );
 }
 export default DetallePropiedad
-
