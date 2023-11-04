@@ -1,162 +1,152 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { useTheme } from '@mui/material/styles'
 import OutlinedInput from '@mui/material/OutlinedInput'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 import Button from '@mui/material/Button'
-import Data from './Data'
 import './Filters.css'
 import Chip from '@mui/material/Chip'
 import Stack from '@mui/material/Stack'
-let filtros = {
-  localidades: [],
-  estado: [],
-  tipo: [],
-  dormitorios: [],
-  precio: [],
-  extraFilters: [],
-}
+import { storeContext } from '../Store/StoreProvider'
+import TextField from '@mui/material/TextField'
 
-const ITEM_HEIGHT = 44
-const ITEM_PADDING_TOP = 8
+const ITEM_HEIGHT = 44;
+const ITEM_PADDING_TOP = 8;
 const MenuProps = {
   PaperProps: {
     style: {
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
     },
   },
-}
+};
 
 function getStyles(name, theme) {
   return {
     fontWeight: theme.typography.fontWeightMedium,
-  }
+  };
 }
 
 function Filters() {
   const theme = useTheme()
-  const [filtro, setFiltro] = useState(filtros)
+
+  const [store, dispatch] = useContext(storeContext)
+
+  const [filtro, setFiltro] = useState()
 
   const [localidades, setLocalidades] = useState([])
   const [estado, setEstado] = useState([])
   const [tipo, setTipo] = useState([])
   const [dormitorios, setDormitorios] = useState([])
-  const [precio, setPrecio] = useState([])
-  const [extraFilters, setExtraFilters] = useState([])
+  const [moneda, setMoneda] = useState([])
+  const [maxPrice, setMaxPrice] = useState(0)
+  const [comodidad, setComodidad] = useState([])
 
   useEffect(() => {
-    filtros = {
+    const filtros = {
       localidades: localidades,
       estado: estado,
       tipo: tipo,
       dormitorios: dormitorios,
-      precio: precio,
-      extraFilters: extraFilters,
+      moneda: moneda,
+      maxPrice: maxPrice,
+      comodidad: comodidad,
     }
     setFiltro(filtros)
-  }, [localidades, estado, tipo, dormitorios, precio, extraFilters])
+  }, [localidades, estado, tipo, dormitorios, moneda, maxPrice, comodidad])
 
   const handleChangeLocalidades = (event) => {
     const {
       target: { value },
-    } = event
-    setLocalidades(value)
-  }
+    } = event;
+    setLocalidades(value);
+  };
 
   const handleChangeEstado = (event) => {
     const {
       target: { value },
-    } = event
-    setEstado(value)
-  }
+    } = event;
+    setEstado(value);
+  };
 
   const handleChangeTipo = (event) => {
     const {
       target: { value },
-    } = event
-    setTipo(value)
-  }
+    } = event;
+    setTipo(value);
+  };
 
   const handleChangeDormitorios = (event) => {
     const {
       target: { value },
-    } = event
-    setDormitorios(value)
-  }
+    } = event;
+    setDormitorios(value);
+  };
 
-  const handleChangePrecio = (event) => {
+  const handleChangeMoneda = (event) => {
     const {
       target: { value },
     } = event
-    setPrecio(value)
+    setMoneda(value)
   }
 
-  const handleChangeExtraFilters = (event) => {
+  const handleChangeComodidad = (event) => {
     const {
       target: { value },
     } = event
-    setExtraFilters(typeof value === 'string' ? value.split(',') : value)
+    setComodidad(value)
   }
 
   const resetFilters = () => {
-    filtros = {
-      localidades: [],
-      estado: [],
-      tipo: [],
-      dormitorios: [],
-      precio: [],
-      extraFilters: [],
-    }
-    setFiltro(filtros)
+    setFiltro({})
   }
 
   return (
     <div>
       <div className='filtritos'>
-        {filtro.localidades.map((item) => {
+        {localidades?.map((item) => {
           return <Chip label={item} />
         })}
-        {filtro.estado.map((item) => {
+        {estado?.map((item) => {
           return <Chip label={item} />
         })}
-        {filtro.tipo.map((item) => {
+        {tipo?.map((item) => {
           return <Chip label={item} />
         })}
-        {filtro.dormitorios.map((item) => {
+        {dormitorios?.map((item) => {
           return <Chip label={item} />
         })}
-        {filtro.precio.map((item) => {
+        {moneda?.map((item) => {
           return <Chip label={item} />
         })}
-        {filtro.extraFilters.map((item) => {
+        {maxPrice > 0 && <Chip label={'Precio máximo: ' + maxPrice} />}
+        {comodidad?.map((item) => {
           return <Chip label={item} />
         })}
-        <Button variant='outlined' onClick={resetFilters}>
+        <Button variant="outlined" onClick={resetFilters}>
           Borrar Filtros
         </Button>
       </div>
-      <div className='selects'>
-        <FormControl className='selects'>
-          <Stack direction='row' spacing={2}>
+      <div className="selects">
+        <FormControl className="selects">
+          <Stack direction="row" spacing={2}>
             <FormControl>
               <Select
                 multiple
                 displayEmpty
                 onChange={handleChangeLocalidades}
                 value={localidades}
-                key={localidades}
                 input={<OutlinedInput />}
                 renderValue={(selected) => {
-                  return <em>Localidades</em>
+                  return <em>Localidades</em>;
                 }}
                 MenuProps={MenuProps}
-                inputProps={{ 'aria-label': 'Without label' }}
+                inputProps={{ "aria-label": "Without label" }}
               >
-                <MenuItem disabled value=''>
+                <MenuItem disabled value='' key='placeholderLocalidades'>
                   <em>Localidades</em>
                 </MenuItem>
-                {Data.localidades.map((name) => (
+                {store.localidades.map((name) => (
                   <MenuItem
                     key={name}
                     value={name}
@@ -175,15 +165,15 @@ function Filters() {
                 value={estado}
                 input={<OutlinedInput />}
                 renderValue={(selected) => {
-                  return <em>Estado</em>
+                  return <em>Estado</em>;
                 }}
                 MenuProps={MenuProps}
-                inputProps={{ 'aria-label': 'Without label' }}
+                inputProps={{ "aria-label": "Without label" }}
               >
-                <MenuItem disabled value=''>
+                <MenuItem disabled value='' key='placeholderEstado'>
                   <em>Estado</em>
                 </MenuItem>
-                {Data.estado.map((name) => (
+                {store.estado.map((name) => (
                   <MenuItem
                     key={name}
                     value={name}
@@ -202,15 +192,15 @@ function Filters() {
                 value={tipo}
                 input={<OutlinedInput />}
                 renderValue={(selected) => {
-                  return <em>Tipo</em>
+                  return <em>Tipo</em>;
                 }}
                 MenuProps={MenuProps}
-                inputProps={{ 'aria-label': 'Without label' }}
+                inputProps={{ "aria-label": "Without label" }}
               >
-                <MenuItem disabled value=''>
+                <MenuItem disabled value='' key='placeholderTipo'>
                   <em>Tipo</em>
                 </MenuItem>
-                {Data.tipo.map((name) => (
+                {store.tipoPropiedad.map((name) => (
                   <MenuItem
                     key={name}
                     value={name}
@@ -229,15 +219,15 @@ function Filters() {
                 value={dormitorios}
                 input={<OutlinedInput />}
                 renderValue={(selected) => {
-                  return <em>Dormitorios</em>
+                  return <em>Dormitorios</em>;
                 }}
                 MenuProps={MenuProps}
-                inputProps={{ 'aria-label': 'Without label' }}
+                inputProps={{ "aria-label": "Without label" }}
               >
-                <MenuItem disabled value=''>
+                <MenuItem disabled value='' key='placeholderDormitorios'>
                   <em>Dormitorios</em>
                 </MenuItem>
-                {Data.dormitorios.map((name) => (
+                {store.dormitorios.map((name) => (
                   <MenuItem
                     key={name}
                     value={name}
@@ -252,19 +242,19 @@ function Filters() {
               <Select
                 multiple
                 displayEmpty
-                onChange={handleChangePrecio}
-                value={precio}
+                onChange={handleChangeMoneda}
+                value={moneda}
                 input={<OutlinedInput />}
                 renderValue={(selected) => {
-                  return <em>Precio</em>
+                  return <em>Moneda</em>
                 }}
                 MenuProps={MenuProps}
-                inputProps={{ 'aria-label': 'Without label' }}
+                inputProps={{ "aria-label": "Without label" }}
               >
-                <MenuItem disabled value=''>
-                  <em>Precio</em>
+                <MenuItem disabled value='' key='placeholderMoneda'>
+                  <em>Moneda</em>
                 </MenuItem>
-                {Data.precio.map((name) => (
+                {store.moneda.map((name) => (
                   <MenuItem
                     key={name}
                     value={name}
@@ -275,23 +265,37 @@ function Filters() {
                 ))}
               </Select>
             </FormControl>
+
+            <FormControl>
+              <TextField
+                id='maxPrice'
+                label='Precio máximo'
+                variant='outlined'
+                placeholder='Precio máximo'
+                key='placeholderMaxPrice'
+                type='number'
+                onChange={(e) => {
+                  setMaxPrice(e.target.value)
+                }}
+              />
+            </FormControl>
             <FormControl>
               <Select
                 multiple
                 displayEmpty
-                onChange={handleChangeExtraFilters}
-                value={extraFilters}
+                onChange={handleChangeComodidad}
+                value={comodidad}
                 input={<OutlinedInput />}
                 renderValue={(selected) => {
-                  return <em>Otros filtros</em>
+                  return <em>Otros filtros</em>;
                 }}
                 MenuProps={MenuProps}
-                inputProps={{ 'aria-label': 'Without label' }}
+                inputProps={{ "aria-label": "Without label" }}
               >
-                <MenuItem disabled value=''>
+                <MenuItem disabled value='' key='placeholderOtherFilters'>
                   <em>Otros filtros</em>
                 </MenuItem>
-                {Data.extraFilters.map((name) => (
+                {store.comodidad.map((name) => (
                   <MenuItem
                     key={name}
                     value={name}
@@ -306,7 +310,7 @@ function Filters() {
         </FormControl>
       </div>
     </div>
-  )
+  );
 }
 
-export default Filters
+export default Filters;
