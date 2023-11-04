@@ -4,17 +4,19 @@ import Avatar from "@mui/material/Avatar";
 import Grid from "@mui/material/Unstable_Grid2";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
+
 import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
+
 import "./subPages/PerfilSubPages.css";
 import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
-import { Route, Routes, Link, Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
+import "../App.css";
+import "../index.css";
 
 const Perfil = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
   const [userName, setUserName] = useState("Guille");
+  const [isEditing, setIsEditing] = useState(false);
 
   return (
     <Container maxWidth="lg">
@@ -37,23 +39,36 @@ const Perfil = () => {
                   sx={{ width: 100, height: 100 }}
                 />
               </Grid>
-              <Grid item padding={2} width={"fit-content"} xs={8}>
-                <Typography variant="h5" color="text.secondary">
-                  {userName}
-                  <IconButton aria-label="edit" size="small">
-                    <EditIcon fontSize="inherit" />
-                  </IconButton>
-                </Typography>
+              <Grid
+                item
+                padding={2}
+                display={"flex"}
+                width={"fit-content"}
+                xs={8}
+              >
+                {!isEditing ? (
+                  <Typography variant="h5" color="text.secondary">
+                    {userName}
+                  </Typography>
+                ) : (
+                  <textarea
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
+                  />
+                )}
+                <IconButton
+                  aria-label="edit"
+                  size="small"
+                  onClick={() => setIsEditing(!isEditing)}
+                >
+                  <EditIcon fontSize="inherit" />
+                </IconButton>
               </Grid>
               <Grid item xs={6}>
-                <Link
-                  className="Link"
-                  to="/Perfil"
-                  color="inherit"
-                  underline="hover"
-                  textDecoration="none"
-                >
-                  Resumen
+                <Link className="Link" to="/Perfil">
+                  <Typography variant="body1" color="text.primary">
+                    Resumen
+                  </Typography>
                 </Link>
               </Grid>
               <Grid item width={"fit-content"} xs={6}>
@@ -69,7 +84,9 @@ const Perfil = () => {
                   underline="hover"
                   textDecoration="none"
                 >
-                  {"Pagos"}
+                  <Typography variant="body1" color="text.primary">
+                    Pagos
+                  </Typography>
                 </Link>
               </Grid>
               <Grid item width={"fit-content"} xs={6}>
@@ -85,7 +102,9 @@ const Perfil = () => {
                   underline="hover"
                   textDecoration="none"
                 >
-                  Favoritos
+                  <Typography variant="body1" color="text.primary">
+                    Favoritos
+                  </Typography>
                 </Link>
               </Grid>
               <Grid item xs={6}>
@@ -96,7 +115,9 @@ const Perfil = () => {
                   underline="hover"
                   textDecoration="none"
                 >
-                  Historial
+                  <Typography variant="body1" color="text.primary">
+                    Historial
+                  </Typography>
                 </Link>
               </Grid>
               <Grid item xs={6}>
@@ -107,7 +128,9 @@ const Perfil = () => {
                   underline="hover"
                   textDecoration="none"
                 >
-                  Consultas
+                  <Typography variant="body1" color="text.primary">
+                    Consultas
+                  </Typography>
                 </Link>
               </Grid>
               <Grid item paddingTop={3} width={"fit-content"} xs={8}>
@@ -124,7 +147,9 @@ const Perfil = () => {
           </Box>
         </Grid>
         <Grid item xs={8}>
-          <Outlet />
+          <main>
+            <Outlet />
+          </main>
         </Grid>
       </Grid>
     </Container>
