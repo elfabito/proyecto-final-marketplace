@@ -46,28 +46,30 @@ export default function DataTable() {
 
   return (
     <TableContainer component={Paper}>
+    <h1 style={{ color: '#2074d4', marginLeft: '10px' }}>Lista de propiedades:</h1>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <h2 style={{ color: '#2074d4' }}>Propiedades:</h2>
+      
           <TableRow>
-            <TableCell style={{ width: '25%' }}>Codigo</TableCell>
-            <TableCell style={{ width: '25%' }} align="center">Lugar</TableCell>
-            <TableCell style={{ width: '25%' }} align="center">Precio</TableCell>
-            <TableCell style={{ width: '25%' }} align="center">Botones</TableCell>
+            <TableCell style={{ width: '5%', fontWeight: 'bold' }}align="center">Codigo</TableCell>
+            <TableCell style={{ width: '25%', fontWeight: 'bold'}} align="center">Titulo</TableCell>
+            <TableCell style={{ width: '25%' , fontWeight: 'bold'}} align="center">Lugar</TableCell>
+            <TableCell style={{ width: '25%' , fontWeight: 'bold'}} align="center">Precio</TableCell>
+            <TableCell style={{ width: '25%', fontWeight: 'bold' }} align="center">Botones</TableCell>
           </TableRow>
-        </TableHead>
+       
         <TableBody>
           {datosDelCarrousel.map((step, index) => (
             <TableRow
               key={step.uno}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell component="th" scope="row">{step.id}</TableCell>
+              <TableCell  align="center" component="th" scope="row">{step.id}</TableCell>
+              <TableCell  align="center" component="th" scope="row">{step.title}</TableCell>
               <TableCell align="center">{step.ubicacion}</TableCell>
               <TableCell align="center">{step.precio}</TableCell>
               <TableCell align="center">
                 <Button variant="contained" color="primary">Publicar</Button>
-                <Button variant="contained" color="primary">Delete</Button>
+                <Button variant="contained" color="primary">Borrar</Button>
               </TableCell>
             </TableRow>
           ))}
