@@ -10,6 +10,7 @@ import Autocomp from "./Autocomp";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { filterParams } from "../Store/StoreProvider";
+import Footer from "./Footer";
 
 function MainPage() {
   const [seleccion, setSeleccion] = React.useState("venta");

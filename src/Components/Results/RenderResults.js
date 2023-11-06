@@ -1,15 +1,15 @@
 import * as React from "react";
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+
 import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import { storeContext } from "../../Store/StoreProvider";
+
 const RenderResults = (props) => {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -18,14 +18,10 @@ const RenderResults = (props) => {
     textAlign: "center",
     color: theme.palette.text.secondary,
   }));
-  const [store, dispatch] = useContext(storeContext);
   const [results, setResults] = React.useState([]);
-  const [filteredResults, setFilteredResults] = React.useState([]);
-  const [localidad, setLocalidad] = React.useState("");
   useEffect(() => {
     setResults(props.results);
-    setLocalidad(props.localidad);
-  }, [props.results, props.localidad]);
+  }, [props.results]);
 
   return (
     <div>
