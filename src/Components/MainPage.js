@@ -14,7 +14,6 @@ import Footer from "./Footer";
 
 function MainPage() {
   const [seleccion, setSeleccion] = React.useState("venta");
-  const [searchText, setSearchText] = useState("");
   const options_default = [
     "Casa",
     "Apartamento",
