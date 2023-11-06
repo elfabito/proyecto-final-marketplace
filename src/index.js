@@ -19,6 +19,7 @@ import Venta from "./Pages/Venta";
 import NoPage from "./Pages/NoPage";
 import Layout from "./Pages/Layout";
 import Home from "./Pages/Home";
+import Resultados from "./Pages/Resultados";
 import {
   Resumen,
   Pagos,
@@ -60,6 +61,8 @@ export default function Router() {
           <Route path="/publicarpropiedad" element={<PublicarPropiedad />} />
           <Route path="/venta" element={<Venta />} />
           <Route path="*" element={<NoPage />} />
+          <Route path="/resultados" element={<Resultados />} />
+        
         </Route>
       </Routes>
     </BrowserRouter>

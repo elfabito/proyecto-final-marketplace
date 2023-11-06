@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import datos from "./Data/Results";
+import { useContext } from "react";
 import RenderResults from "./RenderResults";
 import {
   Box,
@@ -9,37 +9,46 @@ import {
   Button,
   Container,
   Grid,
-  Pagination,
   Typography,
 } from "@mui/material";
 import MapIcon from "@mui/icons-material/Map";
 import { FilterAlt } from "@mui/icons-material";
 import "./SearchResult.css";
-
+import {
+  storeContext,
+  filterResults,
+  filterParams,
+} from "../../Store/StoreProvider";
+import Filters from "../Filters";
 const SearchResult = () => {
-  const [results, setResults] = useState([]);
-  const [totalResults, setTotalResults] = useState(0);
-  const [localidad, setLocalidad] = useState("");
   const [numOfResults, setNumOfResults] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [resultsPerPage, setResultsPerPage] = useState(5);
-  const [thisPage, setThisPage] = useState(1);
+  const [results, setResults] = useState([]);
+
+  const [filteredResults, setFilteredResults] = useState([]);
+  const [store, dispatch] = useContext(storeContext);
 
   useEffect(() => {
-    setThisPage(1);
-    setResultsPerPage(5);
-  }, []);
+    const filteredResults = filterResults(results);
+    setFilteredResults(filteredResults);
+  }, [results]);
+  useEffect(() => {
+    setResults(store.propiedades);
+  }, [store.propiedades]);
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 500);
+    }, 1000);
+    setTimeout(() => {}, 1500);
+  }, []);
 
-    const slice = datos.slice(thisPage - 1, resultsPerPage);
-    setResults(slice);
-    setLocalidad("Montevideo");
-    setNumOfResults(slice.length);
-    setTotalResults(datos.length);
-  }, [thisPage]);
+  useEffect(() => {
+    if (filteredResults.length > 0) {
+      setNumOfResults(filteredResults.length);
+    } else {
+      setNumOfResults(0);
+    }
+  }, [filteredResults]);
 
   return (
     <div className="SearchResult">
@@ -64,13 +73,14 @@ const SearchResult = () => {
                   variant="body1"
                   color="text.primary"
                 >
-                  Venta de casas y apartamentos en {localidad}.
+                  Venta de casas y apartamentos en {filterParams.localidad}.
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Estás en: info, casas, venta, apartamentos.
+                  Estás en: {filterParams.tipodepropiedad},{" "}
+                  {filterParams.tipoDeVenta}
                 </Typography>
                 <Typography variant="body2" color="text.primary">
-                  Mostrando {numOfResults} de {totalResults} resultados.
+                  Mostrando {numOfResults} resultados.
                 </Typography>
               </Stack>
               <Stack
@@ -94,6 +104,7 @@ const SearchResult = () => {
           </div>
         </Box>
       </Container>
+      <Filters />
       <Container className="resultados" maxWidth="lg">
         <Box
           boxShadow={2}
@@ -113,22 +124,13 @@ const SearchResult = () => {
             {loading && <p>Cargando...</p>}
             {!loading && (
               <div>
-                <RenderResults results={results} />
+                {filteredResults.length > 0 && (
+                  <RenderResults results={filteredResults} />
+                )}
               </div>
             )}{" "}
           </main>
         </Box>
-        <Pagination
-          sx={{
-            padding: "15px",
-            justifyContent: "center",
-            display: "flex",
-          }}
-          onChange={(_, page) => setThisPage(page)}
-          page={thisPage}
-          count={totalResults}
-          color="primary"
-        />
       </Container>
     </div>
   );

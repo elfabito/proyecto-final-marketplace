@@ -2,18 +2,18 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import TextField from "@mui/material/TextField";
 import CustomSelectCheckmarks from "./CustomSelectCheckmarks";
 import Carrousel from "./Carrousel";
-import Footer from "./Footer";
 import Button from "@mui/material/Button";
-import Autocomp from "./Autocomp";
-import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa6";
 import "./MainPage.css";
+import Autocomp from "./Autocomp";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { filterParams } from "../Store/StoreProvider";
+import Footer from "./Footer";
 
 function MainPage() {
   const [seleccion, setSeleccion] = React.useState("venta");
-
   const options_default = [
     "Casa",
     "Apartamento",
@@ -24,9 +24,11 @@ function MainPage() {
     "Garage o Cochera",
   ];
 
-  const handleChange = (event, newSeleccion) => {
-    setSeleccion(newSeleccion);
+  const handleChange = (event, value) => {
+    setSeleccion(value);
+    filterParams.tipodeventa = value;
   };
+
   return (
     <div className="App">
       <div className="SearchBackground">
@@ -40,9 +42,9 @@ function MainPage() {
               aria-label="Platform"
               id="opciones"
             >
-              <ToggleButton value="venta">Venta</ToggleButton>
-              <ToggleButton value="alquiler">Alquiler</ToggleButton>
-              <ToggleButton value="alquilertemporal">
+              <ToggleButton value="Venta">Venta</ToggleButton>
+              <ToggleButton value="Alquiler">Alquiler</ToggleButton>
+              <ToggleButton value="Alquiler temporal">
                 Alquiler Temporal
               </ToggleButton>
             </ToggleButtonGroup>
@@ -50,7 +52,11 @@ function MainPage() {
             <div className="contenedorBusqueda">
               <CustomSelectCheckmarks options={options_default} />
               <Autocomp />
-              <Button variant="contained">Buscar</Button>
+              <Link to={"/resultados"}>
+                <Button type="submit" variant="contained">
+                  Buscar
+                </Button>
+              </Link>
             </div>
           </Box>
         </div>
