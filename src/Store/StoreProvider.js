@@ -1,14 +1,22 @@
-import { createContext, useReducer } from "react";
-import storeReducer, { initialStore } from "./StoreReducer";
-import React from "react";
+import { createContext, useReducer } from 'react'
+import storeReducer, { initialStore } from './StoreReducer'
+import React from 'react'
 
 const storeContext = createContext()
+
 const intialData = initialStore()
+
 export const filterParams = {
-  localidad: "",
-  tipodeventa: "",
-  tipoDePropiedad: [""],
-};
+  localidad: [],
+  estado: [],
+  tipo: [],
+  dormitorios: [],
+  moneda: [],
+  maxPrice: 0,
+  comodidad: [],
+  TipoDePublicacion: [],
+}
+
 export const filterResults = (results) => {
   const filteredResults = results.filter((result) => {
     return (
@@ -16,15 +24,15 @@ export const filterResults = (results) => {
       (result.ubicacion[1].includes(filterParams.localidad) ||
         result.ubicacion[0].includes(filterParams.localidad)) &&
       result.tipoDePropiedad.includes(filterParams.tipoDePropiedad[0])
-    );
-  });
+    )
+  })
 
-  return filteredResults;
-};
+  return filteredResults
+}
 
 const StoreProvider = ({ children }) => {
-  const [store, dispatch] = useReducer(storeReducer, intialData);
-  const [filteredResults, setFilteredResults] = React.useState([]);
+  const [store, dispatch] = useReducer(storeReducer, intialData)
+  const [filteredResults, setFilteredResults] = React.useState([])
   const filterResults = (results, filterLocalidad, filterTipoVenta) => {
     const filteredResults = results.filter((result) => {
       return (
@@ -37,17 +45,17 @@ const StoreProvider = ({ children }) => {
           result.ubicacion[0]
             .toLowerCase()
             .includes(filterLocalidad.toLowerCase()))
-      );
-    });
+      )
+    })
 
-    return filteredResults;
-  };
+    return filteredResults
+  }
   return (
     <storeContext.Provider value={[store, dispatch]}>
       {children}
     </storeContext.Provider>
-  );
-};
+  )
+}
 
-export { storeContext };
+export { storeContext }
 export default StoreProvider
