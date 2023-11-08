@@ -12,7 +12,7 @@ import {
   ListadoAtributos,
   ListadotypesDeAtributos,
   nombreDeGuardadoDeLosAtributos,
-} from "./Data.js";
+} from './Data.js'
 
 const initialStore = () => {
   const store = {
@@ -27,15 +27,25 @@ const initialStore = () => {
     estado: ListadoDeEstado,
     comodidad: ListadoComodidades,
     atributos: ListadoAtributos,
-    typesAtributos: ListadotypesDeAtributos,
     nombreAtributosGuardado: nombreDeGuardadoDeLosAtributos,
-  };
-  return store;
-};
+    filters: {
+      localidad: [],
+      estado: [],
+      tipo: [],
+      dormitorios: [],
+      moneda: [],
+      maxPrice: 0,
+      comodidad: [],
+      TipoDePublicacion: [],
+    },
+  }
+  return store
+}
 
 const types = {
-  setProperty: "setProperty",
-};
+  setProperty: 'setProperty',
+  setFilters: 'setFilters',
+}
 
 const storeReducer = (state, action) => {
   switch (action.type) {
@@ -43,13 +53,18 @@ const storeReducer = (state, action) => {
       return {
         ...state,
         propiedades: state.propiedades.push(...action.payload),
-      };
+      }
+    case types.setFilters:
+      return {
+        ...state,
+        filters: { ...state.filters, ...action.payload },
+      }
 
     default:
-      return state;
+      return state
   }
-};
+}
 
-export { types };
-export { initialStore };
-export default storeReducer;
+export { types }
+export { initialStore }
+export default storeReducer

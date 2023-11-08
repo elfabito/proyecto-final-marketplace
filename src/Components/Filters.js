@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react'
+import { useState, useContext } from 'react'
 import { useTheme } from '@mui/material/styles'
 import OutlinedInput from '@mui/material/OutlinedInput'
 import MenuItem from '@mui/material/MenuItem'
@@ -8,23 +8,34 @@ import Button from '@mui/material/Button'
 import './Filters.css'
 import Chip from '@mui/material/Chip'
 import Stack from '@mui/material/Stack'
-import { storeContext } from '../Store/StoreProvider'
+import { storeContext, filterParams } from '../Store/StoreProvider'
 import TextField from '@mui/material/TextField'
 
-const ITEM_HEIGHT = 44;
-const ITEM_PADDING_TOP = 8;
+const ITEM_HEIGHT = 44
+const ITEM_PADDING_TOP = 8
 const MenuProps = {
   PaperProps: {
     style: {
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
     },
   },
-};
+}
 
 function getStyles(name, theme) {
   return {
     fontWeight: theme.typography.fontWeightMedium,
-  };
+  }
+}
+
+const initFilters = {
+  localidad: [],
+  estado: [],
+  tipo: [],
+  dormitorios: [],
+  moneda: [],
+  maxPrice: 0,
+  comodidad: [],
+  TipoDePublicacion: [],
 }
 
 function Filters() {
@@ -32,7 +43,7 @@ function Filters() {
 
   const [store, dispatch] = useContext(storeContext)
 
-  const [filtro, setFiltro] = useState()
+  const [filtro, setFiltro] = useState(initFilters)
 
   const [localidades, setLocalidades] = useState([])
   const [estado, setEstado] = useState([])
@@ -41,53 +52,46 @@ function Filters() {
   const [moneda, setMoneda] = useState([])
   const [maxPrice, setMaxPrice] = useState(0)
   const [comodidad, setComodidad] = useState([])
-
-  useEffect(() => {
-    const filtros = {
-      localidades: localidades,
-      estado: estado,
-      tipo: tipo,
-      dormitorios: dormitorios,
-      moneda: moneda,
-      maxPrice: maxPrice,
-      comodidad: comodidad,
-    }
-    setFiltro(filtros)
-  }, [localidades, estado, tipo, dormitorios, moneda, maxPrice, comodidad])
+  const [ListadoTipoDePublicacion, setListadoTipoDePublicacion] = useState([])
 
   const handleChangeLocalidades = (event) => {
     const {
       target: { value },
-    } = event;
-    setLocalidades(value);
-  };
+    } = event
+    setLocalidades(value)
+    setFiltro({ ...filtro, localidad: value })
+  }
 
   const handleChangeEstado = (event) => {
     const {
       target: { value },
-    } = event;
-    setEstado(value);
-  };
+    } = event
+    setEstado(value)
+    setFiltro({ ...filtro, estado: value })
+  }
 
   const handleChangeTipo = (event) => {
     const {
       target: { value },
-    } = event;
-    setTipo(value);
-  };
+    } = event
+    setTipo(value)
+    setFiltro({ ...filtro, tipo: value })
+  }
 
   const handleChangeDormitorios = (event) => {
     const {
       target: { value },
-    } = event;
-    setDormitorios(value);
-  };
+    } = event
+    setDormitorios(value)
+    setFiltro({ ...filtro, dormitorios: value })
+  }
 
   const handleChangeMoneda = (event) => {
     const {
       target: { value },
     } = event
     setMoneda(value)
+    setFiltro({ ...filtro, moneda: value })
   }
 
   const handleChangeComodidad = (event) => {
@@ -95,41 +99,67 @@ function Filters() {
       target: { value },
     } = event
     setComodidad(value)
+    setFiltro({ ...filtro, comodidad: value })
+  }
+
+  const handleChangeListadoTipoDePublicacion = (event) => {
+    const {
+      target: { value },
+    } = event
+    setListadoTipoDePublicacion(value)
+    setFiltro({ ...filtro, ListadoTipoDePublicacion: value })
+  }
+
+  const saveFilters = () => {
+    dispatch({ type: 'setFilters', payload: filtro })
   }
 
   const resetFilters = () => {
-    setFiltro({})
+    setLocalidades([])
+    setEstado([])
+    setTipo([])
+    setDormitorios([])
+    setMoneda([])
+    setMaxPrice(0)
+    setComodidad([])
+    setListadoTipoDePublicacion([])
+
+    setFiltro(initFilters)
+    dispatch({ type: 'setFilters', payload: initFilters })
   }
 
   return (
     <div>
       <div className='filtritos'>
         {localidades?.map((item) => {
-          return <Chip label={item} />
+          return <Chip label={item} key={item} />
         })}
         {estado?.map((item) => {
-          return <Chip label={item} />
+          return <Chip label={item} key={item} />
         })}
         {tipo?.map((item) => {
-          return <Chip label={item} />
+          return <Chip label={item} key={item} />
         })}
         {dormitorios?.map((item) => {
-          return <Chip label={item} />
+          return <Chip label={item} key={item} />
         })}
         {moneda?.map((item) => {
-          return <Chip label={item} />
+          return <Chip label={item} key={item} />
         })}
         {maxPrice > 0 && <Chip label={'Precio máximo: ' + maxPrice} />}
         {comodidad?.map((item) => {
-          return <Chip label={item} />
+          return <Chip label={item} key={item} />
         })}
-        <Button variant="outlined" onClick={resetFilters}>
+        {ListadoTipoDePublicacion?.map((item) => {
+          return <Chip label={item} key={item} />
+        })}
+        <Button variant='outlined' onClick={resetFilters}>
           Borrar Filtros
         </Button>
       </div>
-      <div className="selects">
-        <FormControl className="selects">
-          <Stack direction="row" spacing={2}>
+      <div className='selects'>
+        <FormControl className='selects'>
+          <Stack direction='row' spacing={2}>
             <FormControl>
               <Select
                 multiple
@@ -138,10 +168,10 @@ function Filters() {
                 value={localidades}
                 input={<OutlinedInput />}
                 renderValue={(selected) => {
-                  return <em>Localidades</em>;
+                  return <em>Localidades</em>
                 }}
                 MenuProps={MenuProps}
-                inputProps={{ "aria-label": "Without label" }}
+                inputProps={{ 'aria-label': 'Without label' }}
               >
                 <MenuItem disabled value='' key='placeholderLocalidades'>
                   <em>Localidades</em>
@@ -165,10 +195,10 @@ function Filters() {
                 value={estado}
                 input={<OutlinedInput />}
                 renderValue={(selected) => {
-                  return <em>Estado</em>;
+                  return <em>Estado</em>
                 }}
                 MenuProps={MenuProps}
-                inputProps={{ "aria-label": "Without label" }}
+                inputProps={{ 'aria-label': 'Without label' }}
               >
                 <MenuItem disabled value='' key='placeholderEstado'>
                   <em>Estado</em>
@@ -192,10 +222,10 @@ function Filters() {
                 value={tipo}
                 input={<OutlinedInput />}
                 renderValue={(selected) => {
-                  return <em>Tipo</em>;
+                  return <em>Tipo</em>
                 }}
                 MenuProps={MenuProps}
-                inputProps={{ "aria-label": "Without label" }}
+                inputProps={{ 'aria-label': 'Without label' }}
               >
                 <MenuItem disabled value='' key='placeholderTipo'>
                   <em>Tipo</em>
@@ -219,10 +249,10 @@ function Filters() {
                 value={dormitorios}
                 input={<OutlinedInput />}
                 renderValue={(selected) => {
-                  return <em>Dormitorios</em>;
+                  return <em>Dormitorios</em>
                 }}
                 MenuProps={MenuProps}
-                inputProps={{ "aria-label": "Without label" }}
+                inputProps={{ 'aria-label': 'Without label' }}
               >
                 <MenuItem disabled value='' key='placeholderDormitorios'>
                   <em>Dormitorios</em>
@@ -249,7 +279,7 @@ function Filters() {
                   return <em>Moneda</em>
                 }}
                 MenuProps={MenuProps}
-                inputProps={{ "aria-label": "Without label" }}
+                inputProps={{ 'aria-label': 'Without label' }}
               >
                 <MenuItem disabled value='' key='placeholderMoneda'>
                   <em>Moneda</em>
@@ -276,6 +306,7 @@ function Filters() {
                 type='number'
                 onChange={(e) => {
                   setMaxPrice(e.target.value)
+                  setFiltro({ ...filtro, maxPrice: e.target.value })
                 }}
               />
             </FormControl>
@@ -287,10 +318,10 @@ function Filters() {
                 value={comodidad}
                 input={<OutlinedInput />}
                 renderValue={(selected) => {
-                  return <em>Otros filtros</em>;
+                  return <em>Otros filtros</em>
                 }}
                 MenuProps={MenuProps}
-                inputProps={{ "aria-label": "Without label" }}
+                inputProps={{ 'aria-label': 'Without label' }}
               >
                 <MenuItem disabled value='' key='placeholderOtherFilters'>
                   <em>Otros filtros</em>
@@ -306,11 +337,45 @@ function Filters() {
                 ))}
               </Select>
             </FormControl>
+            <FormControl>
+              <Select
+                multiple
+                displayEmpty
+                onChange={handleChangeListadoTipoDePublicacion}
+                value={ListadoTipoDePublicacion}
+                input={<OutlinedInput />}
+                renderValue={(selected) => {
+                  return <em>Tipo de publicación</em>
+                }}
+                MenuProps={MenuProps}
+                inputProps={{ 'aria-label': 'Without label' }}
+              >
+                <MenuItem
+                  disabled
+                  value=''
+                  key='placeholderListadoTipoDePublicacion'
+                >
+                  <em>Tipo de publicación</em>
+                </MenuItem>
+                {store.tipoPropiedad.map((name) => (
+                  <MenuItem
+                    key={name}
+                    value={name}
+                    style={getStyles(name, theme)}
+                  >
+                    {name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
           </Stack>
         </FormControl>
+        <Button variant='outlined' onClick={saveFilters}>
+          Aplicar Filtros
+        </Button>
       </div>
     </div>
-  );
+  )
 }
 
-export default Filters;
+export default Filters
