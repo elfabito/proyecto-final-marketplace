@@ -29,24 +29,28 @@ a {
 
 .SearchBackground {
   background-image: url("https://source.unsplash.com/random");
-  background-repeat: round;
+  background-repeat: fixed;
   background-size: 100%;
   image-rendering: optimizeQuality;
   width: auto;
   height: auto;
+  padding: 10%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
-.Search {
-  padding: 10%;
+/* .Search {
+  
   width: max-content;
   margin: auto;
   display: flex;
   flex-flow: column wrap;
   position: relative;
-}
+} */
 
 #checkmarks {
-  background-color: white; 
+  background-color: white;
 }
 
 #opciones {

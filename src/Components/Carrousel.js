@@ -12,7 +12,7 @@ import { autoPlay } from "react-swipeable-views-utils";
 import { storeContext } from "../Store/StoreProvider";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-
+import { Container } from "@mui/material";
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 function Carrousel() {
@@ -49,7 +49,7 @@ function Carrousel() {
   };
 
   return (
-    <Box sx={{ maxWidth: 800, flexGrow: 1, position: "relative" }}>
+    <Box mt={3} ml={8} mr={8} sx={{ flexGrow: 1, position: "relative" }}>
       <AutoPlaySwipeableViews
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={activeStep}
@@ -95,40 +95,42 @@ function Carrousel() {
                     zIndex: 1,
                   }}
                 >
-                  <p
-                    style={{
-                      fontSize: "50px",
-                      marginTop: "0px",
-                      marginBottom: "10px",
-                    }}
-                  >
-                    Precio: {step.precio}
-                  </p>
-                  <p
-                    style={{
-                      fontSize: "18px",
-                      marginBottom: "0px",
-                      marginTop: "0px",
-                    }}
-                  >
-                    Descripción: {step.descripcion}
-                  </p>
-                  <p style={{ fontSize: "18px" }}>Dep: {step.ubicacion}</p>
-                  <a
-                    href={step.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      fontSize: "18px",
-                      position: "absolute",
-                      right: "10px",
-                      bottom: "10px",
-                      color: "white",
-                      textDecoration: "none",
-                    }}
-                  >
-                    Más información
-                  </a>
+                  <Container m={4} pt={3}>
+                    <p
+                      style={{
+                        fontSize: "50px",
+                        marginTop: "0px",
+                        marginBottom: "10px",
+                      }}
+                    >
+                      Precio: {step.precio}
+                    </p>
+                    <p
+                      style={{
+                        fontSize: "18px",
+                        marginBottom: "0px",
+                        marginTop: "0px",
+                      }}
+                    >
+                      Descripción: {step.descripcion}
+                    </p>
+                    <p style={{ fontSize: "18px" }}>Dep: {step.ubicacion}</p>
+                    <a
+                      href={step.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        fontSize: "18px",
+                        position: "absolute",
+                        right: "25px",
+                        bottom: "15px",
+                        color: "white",
+                        textDecoration: "none",
+                      }}
+                    >
+                      Más información
+                    </a>
+                  </Container>
                 </div>
               </div>
             ) : null}

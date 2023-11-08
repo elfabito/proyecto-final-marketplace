@@ -8,7 +8,6 @@ export default function AutoComplete() {
       disablePortal
       id="combo-box-demo"
       options={Departamentos}
-      sx={{ width: 300 }}
       renderInput={(params) => <TextField {...params} label="Departamento" />}
     />
   );

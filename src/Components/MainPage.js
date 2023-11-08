@@ -11,7 +11,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { filterParams } from "../Store/StoreProvider";
 import Footer from "./Footer";
-
+import { Container } from "@mui/material";
+import Stack from "@mui/material/Stack";
 function MainPage() {
   const [seleccion, setSeleccion] = React.useState("venta");
   const options_default = [
@@ -30,9 +31,9 @@ function MainPage() {
   };
 
   return (
-    <div className="App">
+    <div>
       <div className="SearchBackground">
-        <div className="Search">
+        <Container maxWidth="xxl">
           <Box>
             <ToggleButtonGroup
               color="primary"
@@ -49,17 +50,24 @@ function MainPage() {
               </ToggleButton>
             </ToggleButtonGroup>
 
-            <div className="contenedorBusqueda">
-              <CustomSelectCheckmarks options={options_default} />
-              <Autocomp />
-              <Link to={"/resultados"}>
-                <Button type="submit" variant="contained">
-                  Buscar
-                </Button>
-              </Link>
-            </div>
+            <Container>
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                spacing={{ xs: 1, md: 2 }}
+                textAlign={"center"}
+                justifyContent={"center"}
+              >
+                <CustomSelectCheckmarks options={options_default} />
+                <Autocomp />
+                <Link to={"/resultados"}>
+                  <Button type="submit" variant="contained">
+                    Buscar
+                  </Button>
+                </Link>
+              </Stack>
+            </Container>
           </Box>
-        </div>
+        </Container>
       </div>
       <div className="carrousel-container">
         <Carrousel />

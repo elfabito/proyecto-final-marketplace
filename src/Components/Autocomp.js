@@ -1,6 +1,6 @@
-import * as React from 'react';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
+import * as React from "react";
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 import { filterParams } from "../Store/StoreProvider";
 export default function ComboBox() {
   const [selectedDepartment, setSelectedDepartment] = React.useState(null);
@@ -13,14 +13,11 @@ export default function ComboBox() {
 
   return (
     <Autocomplete
-      style={{ backgroundColor: "white" }}
-      disablePortal
+      style={{ backgroundColor: "white", width: 300, height: 55 }}
       id="combo-box-demo"
       options={Departamentos}
-      sx={{ width: 300 }}
       value={selectedDepartment}
       onChange={(e) => handleDepartmentChange(e.target.textContent)}
-      getOptionLabel={(option) => option.label}
       renderInput={(params) => <TextField {...params} label="Departamento" />}
     />
   );
