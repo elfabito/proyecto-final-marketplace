@@ -6,9 +6,10 @@ import CustomSelectCheckmarks from "./CustomSelectCheckmarks";
 import Carrousel from "./Carrousel";
 import Button from "@mui/material/Button";
 import "./MainPage.css";
-import Autocomp from "./Autocomp";
+import CustomAutoComplete from "./CustomAutoComplete";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Paper } from "@material-ui/core";
 import { filterParams } from "../Store/StoreProvider";
 import Footer from "./Footer";
 import { Container } from "@mui/material";
@@ -29,46 +30,54 @@ function MainPage() {
     setSeleccion(value);
     filterParams.tipodeventa = value;
   };
+  const styles = {
+    paperContainer: {
+      height: 120,
+      backgroundImage: `url(${"https://source.unsplash.com/random"})`,
+      justifyContent: "center",
+      textAlign: "center",
+      padding: "10%",
+    },
+  };
 
   return (
     <div>
-      <div className="SearchBackground">
+      <Paper style={styles.paperContainer}>
         <Container maxWidth="xxl">
-          <Box>
-            <ToggleButtonGroup
-              color="primary"
-              value={seleccion}
-              exclusive
-              onChange={handleChange}
-              aria-label="Platform"
-              id="opciones"
-            >
-              <ToggleButton value="Venta">Venta</ToggleButton>
-              <ToggleButton value="Alquiler">Alquiler</ToggleButton>
-              <ToggleButton value="Alquiler temporal">
-                Alquiler Temporal
-              </ToggleButton>
-            </ToggleButtonGroup>
+          <ToggleButtonGroup
+            color="primary"
+            value={seleccion}
+            exclusive
+            onChange={handleChange}
+            aria-label="Platform"
+            id="opciones"
+          >
+            <ToggleButton value="Venta">Venta</ToggleButton>
+            <ToggleButton value="Alquiler">Alquiler</ToggleButton>
+            <ToggleButton value="Alquiler temporal">
+              Alquiler Temporal
+            </ToggleButton>
+          </ToggleButtonGroup>
 
-            <Container>
-              <Stack
-                direction={{ xs: "column", sm: "row" }}
-                spacing={{ xs: 1, md: 2 }}
-                textAlign={"center"}
-                justifyContent={"center"}
-              >
-                <CustomSelectCheckmarks options={options_default} />
-                <Autocomp />
-                <Link to={"/resultados"}>
-                  <Button type="submit" variant="contained">
-                    Buscar
-                  </Button>
-                </Link>
-              </Stack>
-            </Container>
+          <Box>
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              spacing={{ xs: 1, md: 2 }}
+              textAlign={"center"}
+              justifyContent={"center"}
+            >
+              <CustomSelectCheckmarks options={options_default} />
+              <CustomAutoComplete />
+            </Stack>
+            <Link to={"/resultados"}>
+              <Button type="submit" variant="contained">
+                Buscar
+              </Button>
+            </Link>
           </Box>
         </Container>
-      </div>
+      </Paper>
+
       <div className="carrousel-container">
         <Carrousel />
       </div>

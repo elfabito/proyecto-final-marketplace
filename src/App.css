@@ -27,18 +27,14 @@ a {
   text-align: center;
 }
 
-.SearchBackground {
-  background-image: url("https://source.unsplash.com/random");
-  background-repeat: fixed;
-  background-size: 100%;
-  image-rendering: optimizeQuality;
+/* .SearchBackground {
   width: auto;
   height: auto;
   padding: 10%;
   text-align: center;
   align-items: center;
   justify-content: center;
-}
+} */
 
 /* .Search {
   
