@@ -5,7 +5,7 @@ import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import CustomSelectCheckmarks from "./CustomSelectCheckmarks";
 import Carrousel from "./Carrousel";
 import Button from "@mui/material/Button";
-import "./MainPage.css";
+
 import CustomAutoComplete from "./CustomAutoComplete";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -14,6 +14,8 @@ import { filterParams } from "../Store/StoreProvider";
 import Footer from "./Footer";
 import { Container } from "@mui/material";
 import Stack from "@mui/material/Stack";
+import SearchResult from "./Results/SearchResult";
+
 function MainPage() {
   const [seleccion, setSeleccion] = React.useState("venta");
   const options_default = [
@@ -28,7 +30,7 @@ function MainPage() {
 
   const handleChange = (event, value) => {
     setSeleccion(value);
-    filterParams.tipodeventa = value;
+    filterParams.TipoDePublicacion = value;
   };
   const styles = {
     paperContainer: {
@@ -40,7 +42,9 @@ function MainPage() {
       padding: "10%",
     },
   };
-
+  const handleclick = () => {
+    <SearchResult />;
+  };
   return (
     <div>
       <Box margin={"auto"} alignItems={"center"} justifyContent={"center"}>
@@ -76,19 +80,21 @@ function MainPage() {
             <CustomAutoComplete />
           </Stack>
           <Link to={"/resultados"}>
-            <Button type="submit" variant="contained">
+            <Button onClick={handleclick} type="submit" variant="contained">
               Buscar
             </Button>
           </Link>
         </Paper>
       </Box>
+      <Container maxWidth="xxl">
+        <Box marginBottom={4} marginTop={5}>
+          <Carrousel />
+        </Box>
+      </Container>
 
-      <div className="carrousel-container">
-        <Carrousel />
-      </div>
-      <div>
+      <Paper>
         <Footer />
-      </div>
+      </Paper>
     </div>
   );
 }

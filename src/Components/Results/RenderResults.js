@@ -48,7 +48,7 @@ const RenderResults = (props) => {
                     <CardMedia
                       component="img"
                       sx={{
-                        width: 151,
+                        width: 280,
                         justifyContent: "center",
                         textAlign: "center",
 

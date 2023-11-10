@@ -234,7 +234,7 @@ export const ListadoPropiedades = [
     anioConstruccion: 2013,
     estado: "Excelente estado",
     imgsrc: [
-      "https://example.com/image25.jpg",
+      "https://imgs.search.brave.com/6R4lSe51bTLHswDTXvf_OGYvlnlMLzeloYxYRe5G02Q/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuaG9taWZ5LmNv/bS9jX2ZpbGwsZl9h/dXRvLHFfYXV0byx3/Xzc0MC92MTQ4NzEw/NzE1Ny9wL3Bob3Rv/L2ltYWdlLzE4MzIy/MDQvSW50ZXJpb3Jf/Mi5qcGc",
       "https://example.com/image26.jpg",
       "https://example.com/image27.jpg",
     ],
@@ -264,7 +264,7 @@ export const ListadoPropiedades = [
     anioConstruccion: 2017,
     estado: "Excelente estado",
     imgsrc: [
-      "https://example.com/image28.jpg",
+      "https://imgs.search.brave.com/QNwbw9Faju0JkhmWQ9p9YNu88-wIAUVJQNVFFpDOlLM/rs:fit:500:0:0/g:ce/aHR0cHM6Ly93d3cu/Y29uc3RydXllaG9n/YXIuY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDE2LzAyL0Nh/c2EtZGUtY2FtcG8t/ZGUtZG9zLXBpc29z/LURpc2UlQzMlQjFv/LXktZm90b3MtSHVu/dGVyLUxlZ2dpdHQt/U3R1ZGlvLTU2MHg0/MzIuanBn",
       "https://example.com/image29.jpg",
       "https://example.com/image30.jpg",
     ],
@@ -295,7 +295,7 @@ export const ListadoPropiedades = [
     anioConstruccion: 2005,
     estado: "Buen estado",
     imgsrc: [
-      "https://example.com/image31.jpg",
+      "https://imgs.search.brave.com/YhT7J6_UhYBbnUOK4daCBM6NlREljKrCbwYDeFP-DJM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI5/NzU4NjE2Ni9lcy9m/b3RvL2ZvdG8tbW9k/ZXJuYS15LWVsZWdh/bnRlLWRlLWxhLWNv/Y2luYS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9enVNWVZk/em5GaGN4NWNzcGxi/c2FIRlJSTmRIeFht/YlJoSzZteTdlT2Q1/ND0",
       "https://example.com/image32.jpg",
       "https://example.com/image33.jpg",
     ],
@@ -325,7 +325,7 @@ export const ListadoPropiedades = [
     anioConstruccion: 2010,
     estado: "Excelente estado",
     imgsrc: [
-      "https://example.com/image34.jpg",
+      "https://imgs.search.brave.com/56ihhTy1g1uN7PEXwwj1SnQkCXXhm00AVtq1lb_vJ0g/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90b3MtcHJlbWl1/bS9pbnRlcmlvci1t/b2Rlcm5vLWNhc2Et/YmxhbmNhXzE0NTY0/NC00Mjc4Mi5qcGc_/c2l6ZT02MjYmZXh0/PWpwZw",
       "https://example.com/image35.jpg",
       "https://example.com/image36.jpg",
     ],
@@ -351,7 +351,7 @@ export const ListadoPropiedades = [
     anioConstruccion: 2014,
     estado: "Excelente estado",
     imgsrc: [
-      "https://example.com/image37.jpg",
+      "https://imgs.search.brave.com/P_T7qpvErG5-DILNfZBLa89FneK6WmNu_iQbacaBI2s/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNDgw/Mjg4NjM0L2VzL2Zv/dG8vaGVybW9zYS1t/b2Rlcm5hLWNhc2Et/ZW4tZWwtYm9zcXVl/LXktYWwtYWlyZS1s/aWJyZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cDZFWlU2/SW54WFlfLUdKemk4/d0MxYjdROUtCT0xK/cnlSb1o4bF9FcHZD/MD0",
       "https://example.com/image38.jpg",
       "https://example.com/image39.jpg",
     ],
@@ -381,7 +381,7 @@ export const ListadoPropiedades = [
     anioConstruccion: 2011,
     estado: "Excelente estado",
     imgsrc: [
-      "https://example.com/image40.jpg",
+      "https://imgs.search.brave.com/7dtItrHMAsd85IX7L672xw4jJKhooIheb041Iiq9occ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNTIz/MzA3MzQ4L2VzL2Zv/dG8vYmFja3lhcmQt/d2l0aC1wb29sLW9m/LWNvbnRlbXBvcmFy/eS1ob3VzZS5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9ZHVI/aXNXNEdFeGRKS29i/ZUhXUHotbkV6aWFJ/Mng1azZqNkQweFpX/N1hCRT0",
       "https://example.com/image41.jpg",
       "https://example.com/image42.jpg",
     ],
@@ -408,7 +408,7 @@ export const ListadoPropiedades = [
     anioConstruccion: 2007,
     estado: "Excelente estado",
     imgsrc: [
-      "https://example.com/image43.jpg",
+      "https://imgs.search.brave.com/XjCGjtcpV4ouRFElXkQUehzk1xV7eqps5vZPevBI0I8/rs:fit:500:0:0/g:ce/aHR0cHM6Ly93d3cu/Y29uc3RydXllaG9n/YXIuY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDE2LzAyL0hl/cm1vc2EtY2FzYS1k/ZS1jYW1wby1jb24t/cGllZHJhLXktbWFk/ZXJhLUhvdXNlcGxh/bnMuY29tLXYlQzMl/QURhLW5haWJhbm4u/Y29tXy01NjB4Mzcz/LmpwZw",
       "https://example.com/image44.jpg",
       "https://example.com/image45.jpg",
     ],
@@ -438,7 +438,7 @@ export const ListadoPropiedades = [
     anioConstruccion: 2018,
     estado: "Excelente estado",
     imgsrc: [
-      "https://example.com/image46.jpg",
+      "https://imgs.search.brave.com/QlGOtUzENCHKWTUcp7f5iGMZeMhbn28f5pd4FOeufbE/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9kZWNv/cmFpZGVhcy5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDgvMDMtNS03Njh4/NDk1LmpwZw",
       "https://example.com/image47.jpg",
       "https://example.com/image48.jpg",
     ],
@@ -465,7 +465,7 @@ export const ListadoPropiedades = [
     anioConstruccion: 2015,
     estado: "Excelente estado",
     imgsrc: [
-      "https://example.com/image49.jpg",
+      "https://imgs.search.brave.com/AadNq3f67kj4YJ0l4A7cWBFwEMSnD8-tsbaUD884GMI/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/Y29uc3RydXllaG9n/YXIuY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDE2LzAyL0Nh/c2EtZGUtY2FtcG8t/Y29uLWFkb2JlLUZv/dG9zLUdvbnphbG8t/QyVDMyVBMWNlcmVz/LURhbmN1YXJ0LURp/c2UlQzMlQjFvLU1h/cmluYS1WZWxsYS1B/cnF1aXRlY3Rvcy01/NjB4Mzc3LmpwZw",
       "https://example.com/image50.jpg",
       "https://example.com/image51.jpg",
     ],
@@ -495,7 +495,7 @@ export const ListadoPropiedades = [
     anioConstruccion: 2010,
     estado: "Excelente estado",
     imgsrc: [
-      "https://example.com/image52.jpg",
+      "https://imgs.search.brave.com/-1N1OHJLrWXcUODr40QmdP2x2VohTZf_EgDo_vkX7Ds/rs:fit:860:0:0/g:ce/aHR0cDovL2ltYWdl/cy5hcnF1aWRpY2Fz/LmNvbS5ici93cC1j/b250ZW50L3VwbG9h/ZHMvMjAxNS8wMi8x/MTE3Mjg0MC9jYXNh/LWdyZWdhLTEwMjR4/NzY4LmpwZw",
       "https://example.com/image53.jpg",
       "https://example.com/image54.jpg",
     ],
@@ -522,7 +522,7 @@ export const ListadoPropiedades = [
     anioConstruccion: 2013,
     estado: "Excelente estado",
     imgsrc: [
-      "https://example.com/image55.jpg",
+      "https://decoraideas.com/wp-content/uploads/2019/08/01-8-768x427.jpg",
       "https://example.com/image56.jpg",
       "https://example.com/image57.jpg",
     ],
@@ -639,11 +639,11 @@ export const ListadoDeEstado = [
   "Nuevo",
   "Usado",
   "En construccion",
-  "Remodelado",
+  "Buen estado",
   "A estrenar",
-  "En buen estado",
-  "Para remodelar",
-  "Para demoler",
+  "Muy buen estado",
+  "Excelente estado",
+  "Sin construcción",
   "Otros",
 ];
 export const ListadoComodidades = [

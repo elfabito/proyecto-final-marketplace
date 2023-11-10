@@ -27,7 +27,7 @@ const Alquiler = () => {
       <Container maxWidth="xxl">
         <Box m={2} pt={3}>
           <ThemeProvider theme={theme}>
-            <Typography mb={3} variant="h4" color="#1976d2">
+            <Typography mb={3} textAlign="center" variant="h4" color="#1976d2">
               Propiedades en Alquiler
             </Typography>
 

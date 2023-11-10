@@ -16,6 +16,7 @@ import { FilterAlt } from "@mui/icons-material";
 import "./SearchResult.css";
 import { storeContext, filterParams } from "../../Store/StoreProvider";
 import Filters from "../Filters";
+
 const SearchResult = () => {
   const [numOfResults, setNumOfResults] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -32,6 +33,7 @@ const SearchResult = () => {
       console.log(result.estado);
       console.log(filterParams.estado);
       console.log(result.tipoDePropiedad);
+      console.log(filterParams.tipo);
       console.log(result.dormitorio);
       console.log(filterParams.dormitorios);
       console.log(result.tipoMoneda);
@@ -45,12 +47,11 @@ const SearchResult = () => {
 
       return (
         result.ubicacion.includes(filterParams.localidad) &&
-        result.estado.includes(filterParams.estado) &&
-        result.tipoDePropiedad.includes(filterParams.TipoDePublicacion) &&
+        filterParams.estado.includes(result.estado) &&
+        filterParams.TipoDePublicacion === result.tipoVenta &&
         filterParams.dormitorios.includes(result.dormitorio) &&
-        result.tipoMoneda.includes(filterParams.moneda) &&
-        result.precio <= filterParams.maxPrice &&
-        result.comodidades.includes(filterParams.comodidad)
+        filterParams.moneda.includes(result.tipoMoneda) &&
+        result.precio >= filterParams.maxPrice
       );
     });
     console.log(filterResults);
