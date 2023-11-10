@@ -46,9 +46,8 @@ function Navbar() {
     <AppBar position="sticky">
       <Container maxWidth="xxl">
         <Toolbar disableGutters>
-          <Link to={`/home`}>
-            <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          </Link>
+          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+
           <Typography
             variant="h6"
             noWrap
@@ -98,12 +97,18 @@ function Navbar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Link underline="none" to={`/` + page}>
+                    <Typography color="black" textAlign="center">
+                      {page}
+                    </Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <Link to={`/home`}>
+            <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          </Link>
           <Typography
             variant="h5"
             noWrap
@@ -120,8 +125,9 @@ function Navbar() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            Blue Dreams
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button

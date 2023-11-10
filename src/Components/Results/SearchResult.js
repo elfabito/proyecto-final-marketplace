@@ -88,6 +88,9 @@ const SearchResult = () => {
             direction="column"
             divider={<Divider orientation="horizontal" flexItem />}
             spacing={1}
+            textAlign={"center"}
+            justifyContent={"center"}
+            marginTop={4}
           >
             <Typography
               component={"h1"}
@@ -104,8 +107,7 @@ const SearchResult = () => {
               variant="body2"
               color="text.secondary"
             >
-              Estás en: {filterParams.tipoDePropiedad},{" "}
-              {filterParams.tipoDeVenta}
+              Estás en: {filterParams.TipoDePublicacion}, {filterParams.tipo}
             </Typography>
             <Typography variant="body2" color="text.primary">
               Mostrando {numOfResults} resultados.
@@ -131,9 +133,9 @@ const SearchResult = () => {
           </Stack>
         </div>
       </Container>
-      <Container maxWidth="xxl">
+      <Box marginTop={4}>
         <Filters />
-      </Container>
+      </Box>
       <Container maxWidth="xxl">
         <Box
           boxShadow={2}

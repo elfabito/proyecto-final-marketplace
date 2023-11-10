@@ -10,6 +10,7 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import { Container } from "@mui/material";
+import FormMessage from "../FormMessage";
 
 const RenderResults = (props) => {
   const Item = styled(Paper)(({ theme }) => ({
@@ -27,7 +28,7 @@ const RenderResults = (props) => {
   }, [props.results]);
 
   return (
-    <div justifyContent="center" textAlign="center">
+    <div>
       {" "}
       {!results ? (
         <p>No hay resultados</p>
@@ -35,12 +36,20 @@ const RenderResults = (props) => {
         <Container maxWidth="xxl">
           {results &&
             results.map((result) => (
-              <Grid key={result.id} item xs={8}>
+              <Grid
+                key={result.id}
+                item
+                xs={8}
+                sx={{
+                  flex: "1 0 auto",
+                  flexWrap: "wrap",
+                }}
+              >
                 <Item>
                   <Box
                     sx={{
                       display: "flex",
-
+                      columns: { xs: 1, sm: 2, md: 2 },
                       flexWrap: "wrap",
                       justifyContent: "space-between",
                     }}
@@ -48,7 +57,7 @@ const RenderResults = (props) => {
                     <CardMedia
                       component="img"
                       sx={{
-                        width: 280,
+                        width: 320,
                         justifyContent: "center",
                         textAlign: "center",
 
@@ -58,40 +67,52 @@ const RenderResults = (props) => {
                       alt="Inmueble"
                       src={result.imgsrc[0]}
                     />
-                    <Box
+
+                    <CardContent
                       sx={{
-                        display: "flex",
-                        flexDirection: "row",
-                        justifyContent: "right",
-                        alignItems: "center",
+                        flex: "1 0 auto",
                         flexWrap: "wrap",
-                        margin: "15",
+                        margin: "2",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                      columns={{ xs: 1, sm: 2, md: 2 }}
+                    >
+                      <Typography component="div" variant="h5">
+                        USD {result.precio}
+                      </Typography>
+                      <Typography
+                        variant="subtitle1"
+                        color="text.secondary"
+                        component="div"
+                      >
+                        {result.ubicacion[0] + ", " + result.ubicacion[1]}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {result.disposicion} - {result.dormitorios} dormitorios
+                        - {result.banos > 1 ? "baños" : "baño"} -{" "}
+                        {result.m2terreno} m2
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Tipo de venta : {result.tipoVenta}
+                      </Typography>
+                    </CardContent>
+                    <CardContent
+                      sx={{
+                        justifyContent: "center",
                       }}
                     >
-                      <CardContent sx={{ flex: "1 0 auto" }}>
-                        <Typography component="div" variant="h5">
-                          USD {result.precio}
-                        </Typography>
-                        <Typography
-                          variant="subtitle1"
-                          color="text.secondary"
-                          component="div"
-                        >
-                          {result.ubicacion[0] + ", " + result.ubicacion[1]}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          {result.disposicion} - {result.dormitorios}{" "}
-                          dormitorios - {result.banos > 1 ? "baños" : "baño"} -{" "}
-                          {result.m2terreno} m2
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          Tipo de venta : {result.tipoVenta}
-                        </Typography>
-                      </CardContent>
                       <Typography variant="body2" color="text.secondary">
                         {result.descripcion}
                       </Typography>
-                    </Box>
+                      <Box
+                        sx={{
+                          marginTop: 3,
+                        }}
+                      >
+                        <FormMessage sx={{}} />
+                      </Box>
+                    </CardContent>
                   </Box>
                 </Item>
               </Grid>
