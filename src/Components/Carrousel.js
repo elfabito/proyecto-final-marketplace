@@ -13,6 +13,17 @@ import { storeContext } from "../Store/StoreProvider";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Container } from "@mui/material";
+import { Link } from "react-router-dom";
+
+import {
+  createTheme,
+  responsiveFontSizes,
+  ThemeProvider,
+} from "@mui/material/styles";
+
+let theme = createTheme();
+theme = responsiveFontSizes(theme);
+
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 function Carrousel() {
@@ -49,7 +60,7 @@ function Carrousel() {
   };
 
   return (
-    <Box mt={3} ml={8} mr={8} sx={{ flexGrow: 1, position: "relative" }}>
+    <Box mt={3} ml={7} mr={7} sx={{ flexGrow: 1, position: "relative" }}>
       <AutoPlaySwipeableViews
         axis={theme.direction === "rtl" ? "x-reverse" : "x"}
         index={activeStep}
@@ -95,41 +106,33 @@ function Carrousel() {
                     zIndex: 1,
                   }}
                 >
-                  <Container m={4} pt={3}>
-                    <p
-                      style={{
-                        fontSize: "50px",
-                        marginTop: "0px",
-                        marginBottom: "10px",
-                      }}
-                    >
+                  <Container
+                    style={{
+                      fontSize: "18px",
+                      marginBottom: "54px",
+                      marginRight: "50px",
+                      alignContent: "right",
+                      textAlign: "right",
+                    }}
+                    m={4}
+                    pt={3}
+                  >
+                    <Typography variant="h2" color="white">
                       Precio: {step.precio}
-                    </p>
-                    <p
-                      style={{
-                        fontSize: "18px",
-                        marginBottom: "0px",
-                        marginTop: "0px",
-                      }}
-                    >
+                    </Typography>
+
+                    <Typography variant="subtitle1" color="white">
                       Descripción: {step.descripcion}
-                    </p>
-                    <p style={{ fontSize: "18px" }}>Dep: {step.ubicacion}</p>
-                    <a
-                      href={step.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        fontSize: "18px",
-                        position: "absolute",
-                        right: "25px",
-                        bottom: "15px",
-                        color: "white",
-                        textDecoration: "none",
-                      }}
-                    >
-                      Más información
-                    </a>
+                    </Typography>
+
+                    <Typography variant="subtitle1" color="white">
+                      Dep: {step.ubicacion}
+                    </Typography>
+                    <Link href={step.Link}>
+                      <Typography variant="subtitle1" color="white">
+                        Más información
+                      </Typography>
+                    </Link>
                   </Container>
                 </div>
               </div>

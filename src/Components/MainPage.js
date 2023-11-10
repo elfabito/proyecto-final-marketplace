@@ -32,18 +32,19 @@ function MainPage() {
   };
   const styles = {
     paperContainer: {
-      height: 120,
       backgroundImage: `url(${"https://source.unsplash.com/random"})`,
+
       justifyContent: "center",
       textAlign: "center",
+
       padding: "10%",
     },
   };
 
   return (
     <div>
-      <Paper style={styles.paperContainer}>
-        <Container maxWidth="xxl">
+      <Box margin={"auto"} alignItems={"center"} justifyContent={"center"}>
+        <Paper style={styles.paperContainer}>
           <ToggleButtonGroup
             color="primary"
             value={seleccion}
@@ -59,24 +60,28 @@ function MainPage() {
             </ToggleButton>
           </ToggleButtonGroup>
 
-          <Box>
-            <Stack
-              direction={{ xs: "column", sm: "row" }}
-              spacing={{ xs: 1, md: 2 }}
-              textAlign={"center"}
-              justifyContent={"center"}
-            >
-              <CustomSelectCheckmarks options={options_default} />
-              <CustomAutoComplete />
-            </Stack>
-            <Link to={"/resultados"}>
-              <Button type="submit" variant="contained">
-                Buscar
-              </Button>
-            </Link>
-          </Box>
-        </Container>
-      </Paper>
+          <Stack
+            direction={"row"}
+            textAlign={"center"}
+            justifyContent={"center"}
+            width={"100%"}
+            display={"Flex"}
+            alignContent={"center"}
+            flexWrap={"wrap"}
+            spacing={1}
+            gap={1}
+            marginBottom={1}
+          >
+            <CustomSelectCheckmarks options={options_default} />
+            <CustomAutoComplete />
+          </Stack>
+          <Link to={"/resultados"}>
+            <Button type="submit" variant="contained">
+              Buscar
+            </Button>
+          </Link>
+        </Paper>
+      </Box>
 
       <div className="carrousel-container">
         <Carrousel />

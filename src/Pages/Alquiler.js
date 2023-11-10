@@ -19,12 +19,12 @@ const Alquiler = () => {
   const [store, dispatch] = useContext(storeContext);
 
   let filtered = store.propiedades.filter((prop) => {
-    return prop.tipoVenta === "Venta";
+    return prop.tipoVenta === "Alquiler";
   });
 
   return (
     <>
-      <Container fixed>
+      <Container maxWidth="xxl">
         <Box m={2} pt={3}>
           <ThemeProvider theme={theme}>
             <Typography mb={3} variant="h4" color="#1976d2">

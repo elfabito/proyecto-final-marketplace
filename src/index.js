@@ -10,7 +10,7 @@ import Alquiler from "./Pages/Alquiler";
 import Configuracion from "./Pages/Configuracion";
 import Favoritos from "./Pages/Favoritos";
 import Ingresar from "./Pages/Ingresar";
-import Inmobiliarias from "./Pages/Inmobiliarias";
+
 import Logout from "./Pages/Logout";
 import Noticias from "./Pages/Noticias";
 import Perfil from "./Pages/Perfil";
@@ -47,7 +47,7 @@ export default function Router() {
           <Route path="/configuracion" element={<Configuracion />} />
           <Route path="/favoritos" element={<Favoritos />} />
           <Route path="/ingresar" element={<Ingresar />} />
-          <Route path="/inmobiliarias" element={<Inmobiliarias />} />
+          
           <Route path="/logout" element={<Logout />} />
           <Route path="/noticias" element={<Noticias />} />
           <Route path="/perfil" element={<Perfil />}>

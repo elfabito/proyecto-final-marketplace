@@ -30,7 +30,7 @@
   flex-direction: column;
   display: flex;
   flex-wrap: wrap;
-  align-items: left;
+  align-items: f;
   justify-content: space-between;
 }
 .info p {
@@ -39,12 +39,12 @@
 .info {
   padding: 10px;
   margin: 20px;
-  text-align: left;
+  text-align: center;
 }
 .resultCard p {
   padding: 5px;
   font-size: smaller;
-  text-align: left;
+  text-align: center;
 }
 .resultCard img {
   height: 150px;

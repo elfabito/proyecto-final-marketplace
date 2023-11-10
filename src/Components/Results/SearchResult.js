@@ -14,11 +14,7 @@ import {
 import MapIcon from "@mui/icons-material/Map";
 import { FilterAlt } from "@mui/icons-material";
 import "./SearchResult.css";
-import {
-  storeContext,
-  filterResults,
-  filterParams,
-} from "../../Store/StoreProvider";
+import { storeContext, filterParams } from "../../Store/StoreProvider";
 import Filters from "../Filters";
 const SearchResult = () => {
   const [numOfResults, setNumOfResults] = useState(0);
@@ -27,10 +23,43 @@ const SearchResult = () => {
 
   const [filteredResults, setFilteredResults] = useState([]);
   const [store, dispatch] = useContext(storeContext);
+  const filter = (results) => {
+    const filterResults = results.filter((result) => {
+      console.log(result.tipoVenta);
+      console.log(filterParams.TipoDePublicacion);
+      console.log(result.ubicacion);
+      console.log(filterParams.localidad);
+      console.log(result.estado);
+      console.log(filterParams.estado);
+      console.log(result.tipoDePropiedad);
+      console.log(result.dormitorio);
+      console.log(filterParams.dormitorios);
+      console.log(result.tipoMoneda);
+      console.log(filterParams.moneda);
+      console.log(result.precio);
+      console.log(filterParams.maxPrice);
+      console.log(result.comodidades);
+      console.log(filterParams.comodidad);
+
+      console.log(result.tipoMoneda);
+
+      return (
+        result.ubicacion.includes(filterParams.localidad) &&
+        result.estado.includes(filterParams.estado) &&
+        result.tipoDePropiedad.includes(filterParams.TipoDePublicacion) &&
+        filterParams.dormitorios.includes(result.dormitorio) &&
+        result.tipoMoneda.includes(filterParams.moneda) &&
+        result.precio <= filterParams.maxPrice &&
+        result.comodidades.includes(filterParams.comodidad)
+      );
+    });
+    console.log(filterResults);
+    return filterResults;
+  };
 
   useEffect(() => {
-    const filteredResults = filterResults(results);
-    setFilteredResults(filteredResults);
+    const filterResults = filter(results);
+    setFilteredResults(filterResults);
   }, [results]);
   useEffect(() => {
     setResults(store.propiedades);
@@ -52,68 +81,67 @@ const SearchResult = () => {
 
   return (
     <div className="SearchResult">
-      <Container maxWidth="md">
-        <Box boxShadow={2}>
-          <div className="info">
-            <Grid
-              container
-              direction="row"
-              justifyContent="space-between"
-              alignItems="stretch"
+      <Container maxWidth="xxl">
+        <div className="info">
+          <Stack
+            direction="column"
+            divider={<Divider orientation="horizontal" flexItem />}
+            spacing={1}
+          >
+            <Typography
+              component={"h1"}
+              variant="body1"
+              color="text.primary"
+              alignContent={"center"}
+              textAlign={"center"}
             >
-              <Stack
-                direction="column"
-                justifyContent="flex-start"
-                alignItems="flex-start"
-                divider={<Divider orientation="horizontal" flexItem />}
-                spacing={1}
-              >
-                <Typography
-                  component={"h1"}
-                  variant="body1"
-                  color="text.primary"
-                >
-                  Venta de casas y apartamentos en {filterParams.localidad}.
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Estás en: {filterParams.tipodepropiedad},{" "}
-                  {filterParams.tipoDeVenta}
-                </Typography>
-                <Typography variant="body2" color="text.primary">
-                  Mostrando {numOfResults} resultados.
-                </Typography>
-              </Stack>
-              <Stack
-                direction="row"
-                justifyContent="flex-start"
-                alignItems="flex-start"
-                spacing={2}
-              >
-                <Button variant="outlined" size="small" startIcon={<MapIcon />}>
-                  Ver mapa
-                </Button>
-                <Button
-                  variant="outlined"
-                  size="small"
-                  startIcon={<FilterAlt />}
-                >
-                  Popularidad
-                </Button>
-              </Stack>
-            </Grid>
-          </div>
-        </Box>
+              Venta de casas y apartamentos en {filterParams.localidad}.
+            </Typography>
+            <Typography
+              textAlign={"center"}
+              alignContent={"center"}
+              variant="body2"
+              color="text.secondary"
+            >
+              Estás en: {filterParams.tipoDePropiedad},{" "}
+              {filterParams.tipoDeVenta}
+            </Typography>
+            <Typography variant="body2" color="text.primary">
+              Mostrando {numOfResults} resultados.
+            </Typography>
+          </Stack>
+          <Stack
+            direction="row"
+            spacing={{ xs: 1, sm: 1 }}
+            gap={{ xs: 1, sm: 1 }}
+            columns={{ xs: 1, sm: 1, md: 1 }}
+            textAlign={"center"}
+            justifyContent={"center"}
+            display={"Flex"}
+            flexWrap={"wrap"}
+            alignItems="flex-start"
+          >
+            <Button variant="outlined" size="small" startIcon={<MapIcon />}>
+              Ver mapa
+            </Button>
+            <Button variant="outlined" size="small" startIcon={<FilterAlt />}>
+              Popularidad
+            </Button>
+          </Stack>
+        </div>
       </Container>
-      <Filters />
-      <Container className="resultados" maxWidth="lg">
+      <Container maxWidth="xxl">
+        <Filters />
+      </Container>
+      <Container maxWidth="xxl">
         <Box
           boxShadow={2}
           padding={2}
           sx={{
-            width: "70%",
+            width: "100%",
             height: "fit-content",
             margin: "auto",
-            padding: "10px",
+
             display: "flex",
             flexDirection: "column",
             alignItems: "center",

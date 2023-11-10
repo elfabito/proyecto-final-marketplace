@@ -8,23 +8,24 @@ a {
   color: white;
 }
 
-#footer {
+/* #footer {
   padding: 1rem;
   font-weight: bolder;
   color: white;
   background-color: #1976d2;
-}
+} */
 
-.footer {
+/* .footer {
   padding: 1rem;
   display: grid;
   grid-auto-flow: column;
   color: white;
   background-color: #1976d2;
-}
+} */
 
 .App {
   text-align: center;
+  align-items: center;
 }
 
 /* .SearchBackground {

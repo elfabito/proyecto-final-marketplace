@@ -14,7 +14,7 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
 
-const pages = ["Venta", "Alquiler", "Proyectos", "Inmobiliarias", "Noticias"];
+const pages = ["Venta", "Alquiler", "Proyectos", "Noticias"];
 const settings = [
   "Ingresar",
   "Perfil",
@@ -46,7 +46,9 @@ function Navbar() {
     <AppBar position="sticky">
       <Container maxWidth="xxl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <Link to={`/home`}>
+            <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          </Link>
           <Typography
             variant="h6"
             noWrap

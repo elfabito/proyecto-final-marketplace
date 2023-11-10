@@ -27,14 +27,24 @@ const initialStore = () => {
     estado: ListadoDeEstado,
     comodidad: ListadoComodidades,
     atributos: ListadoAtributos,
-    typesAtributos: ListadotypesDeAtributos,
     nombreAtributosGuardado: nombreDeGuardadoDeLosAtributos,
+    filters: {
+      localidad: [],
+      estado: [],
+      tipo: [],
+      dormitorios: [],
+      moneda: [],
+      maxPrice: 0,
+      comodidad: [],
+      TipoDePublicacion: [],
+    },
   };
   return store;
 };
 
 const types = {
   setProperty: "setProperty",
+  setFilters: "setFilters",
 };
 
 const storeReducer = (state, action) => {
@@ -43,6 +53,11 @@ const storeReducer = (state, action) => {
       return {
         ...state,
         propiedades: state.propiedades.push(...action.payload),
+      };
+    case types.setFilters:
+      return {
+        ...state,
+        filters: { ...state.filters, ...action.payload },
       };
 
     default:

@@ -2,6 +2,7 @@ import * as React from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import { filterParams } from "../Store/StoreProvider";
+
 export default function CustomAutoComplete() {
   const [selectedDepartment, setSelectedDepartment] = React.useState(null);
   const handleDepartmentChange = (value) => {
@@ -9,13 +10,22 @@ export default function CustomAutoComplete() {
     const newValue = value;
     filterParams.localidad = newValue;
   };
+
   return (
     <Autocomplete
-      style={{ backgroundColor: "white", width: 300, height: 55 }}
+      disablePortal
+      style={{
+        backgroundColor: "white",
+        width: 250,
+        height: 55,
+
+        marginTop: 8,
+      }}
       id="combo-box-demo"
       options={Departamentos}
       value={selectedDepartment}
       onChange={(e) => handleDepartmentChange(e.target.textContent)}
+      getOptionLabel={(option) => option.label}
       renderInput={(params) => <TextField {...params} label="Departamento" />}
     />
   );
