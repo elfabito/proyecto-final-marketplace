@@ -4,21 +4,28 @@ import Avatar from "@mui/material/Avatar";
 import Grid from "@mui/material/Unstable_Grid2";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
+
 import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
+
 import "./subPages/PerfilSubPages.css";
 import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
-import { Route, Routes, Link, Outlet } from "react-router-dom";
+import {  Link, Outlet } from "react-router-dom";
 
 const Perfil = () => {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [userName, setUserName] = useState("Guille");
+  const [userName, setUserName] = useState("Fabs");
 
   return (
-    <Container maxWidth="lg">
-      <Grid container boxShadow={2} direction="row" spacing={0.5}>
+    <Container maxWidth="xxl">
+      <Grid
+        marginTop={4}
+        marginBottom={4}
+        container
+        boxShadow={2}
+        direction="row"
+        spacing={0.5}
+      >
         <Grid padding={2} xs={3}>
           <Box
             display={"flex"}
@@ -53,7 +60,9 @@ const Perfil = () => {
                   underline="hover"
                   textDecoration="none"
                 >
-                  Resumen
+                  <Typography variant="body2" color="text.secondary">
+                    Resumen
+                  </Typography>
                 </Link>
               </Grid>
               <Grid item width={"fit-content"} xs={6}>
@@ -69,7 +78,9 @@ const Perfil = () => {
                   underline="hover"
                   textDecoration="none"
                 >
-                  {"Pagos"}
+                  <Typography variant="body2" color="text.secondary">
+                    Pagos
+                  </Typography>
                 </Link>
               </Grid>
               <Grid item width={"fit-content"} xs={6}>
@@ -85,7 +96,9 @@ const Perfil = () => {
                   underline="hover"
                   textDecoration="none"
                 >
-                  Favoritos
+                  <Typography variant="body2" color="text.secondary">
+                    Favoritos
+                  </Typography>
                 </Link>
               </Grid>
               <Grid item xs={6}>
@@ -96,7 +109,9 @@ const Perfil = () => {
                   underline="hover"
                   textDecoration="none"
                 >
-                  Historial
+                  <Typography variant="body2" color="text.secondary">
+                    Historial
+                  </Typography>
                 </Link>
               </Grid>
               <Grid item xs={6}>
@@ -107,7 +122,9 @@ const Perfil = () => {
                   underline="hover"
                   textDecoration="none"
                 >
-                  Consultas
+                  <Typography variant="body2" color="text.secondary">
+                    Consultas
+                  </Typography>
                 </Link>
               </Grid>
               <Grid item paddingTop={3} width={"fit-content"} xs={8}>

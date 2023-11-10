@@ -14,31 +14,31 @@ import MuiAlert from "@mui/material/Alert";
 import ChipComodides from "./Elemetos_De_Formulario/ChipComodides";
 import { storeContext } from "../Store/StoreProvider";
 import OutlinedInput from "@mui/material/OutlinedInput";
-
+const init = {
+  id: 1,
+  title: "",
+  tipoMoneda: "",
+  precio: "",
+  disposicion: "",
+  tipoVenta: "",
+  ubicacion: [""],
+  comodidad: [],
+  descripcion: "",
+  aceptaMascotasOptions: "",
+  zona: "",
+  garaje: "",
+  m2Edificados: "",
+  m2Terreno: "",
+  tipoDePropiedad: "",
+  banos: "",
+  dormitorio: "",
+  anioConstruccion: "",
+  estado: "",
+  gastoscomunes: "",
+  imgsrc: [""],
+};
 export default function PublicarForm() {
-  const [formData, setFormData] = useState({
-    id: 1,
-    title: "",
-    tipoMoneda: "",
-    precio: "",
-    disposicion: "",
-    tipoVenta: "",
-    ubicacion: [""],
-    comodidad: [],
-    descripcion: "",
-    aceptaMascotasOptions: "",
-    zona: "",
-    garaje: "",
-    m2Edificados: "",
-    m2Terreno: "",
-    tipoDePropiedad: "",
-    banos: "",
-    dormitorio: "",
-    anioConstruccion: "",
-    estado: "",
-    gastoscomunes: "",
-    imgsrc: [""],
-  });
+  const [formData, setFormData] = useState(init);
   const [store] = React.useContext(storeContext);
 
   const [textFieldImagenesData, setTextFieldImagenesData] = useState([]);

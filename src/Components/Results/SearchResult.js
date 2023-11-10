@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import MapIcon from "@mui/icons-material/Map";
 import { FilterAlt } from "@mui/icons-material";
-import "./SearchResult.css";
+
 import { storeContext, filterParams } from "../../Store/StoreProvider";
 import Filters from "../Filters";
 

@@ -19,7 +19,7 @@ const Pagos = () => {
           xs={12}
           paddingTop={10}
         >
-          <Typography variant="h5" color="text.secondary">
+          <Typography variant="body1" color="text.secondary">
             Historial de pagos
           </Typography>
         </Grid>
@@ -33,7 +33,7 @@ const Pagos = () => {
           alignItems={"center"}
           xs={12}
         >
-          <Typography variant="h5" color="text.secondary">
+          <Typography variant="body1" color="text.secondary">
             No hay pagos Pendientes
           </Typography>
         </Grid>
@@ -54,7 +54,7 @@ const FavoritosPerfil = () => {
           xs={12}
           paddingTop={10}
         >
-          <Typography variant="h5" color="text.secondary">
+          <Typography variant="body1" color="text.secondary">
             Favoritos
           </Typography>
         </Grid>
@@ -68,7 +68,7 @@ const FavoritosPerfil = () => {
           alignItems={"center"}
           xs={12}
         >
-          <Typography variant="h5" color="text.secondary">
+          <Typography variant="body1" color="text.secondary">
             Aún no tienes favoritos agregados
           </Typography>
         </Grid>
@@ -89,7 +89,7 @@ const Busquedas = () => {
           xs={12}
           paddingTop={10}
         >
-          <Typography variant="h5" color="text.secondary">
+          <Typography variant="body1" color="text.secondary">
             Mi Historial
           </Typography>
         </Grid>
@@ -254,7 +254,7 @@ const Resumen = () => {
           >
             <Typography
               paddingBottom={"20px"}
-              variant="h5"
+              variant="body1"
               color="text.secondary"
             >
               Todavia no tienes consultas
