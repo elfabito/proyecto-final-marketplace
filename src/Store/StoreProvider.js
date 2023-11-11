@@ -6,16 +6,16 @@ const storeContext = createContext();
 
 const intialData = initialStore();
 
-export const filterParams = {
-  localidad: [],
-  estado: [],
-  tipo: [],
-  dormitorios: [],
-  moneda: [],
-  maxPrice: 0,
-  comodidad: [],
-  TipoDePublicacion: [],
-};
+// export const filterParams = {
+//   localidad: [],
+//   estado: [],
+//   tipo: [],
+//   dormitorios: [],
+//   moneda: [],
+//   maxPrice: 0,
+//   comodidad: [],
+//   TipoDePublicacion: [],
+// };
 
 // export const filterResults = (results) => {
 //   const filteredResults = results.filter((result) => {

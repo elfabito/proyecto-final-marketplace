@@ -25,22 +25,70 @@ const SearchResult = () => {
   const [store, dispatch] = useContext(storeContext);
   console.log(store.filters);
 
-  const filterToApply = store.filters.map((filter) => {
-    if (filter) {
-      return filter;
-    }
-  });
+  // const filterToApply = store.filters.map((filter) => {
+  //   if (filter) {
+  //     return filter;
+  //   }
+  // });
 
-  console.log("filter =>", filter);
+  // console.log("filter =>", filter);
   const filter = (results) => {
     const filterResults = results.filter((result) => {
-      return (
-        result.ubicacion?.includes(store.filters.ubicacion) ||
-        store.filters.estado?.includes(result.estado) ||
-        store.filters.TipoDePublicacion === result.tipoVenta ||
-        store.filters.dormitorios?.includes(result.dormitorio) ||
-        store.filters.moneda?.includes(result.tipoMoneda)
-      );
+      if (store.filters.localidad) {
+        // store.filters.localidad.map((ubic) => {
+        //   if (result.ubicacion.includes(ubic)) {
+        //     return true;
+        //   }
+        // });
+        console.log(store.filters.localidad);
+
+        if (store.filters.localidad === result.ubicacion) {
+          return true;
+        }
+      }
+      if (store.filters.estado) {
+        store.filters.estado.map((estado) => {
+          if (result.estado == estado) {
+            return true;
+          }
+        });
+      }
+      if (store.filters.TipoDePublicacion) {
+        // store.filters.TipoDePublicacion.map((tipo) => {
+        //   if (result.tipoVenta === tipo) {
+        //     return true;
+        //   }
+        // });
+        if (store.filters.TipoDePublicacion === result.tipoVenta) {
+          return true;
+        }
+      }
+      if (store.filters.tipo) {
+        store.filters.tipo.map((tipo) => {
+          if (result.tipoDePropiedad === tipo) {
+            return true;
+          }
+        });
+      }
+      if (store.filters.dormitorios) {
+        store.filters.dormitorios.map((dormitorio) => {
+          if (result.dormitorio === dormitorio) {
+            return true;
+          }
+        });
+      }
+      if (store.filters.moneda) {
+        store.filters.moneda.map((moneda) => {
+          if (result.tipoMoneda === moneda) {
+            return true;
+          }
+        });
+      }
+      // result.ubicacion?.includes(store.filters.ubicacion) ||
+      // store.filters.estado?.includes(result.estado) ||
+      // store.filters.TipoDePublicacion === result.tipoVenta ||
+      // store.filters.dormitorios?.includes(result.dormitorio) ||
+      // store.filters.moneda?.includes(result.tipoMoneda)
     });
     console.log(filterResults);
     return filterResults;
