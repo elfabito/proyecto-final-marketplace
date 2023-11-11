@@ -8,13 +8,12 @@ import {
   Divider,
   Button,
   Container,
-  Grid,
   Typography,
 } from "@mui/material";
 import MapIcon from "@mui/icons-material/Map";
 import { FilterAlt } from "@mui/icons-material";
 
-import { storeContext, filterParams } from "../../Store/StoreProvider";
+import { storeContext } from "../../Store/StoreProvider";
 import Filters from "../Filters";
 
 const SearchResult = () => {
@@ -24,34 +23,23 @@ const SearchResult = () => {
 
   const [filteredResults, setFilteredResults] = useState([]);
   const [store, dispatch] = useContext(storeContext);
+  console.log(store.filters);
+
+  const filterToApply = store.filters.map((filter) => {
+    if (filter) {
+      return filter;
+    }
+  });
+
+  console.log("filter =>", filter);
   const filter = (results) => {
     const filterResults = results.filter((result) => {
-      console.log(result.tipoVenta);
-      console.log(filterParams.TipoDePublicacion);
-      console.log(result.ubicacion);
-      console.log(filterParams.localidad);
-      console.log(result.estado);
-      console.log(filterParams.estado);
-      console.log(result.tipoDePropiedad);
-      console.log(filterParams.tipo);
-      console.log(result.dormitorio);
-      console.log(filterParams.dormitorios);
-      console.log(result.tipoMoneda);
-      console.log(filterParams.moneda);
-      console.log(result.precio);
-      console.log(filterParams.maxPrice);
-      console.log(result.comodidades);
-      console.log(filterParams.comodidad);
-
-      console.log(result.tipoMoneda);
-
       return (
-        result.ubicacion.includes(filterParams.localidad) &&
-        filterParams.estado.includes(result.estado) &&
-        filterParams.TipoDePublicacion === result.tipoVenta &&
-        filterParams.dormitorios.includes(result.dormitorio) &&
-        filterParams.moneda.includes(result.tipoMoneda) &&
-        result.precio >= filterParams.maxPrice
+        result.ubicacion?.includes(store.filters.ubicacion) ||
+        store.filters.estado?.includes(result.estado) ||
+        store.filters.TipoDePublicacion === result.tipoVenta ||
+        store.filters.dormitorios?.includes(result.dormitorio) ||
+        store.filters.moneda?.includes(result.tipoMoneda)
       );
     });
     console.log(filterResults);
@@ -99,7 +87,7 @@ const SearchResult = () => {
               alignContent={"center"}
               textAlign={"center"}
             >
-              Venta de casas y apartamentos en {filterParams.localidad}.
+              Venta de casas y apartamentos en {store.filters.localidad}.
             </Typography>
             <Typography
               textAlign={"center"}
@@ -107,7 +95,7 @@ const SearchResult = () => {
               variant="body2"
               color="text.secondary"
             >
-              Estás en: {filterParams.TipoDePublicacion}, {filterParams.tipo}
+              Estás en: {store.filters.TipoDePublicacion}, {store.filters.tipo}
             </Typography>
             <Typography variant="body2" color="text.primary">
               Mostrando {numOfResults} resultados.

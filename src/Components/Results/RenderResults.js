@@ -12,6 +12,7 @@ import Grid from "@mui/material/Grid";
 import { Container } from "@mui/material";
 import FormMessage from "../FormMessage";
 import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 const RenderResults = (props) => {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -27,8 +28,8 @@ const RenderResults = (props) => {
     setResults(props.results);
   }, [props.results]);
   const handleClickOpen = () => {
-    console.log("gola");
-    return <DetallePropiedad />;
+    
+    <DetallePropiedad />;
   };
   return (
     <div>
@@ -119,9 +120,9 @@ const RenderResults = (props) => {
                             marginTop: 3,
                           }}
                         >
-                          <Button variant="outlined" onClick={handleClickOpen}>
-                            Ver Inmueble
-                          </Button>
+                          <Link to={`/PublicarPropiedad`}>
+                            <Button variant="outlined">Ver Inmueble</Button>
+                          </Link>
                         </Box>
                       </Box>
                     </CardContent>

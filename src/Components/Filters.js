@@ -5,10 +5,10 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
-
+import { storeContext } from "../Store/StoreProvider";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
-import { storeContext, filterParams } from "../Store/StoreProvider";
+
 import TextField from "@mui/material/TextField";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Box, Container } from "@mui/material";
@@ -123,6 +123,7 @@ function Filters() {
 
   const saveFilters = () => {
     dispatch({ type: "setFilters", payload: filtro });
+    console.log(store.filters);
   };
 
   const resetFilters = () => {

@@ -5,12 +5,12 @@ import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import CustomSelectCheckmarks from "./CustomSelectCheckmarks";
 import Carrousel from "./Carrousel";
 import Button from "@mui/material/Button";
-
+import { useState, useContext } from "react";
 import CustomAutoComplete from "./CustomAutoComplete";
-import { useState } from "react";
+import { storeContext } from "../Store/StoreProvider";
 import { Link } from "react-router-dom";
 import { Paper } from "@material-ui/core";
-import { filterParams } from "../Store/StoreProvider";
+
 import Footer from "./Footer";
 import { Container } from "@mui/material";
 import Stack from "@mui/material/Stack";
@@ -18,19 +18,29 @@ import SearchResult from "./Results/SearchResult";
 
 function MainPage() {
   const [seleccion, setSeleccion] = React.useState("venta");
-  const options_default = [
-    "Casa",
-    "Apartamento",
-    "Terreno",
-    "Local Comercial",
-    "Oficina",
-    "Chacra o Campo",
-    "Garage o Cochera",
-  ];
+  const [store, dispatch] = useContext(storeContext);
+  const [localidades, setLocalidades] = useState();
+  const [tipopublicacion, setTipopublicacion] = useState();
+  const [tipo, setTipo] = useState();
+  const filtros = {
+    localidad: localidades,
+    TipoDePublicacion: tipopublicacion,
+    tipo: tipo,
+  };
+  // const options_default = [
+  //   "Casa",
+  //   "Apartamento",
+  //   "Terreno",
+  //   "Local Comercial",
+  //   "Oficina",
+  //   "Chacra o Campo",
+  //   "Garage o Cochera",
+  // ];
 
   const handleChange = (event, value) => {
     setSeleccion(value);
-    filterParams.TipoDePublicacion = value;
+    setTipopublicacion(value);
+    // filterParams.TipoDePublicacion = value;
   };
   const styles = {
     paperContainer: {
@@ -43,6 +53,7 @@ function MainPage() {
     },
   };
   const handleclick = () => {
+    dispatch({ type: "setFilters", payload: filtros });
     <SearchResult />;
   };
   return (
@@ -76,8 +87,8 @@ function MainPage() {
             gap={1}
             marginBottom={1}
           >
-            <CustomSelectCheckmarks options={options_default} />
-            <CustomAutoComplete />
+            <CustomSelectCheckmarks options={setTipo} />
+            <CustomAutoComplete options={setLocalidades} />
           </Stack>
           <Link to={"/resultados"}>
             <Button onClick={handleclick} type="submit" variant="contained">

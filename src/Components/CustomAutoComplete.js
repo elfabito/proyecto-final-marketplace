@@ -1,14 +1,17 @@
 import * as React from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import { filterParams } from "../Store/StoreProvider";
-
-export default function CustomAutoComplete() {
+import { useContext } from "react";
+import { storeContext } from "../Store/StoreProvider";
+export default function CustomAutoComplete(props) {
   const [selectedDepartment, setSelectedDepartment] = React.useState(null);
+  const [store, dispatch] = useContext(storeContext);
+
   const handleDepartmentChange = (value) => {
     console.log("valor = ", value);
     const newValue = value;
-    filterParams.localidad = newValue;
+    // filterParams.localidad = newValue;
+    props.options(value)
   };
 
   return (

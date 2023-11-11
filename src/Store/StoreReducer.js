@@ -57,7 +57,7 @@ const storeReducer = (state, action) => {
     case types.setFilters:
       return {
         ...state,
-        filters: { ...state.filters, ...action.payload },
+        filters: {  ...action.payload },
       };
 
     default:
