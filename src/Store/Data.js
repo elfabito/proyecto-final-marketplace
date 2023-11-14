@@ -16,7 +16,7 @@ export const ListadoPropiedades = [
     m2Terreno: 1000,
     tipoDePropiedad: "Casa",
     banos: 4,
-    dormitorio: 5,
+    dormitorio: "5 dormitorios",
     anioConstruccion: 2015,
     estado: "Excelente estado",
     imgsrc: [
@@ -43,7 +43,7 @@ export const ListadoPropiedades = [
     m2Terreno: 0,
     tipoDePropiedad: "Apartamento",
     banos: 1,
-    dormitorio: 2,
+    dormitorio: "2 dormitorios",
     anioConstruccion: 2000,
     estado: "Buen estado",
     imgsrc: [
@@ -70,7 +70,7 @@ export const ListadoPropiedades = [
     m2Terreno: 3000,
     tipoDePropiedad: "Casa",
     banos: 2,
-    dormitorio: 3,
+    dormitorio: "3 dormitorios",
     anioConstruccion: 1990,
     estado: "Muy buen estado",
     imgsrc: [
@@ -96,7 +96,7 @@ export const ListadoPropiedades = [
     m2Terreno: 0,
     tipoDePropiedad: "Piso",
     banos: 2,
-    dormitorio: 2,
+    dormitorio: "2 dormitorios",
     anioConstruccion: 2012,
     estado: "Excelente estado",
     imgsrc: [
@@ -122,7 +122,7 @@ export const ListadoPropiedades = [
     m2Terreno: 5000,
     tipoDePropiedad: "Terreno",
     banos: 0,
-    dormitorio: 0,
+    dormitorio: "0 dormitorios",
     anioConstruccion: null,
     estado: "Sin construcción",
     imgsrc: [
@@ -152,7 +152,7 @@ export const ListadoPropiedades = [
     m2Terreno: 0,
     tipoDePropiedad: "Apartamento",
     banos: 1,
-    dormitorio: 2,
+    dormitorio: "2 dormitorios",
     anioConstruccion: 2005,
     estado: "Buen estado",
     imgsrc: [
@@ -178,7 +178,7 @@ export const ListadoPropiedades = [
     m2Terreno: 10000,
     tipoDePropiedad: "Casa",
     banos: 2,
-    dormitorio: 3,
+    dormitorio: "3 dormitorios",
     anioConstruccion: 1995,
     estado: "Buen estado",
     imgsrc: [
@@ -204,7 +204,7 @@ export const ListadoPropiedades = [
     m2Terreno: 0,
     tipoDePropiedad: "Apartamento",
     banos: 2,
-    dormitorio: 3,
+    dormitorio: "3 dormitorios",
     anioConstruccion: 2008,
     estado: "Excelente estado",
     imgsrc: [
@@ -230,7 +230,7 @@ export const ListadoPropiedades = [
     m2Terreno: 800,
     tipoDePropiedad: "Casa",
     banos: 3,
-    dormitorio: 4,
+    dormitorio: "4 dormitorios",
     anioConstruccion: 2013,
     estado: "Excelente estado",
     imgsrc: [
@@ -260,7 +260,7 @@ export const ListadoPropiedades = [
     m2Terreno: 0,
     tipoDePropiedad: "Apartamento",
     banos: 2,
-    dormitorio: 3,
+    dormitorio: "3 dormitorios",
     anioConstruccion: 2017,
     estado: "Excelente estado",
     imgsrc: [
@@ -291,7 +291,7 @@ export const ListadoPropiedades = [
     m2Terreno: 3000,
     tipoDePropiedad: "Casa",
     banos: 2,
-    dormitorio: 2,
+    dormitorio: "2 dormitorios",
     anioConstruccion: 2005,
     estado: "Buen estado",
     imgsrc: [
@@ -321,7 +321,7 @@ export const ListadoPropiedades = [
     m2Terreno: 0,
     tipoDePropiedad: "Piso",
     banos: 2,
-    dormitorio: 3,
+    dormitorio: "3 dormitorios",
     anioConstruccion: 2010,
     estado: "Excelente estado",
     imgsrc: [
@@ -347,7 +347,7 @@ export const ListadoPropiedades = [
     m2Terreno: 1000,
     tipoDePropiedad: "Casa",
     banos: 3,
-    dormitorio: 4,
+    dormitorio: "4 dormitorios",
     anioConstruccion: 2014,
     estado: "Excelente estado",
     imgsrc: [
@@ -377,7 +377,7 @@ export const ListadoPropiedades = [
     m2Terreno: 0,
     tipoDePropiedad: "Apartamento",
     banos: 2,
-    dormitorio: 2,
+    dormitorio: "2 dormitorios",
     anioConstruccion: 2011,
     estado: "Excelente estado",
     imgsrc: [
@@ -404,7 +404,7 @@ export const ListadoPropiedades = [
     m2Terreno: 5000,
     tipoDePropiedad: "Casa",
     banos: 2,
-    dormitorio: 3,
+    dormitorio: "3 dormitorios",
     anioConstruccion: 2007,
     estado: "Excelente estado",
     imgsrc: [
@@ -434,7 +434,7 @@ export const ListadoPropiedades = [
     m2Terreno: 0,
     tipoDePropiedad: "Apartamento",
     banos: 2,
-    dormitorio: 2,
+    dormitorio: "2 dormitorios",
     anioConstruccion: 2018,
     estado: "Excelente estado",
     imgsrc: [
@@ -461,7 +461,7 @@ export const ListadoPropiedades = [
     m2Terreno: 800,
     tipoDePropiedad: "Casa",
     banos: 3,
-    dormitorio: 4,
+    dormitorio: "4 dormitorios",
     anioConstruccion: 2015,
     estado: "Excelente estado",
     imgsrc: [
@@ -491,7 +491,7 @@ export const ListadoPropiedades = [
     m2Terreno: 0,
     tipoDePropiedad: "Apartamento",
     banos: 2,
-    dormitorio: 2,
+    dormitorio: "2 dormitorios",
     anioConstruccion: 2010,
     estado: "Excelente estado",
     imgsrc: [
@@ -518,7 +518,7 @@ export const ListadoPropiedades = [
     m2Terreno: 800,
     tipoDePropiedad: "Casa",
     banos: 3,
-    dormitorio: 4,
+    dormitorio: "4 dormitorios",
     anioConstruccion: 2013,
     estado: "Excelente estado",
     imgsrc: [
@@ -548,7 +548,7 @@ export const ListadoPropiedades = [
     m2Terreno: 0,
     tipoDePropiedad: "Apartamento",
     banos: 2,
-    dormitorio: 3,
+    dormitorio: "3 dormitorios",
     anioConstruccion: 2017,
     estado: "Excelente estado",
     imgsrc: [
@@ -600,7 +600,7 @@ export const ListadoCantidadDormitorios = [
   "2 dormitorios",
   "3 dormitorios",
   "4 dormitorios",
-  "5+ dormitorios",
+  "5 dormitorios",
 ];
 export const ListadoAtributos = [
   "Nombre",
@@ -627,7 +627,7 @@ export const ListadotypesDeAtributos = [
   "number",
 ];
 
-export const ListadoBaños = ["1", "2", "3", "4", "5+"];
+export const ListadoBaños = ["1", "2", "3", "4", "5"];
 export const ListadoOpciones = ["Si", "No"];
 export const ListadoTipoDePublicacion = [
   "Alquiler",

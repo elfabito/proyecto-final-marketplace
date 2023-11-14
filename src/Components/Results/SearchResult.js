@@ -19,7 +19,6 @@ import Filters from "../Filters";
 const SearchResult = () => {
   const [numOfResults, setNumOfResults] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [results, setResults] = useState([]);
 
   const [filteredResults, setFilteredResults] = useState([]);
   const [store, dispatch] = useContext(storeContext);
@@ -34,7 +33,7 @@ const SearchResult = () => {
   // console.log("filter =>", filter);
   const filter = (results) => {
     const filterResults = results.filter((result) => {
-      if (store.filters.localidad) {
+      if (store.filters.localidad?.length > 0) {
         // store.filters.localidad.map((ubic) => {
         //   if (result.ubicacion.includes(ubic)) {
         //     return true;
@@ -42,47 +41,40 @@ const SearchResult = () => {
         // });
         console.log(store.filters.localidad);
 
-        if (store.filters.localidad === result.ubicacion) {
+        if (store.filters.localidad.includes(result.ubicacion[1])) {
           return true;
         }
       }
-      if (store.filters.estado) {
-        store.filters.estado.map((estado) => {
-          if (result.estado == estado) {
-            return true;
-          }
-        });
+      if (store.filters.estado?.length > 0) {
+        if (store.filters.estado.includes(result.estado)) {
+          return true;
+        }
       }
-      if (store.filters.TipoDePublicacion) {
+
+      if (store.filters.ListadoTipoDePublicacion?.length > 0) {
         // store.filters.TipoDePublicacion.map((tipo) => {
         //   if (result.tipoVenta === tipo) {
         //     return true;
         //   }
         // });
-        if (store.filters.TipoDePublicacion === result.tipoVenta) {
+        if (store.filters.ListadoTipoDePublicacion.includes(result.tipoVenta)) {
           return true;
         }
       }
-      if (store.filters.tipo) {
-        store.filters.tipo.map((tipo) => {
-          if (result.tipoDePropiedad === tipo) {
-            return true;
-          }
-        });
+      if (store.filters.tipo?.length > 0) {
+        if (store.filters.tipo.includes(result.tipoDePropiedad)) {
+          return true;
+        }
       }
-      if (store.filters.dormitorios) {
-        store.filters.dormitorios.map((dormitorio) => {
-          if (result.dormitorio === dormitorio) {
-            return true;
-          }
-        });
+      if (store.filters.dormitorios?.length > 0) {
+        if (store.filters.dormitorios.includes(result.dormitorio)) {
+          return true;
+        }
       }
-      if (store.filters.moneda) {
-        store.filters.moneda.map((moneda) => {
-          if (result.tipoMoneda === moneda) {
-            return true;
-          }
-        });
+      if (store.filters.moneda?.length > 0) {
+        if (store.filters.dormitorios.includes(result.dormitorio)) {
+          return true;
+        }
       }
       // result.ubicacion?.includes(store.filters.ubicacion) ||
       // store.filters.estado?.includes(result.estado) ||
@@ -91,16 +83,19 @@ const SearchResult = () => {
       // store.filters.moneda?.includes(result.tipoMoneda)
     });
     console.log(filterResults);
+    setFilteredResults(filterResults);
     return filterResults;
   };
 
+  // useEffect(() => {
+  //   const filterResults = filter(results);
+  //   setFilteredResults(filterResults);
+  // }, [results]);
+
   useEffect(() => {
-    const filterResults = filter(results);
-    setFilteredResults(filterResults);
-  }, [results]);
-  useEffect(() => {
-    setResults(store.propiedades);
-  }, [store.propiedades]);
+    filter(store.propiedades);
+  }, [store.filters]);
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);

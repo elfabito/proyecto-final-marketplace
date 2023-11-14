@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import { storeContext } from "../Store/StoreProvider";
 import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
-
+import SearchResult from "./Results/SearchResult";
 import TextField from "@mui/material/TextField";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Box, Container } from "@mui/material";
@@ -124,6 +124,7 @@ function Filters() {
   const saveFilters = () => {
     dispatch({ type: "setFilters", payload: filtro });
     console.log(store.filters);
+   
   };
 
   const resetFilters = () => {
