@@ -22,10 +22,11 @@ function MainPage() {
   const [localidades, setLocalidades] = useState();
   const [tipopublicacion, setTipopublicacion] = useState();
   const [tipo, setTipo] = useState();
+ 
   const filtros = {
-    localidad: localidades,
-    TipoDePublicacion: tipopublicacion,
-    tipo: tipo,
+    ubicacion: localidades,
+    tipoVenta: tipopublicacion,
+    tipoDePropiedad: tipo,
   };
   // const options_default = [
   //   "Casa",
@@ -54,7 +55,7 @@ function MainPage() {
   };
   const handleclick = () => {
     dispatch({ type: "setFilters", payload: filtros });
-    <SearchResult />;
+    return <SearchResult />;
   };
   return (
     <div>

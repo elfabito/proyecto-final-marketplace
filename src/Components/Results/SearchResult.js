@@ -24,6 +24,19 @@ const SearchResult = () => {
   const [store, dispatch] = useContext(storeContext);
   console.log(store.filters);
 
+  const filter = (results, filterParam) => {
+    const filteredResults = results.filter((result) => {
+      return Object.keys(filterParam).every((key) => {
+        if (filterParam[key] === undefined) {
+          filterParam[key] = "";
+        }
+        if (!filterParam[key].length) return true;
+        return result[key].includes(filterParam[key]);
+      });
+    });
+    console.log(filteredResults);
+    setFilteredResults(filteredResults);
+  };
   // const filterToApply = store.filters.map((filter) => {
   //   if (filter) {
   //     return filter;
@@ -31,61 +44,6 @@ const SearchResult = () => {
   // });
 
   // console.log("filter =>", filter);
-  const filter = (results) => {
-    const filterResults = results.filter((result) => {
-      if (store.filters.localidad?.length > 0) {
-        // store.filters.localidad.map((ubic) => {
-        //   if (result.ubicacion.includes(ubic)) {
-        //     return true;
-        //   }
-        // });
-        console.log(store.filters.localidad);
-
-        if (store.filters.localidad.includes(result.ubicacion[1])) {
-          return true;
-        }
-      }
-      if (store.filters.estado?.length > 0) {
-        if (store.filters.estado.includes(result.estado)) {
-          return true;
-        }
-      }
-
-      if (store.filters.ListadoTipoDePublicacion?.length > 0) {
-        // store.filters.TipoDePublicacion.map((tipo) => {
-        //   if (result.tipoVenta === tipo) {
-        //     return true;
-        //   }
-        // });
-        if (store.filters.ListadoTipoDePublicacion.includes(result.tipoVenta)) {
-          return true;
-        }
-      }
-      if (store.filters.tipo?.length > 0) {
-        if (store.filters.tipo.includes(result.tipoDePropiedad)) {
-          return true;
-        }
-      }
-      if (store.filters.dormitorios?.length > 0) {
-        if (store.filters.dormitorios.includes(result.dormitorio)) {
-          return true;
-        }
-      }
-      if (store.filters.moneda?.length > 0) {
-        if (store.filters.dormitorios.includes(result.dormitorio)) {
-          return true;
-        }
-      }
-      // result.ubicacion?.includes(store.filters.ubicacion) ||
-      // store.filters.estado?.includes(result.estado) ||
-      // store.filters.TipoDePublicacion === result.tipoVenta ||
-      // store.filters.dormitorios?.includes(result.dormitorio) ||
-      // store.filters.moneda?.includes(result.tipoMoneda)
-    });
-    console.log(filterResults);
-    setFilteredResults(filterResults);
-    return filterResults;
-  };
 
   // useEffect(() => {
   //   const filterResults = filter(results);
@@ -93,7 +51,7 @@ const SearchResult = () => {
   // }, [results]);
 
   useEffect(() => {
-    filter(store.propiedades);
+    filter(store.propiedades, store.filters);
   }, [store.filters]);
 
   useEffect(() => {

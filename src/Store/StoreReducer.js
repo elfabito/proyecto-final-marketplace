@@ -29,14 +29,14 @@ const initialStore = () => {
     atributos: ListadoAtributos,
     nombreAtributosGuardado: nombreDeGuardadoDeLosAtributos,
     filters: {
-      localidad: [],
-      estado: [],
-      tipo: [],
-      dormitorios: [],
-      moneda: [],
-      maxPrice: 0,
-      comodidad: [],
-      TipoDePublicacion: [],
+      ubicacion: "",
+      estado: "",
+      tipoDePropiedad: "",
+      dormitorio: "",
+      tipoMoneda: "",
+      maxPrice: "",
+      comodidades: "",
+      tipoVenta: "",
     },
   };
   return store;
@@ -57,7 +57,7 @@ const storeReducer = (state, action) => {
     case types.setFilters:
       return {
         ...state,
-        filters: {  ...action.payload },
+        filters: { ...action.payload },
       };
 
     default:

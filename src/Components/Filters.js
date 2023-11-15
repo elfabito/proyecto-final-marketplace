@@ -39,14 +39,14 @@ function getStyles(name, theme) {
 }
 
 const initFilters = {
-  localidad: [],
-  estado: [],
-  tipo: [],
-  dormitorios: [],
-  moneda: [],
-  maxPrice: 0,
-  comodidad: [],
-  TipoDePublicacion: [],
+  localidad: "",
+  estado: "",
+  tipo: "",
+  dormitorios: "",
+  moneda: "",
+  maxPrice: "",
+  comodidad: "",
+  TipoDePublicacion: "",
 };
 
 function Filters() {
@@ -70,7 +70,7 @@ function Filters() {
       target: { value },
     } = event;
     setLocalidades(value);
-    setFiltro({ ...filtro, localidad: value });
+    setFiltro({ ...filtro, ubicacion: value });
   };
 
   const handleChangeEstado = (event) => {
@@ -86,7 +86,7 @@ function Filters() {
       target: { value },
     } = event;
     setTipo(value);
-    setFiltro({ ...filtro, tipo: value });
+    setFiltro({ ...filtro, tipoDePropiedad: value });
   };
 
   const handleChangeDormitorios = (event) => {
@@ -94,7 +94,7 @@ function Filters() {
       target: { value },
     } = event;
     setDormitorios(value);
-    setFiltro({ ...filtro, dormitorios: value });
+    setFiltro({ ...filtro, dormitorio: value });
   };
 
   const handleChangeMoneda = (event) => {
@@ -102,7 +102,7 @@ function Filters() {
       target: { value },
     } = event;
     setMoneda(value);
-    setFiltro({ ...filtro, moneda: value });
+    setFiltro({ ...filtro, tipoMoneda: value });
   };
 
   const handleChangeComodidad = (event) => {
@@ -110,7 +110,7 @@ function Filters() {
       target: { value },
     } = event;
     setComodidad(value);
-    setFiltro({ ...filtro, comodidad: value });
+    setFiltro({ ...filtro, comodidades: value });
   };
 
   const handleChangeListadoTipoDePublicacion = (event) => {
@@ -118,7 +118,7 @@ function Filters() {
       target: { value },
     } = event;
     setListadoTipoDePublicacion(value);
-    setFiltro({ ...filtro, ListadoTipoDePublicacion: value });
+    setFiltro({ ...filtro, tipoVenta: value });
   };
 
   const saveFilters = () => {

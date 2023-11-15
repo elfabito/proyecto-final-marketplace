@@ -90,12 +90,12 @@ const RenderResults = (props) => {
                         color="text.secondary"
                         component="div"
                       >
-                        {result.ubicacion[0] + ", " + result.ubicacion[1]}
+                        {result.ubicacion}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
                         {result.disposicion} - {result.dormitorios} dormitorios
                         - {result.banos > 1 ? "baños" : "baño"} -{" "}
-                        {result.m2terreno} m2
+                        {result.m2Terreno} m2
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
                         Tipo de venta : {result.tipoVenta}
