@@ -32,7 +32,7 @@ const intialData = initialStore();
 
 const StoreProvider = ({ children }) => {
   const [store, dispatch] = useReducer(storeReducer, intialData);
-  const [filteredResults, setFilteredResults] = React.useState([]);
+  // const [filteredResults, setFilteredResults] = React.useState([]);
   // const filterResults = (results, filterLocalidad, filterTipoVenta) => {
   //   const filteredResults = results.filter((result) => {
   //     return (

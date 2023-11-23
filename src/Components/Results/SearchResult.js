@@ -25,7 +25,7 @@ const SearchResult = () => {
   console.log(store.filters);
 
   const filter = (results, filterParam) => {
-    const filteredResults = results.filter((result) => {
+    let filteredResults = results.filter((result) => {
       return Object.keys(filterParam).every((key) => {
         if (filterParam[key] === undefined) {
           filterParam[key] = "";

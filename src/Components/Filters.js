@@ -124,7 +124,6 @@ function Filters() {
   const saveFilters = () => {
     dispatch({ type: "setFilters", payload: filtro });
     console.log(store.filters);
-   
   };
 
   const resetFilters = () => {

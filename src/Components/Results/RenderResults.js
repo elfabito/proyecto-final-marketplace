@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import DetallePropiedad from "../feature_propertyDetails/IndexDetallesPropiedad";
+import DetailProperty from "../DetailProperty";
 import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -24,12 +24,13 @@ const RenderResults = (props) => {
     minWidth: 280,
   }));
   const [results, setResults] = React.useState([]);
+
   useEffect(() => {
     setResults(props.results);
   }, [props.results]);
-  const handleClickOpen = () => {
-    
-    return <DetallePropiedad />;
+  const handleClickOpen = (e, id) => {
+    console.log(id);
+    return <DetailProperty id={id} />;
   };
   return (
     <div>
@@ -120,9 +121,14 @@ const RenderResults = (props) => {
                             marginTop: 3,
                           }}
                         >
-                          <Link to={`/PublicarPropiedad`}>
-                            <Button variant="outlined">Ver Inmueble</Button>
-                          </Link>
+                        <Link to={`/DetailProperty/${result.id}`}>
+                          <Button
+                            variant="outlined"
+                           
+                          >
+                            Ver Inmueble
+                          </Button>
+                           </Link> 
                         </Box>
                       </Box>
                     </CardContent>

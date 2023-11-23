@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import "./PublicarForm.css";
@@ -21,7 +21,7 @@ const init = {
   precio: "",
   disposicion: "",
   tipoVenta: "",
-  ubicacion: [""],
+  ubicacion: "",
   comodidad: [],
   descripcion: "",
   aceptaMascotasOptions: "",
@@ -39,8 +39,8 @@ const init = {
 };
 export default function PublicarForm() {
   const [formData, setFormData] = useState(init);
-  const [store] = React.useContext(storeContext);
 
+  const [store, dispatch] = useContext(storeContext);
   const [textFieldImagenesData, setTextFieldImagenesData] = useState([]);
 
   const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -73,6 +73,10 @@ export default function PublicarForm() {
     };
     console.log(combinedData);
     openSnackbar("Datos guardados");
+    dispatch({ type: "setProperty", payload: combinedData });
+    setTimeout(() => {
+      console.log(store.propiedades);
+    }, 2000);
   };
 
   return (
@@ -152,24 +156,12 @@ export default function PublicarForm() {
               onChange={(e) => handleInputChange(e, "precio")}
             />
           </FormControl>
-          <FormControl sx={{ m: 1 }}>
-            <InputLabel htmlFor="outlined-adornment-amount">
-              Gastos Comunes
-            </InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-amount"
-              startAdornment={
-                <InputAdornment position="start">$</InputAdornment>
-              }
-              label="Amount"
-              onChange={(e) => handleInputChange(e, "gastoscomunes")}
-            />
-          </FormControl>
+
           {store?.atributos.map((item, index) => (
             <TextField
               id={item}
               key={index}
-              type={store.typesAtributos[index]}
+              type={store.atributos[index]}
               label={item}
               variant="standard"
               onChange={(e) =>

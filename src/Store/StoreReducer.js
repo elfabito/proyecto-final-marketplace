@@ -10,7 +10,6 @@ import {
   ListadoComodidades,
   ListadoOpciones,
   ListadoAtributos,
-  ListadotypesDeAtributos,
   nombreDeGuardadoDeLosAtributos,
 } from "./Data.js";
 
@@ -50,9 +49,10 @@ const types = {
 const storeReducer = (state, action) => {
   switch (action.type) {
     case types.setProperty:
+      console.log("asdadas ", action.payload);
       return {
         ...state,
-        propiedades: state.propiedades.push(...action.payload),
+        propiedades: state.propiedades.push({ ...action.payload }),
       };
     case types.setFilters:
       return {
