@@ -12,7 +12,7 @@ const Noticias = () => {
 
   useEffect(() => {
     fetch(
-      "https://newsapi.org/v2/everything?q=tesla&from=2023-10-24&sortBy=publishedAt&apiKey=4df220c3e0fd4f3b88eaa3abae05faef"
+      "https://newsapi.org/v2/everything?domains=wsj.com&apiKey=4df220c3e0fd4f3b88eaa3abae05faef"
     ).then(async (response) => {
       const data = await response.json();
       console.log(data.articles);
@@ -22,19 +22,17 @@ const Noticias = () => {
   }, []);
 
   return noticias?.map((article) => (
-    <Stack
-      direction={{ xs: "row", sm: "row", md: "row" }}
-      spacing={1}
-      gap={1}
-      columns={{ xs: 2, sm: 4, md: 5 }}
-      textAlign={"center"}
-      justifyContent={"center"}
-      width={"100%"}
-      display={"Flex"}
-      alignContent={"center"}
-      flexWrap={"wrap"}
+    <Box
+      sx={{
+        key: article.id,
+        alignContent: "center",
+        margin: 5,
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+      }}
     >
-      <Card sx={{ maxWidth: 800 }}>
+      <Card sx={{ maxWidth: 920, width: 800 }}>
         <CardMedia sx={{ height: 140 }} image={article.urlToImage} title="" />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
@@ -49,7 +47,7 @@ const Noticias = () => {
           <Button size="small">Learn More</Button>
         </CardActions>
       </Card>
-    </Stack>
+    </Box>
   ));
 };
 

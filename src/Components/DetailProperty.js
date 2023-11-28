@@ -105,16 +105,19 @@ export default function DetailProperty() {
                   </Typography>
                 </Box>
                 <Divider variant="middle" />
-                <Box sx={{ m: 2 }}>
-                  <Typography gutterBottom variant="h6">
-                    {filtered[0].dormitorio}
-                  </Typography>
-                  <Typography gutterBottom variant="h6">
+                <Box sx={{ m: 3 }}>
+                  <Typography variant="h6">{filtered[0].dormitorio}</Typography>
+                  <Typography variant="h6">
                     {filtered[0].banos} baños
                   </Typography>
-                  <Typography gutterBottom variant="body1">
-                    Comodidades:
+                  <Typography variant="h6">
+                    Zona : {filtered[0].zona}
                   </Typography>
+                  <Typography variant="h6">
+                    Garage : {filtered[0].garaje}
+                  </Typography>
+
+                  <Typography variant="h6">Comodidades:</Typography>
                   <Stack direction="row" spacing={1}>
                     {filtered[0].comodidades.map((comodidad) => {
                       return <Chip label={comodidad} />;
@@ -125,6 +128,7 @@ export default function DetailProperty() {
                   <Button>Add to cart</Button>
                 </Box> */}
               </Box>
+
               <Typography component="h1" variant="h5"></Typography>
               <Box
                 component="form"
@@ -132,10 +136,6 @@ export default function DetailProperty() {
                 onSubmit={handleSubmit}
                 sx={{ mt: 1 }}
               >
-                <Typography component="h1" variant="h5">
-                  {filtered.banos}
-                </Typography>
-
                 <FormControlLabel
                   control={<Checkbox value="remember" color="primary" />}
                   label="Remember me"
